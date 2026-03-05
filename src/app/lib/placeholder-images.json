@@ -1,0 +1,41 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Abstract technological background with glowing lines",
+      "imageUrl": "https://picsum.photos/seed/lets-hero/1200/800",
+      "imageHint": "technology abstract"
+    },
+    {
+      "id": "course-web-dev",
+      "description": "Modern web development setup",
+      "imageUrl": "https://picsum.photos/seed/course1/600/400",
+      "imageHint": "coding programming"
+    },
+    {
+      "id": "course-data-science",
+      "description": "Data visualization on a screen",
+      "imageUrl": "https://picsum.photos/seed/course2/600/400",
+      "imageHint": "data science"
+    },
+    {
+      "id": "course-ai",
+      "description": "Artificial Intelligence concept art",
+      "imageUrl": "https://picsum.photos/seed/course3/600/400",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "instructor-1",
+      "description": "Professional instructor portrait",
+      "imageUrl": "https://picsum.photos/seed/instr1/200/200",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "instructor-2",
+      "description": "Professional instructor portrait",
+      "imageUrl": "https://picsum.photos/seed/instr2/200/200",
+      "imageHint": "teacher mentor"
+    }
+  ]
+}
