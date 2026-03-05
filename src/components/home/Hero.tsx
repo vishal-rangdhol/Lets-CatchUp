@@ -1,51 +1,12 @@
-
 "use client";
 
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2, BarChart3, Users } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
 import { motion } from "framer-motion";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
-import * as THREE from "three";
-
-function ParticleField() {
-  const ref = useRef<THREE.Points>(null!);
-  
-  const sphere = useMemo(() => {
-    const points = new Float32Array(5000 * 3);
-    for (let i = 0; i < 5000; i++) {
-      const i3 = i * 3;
-      points[i3] = (Math.random() - 0.5) * 15;
-      points[i3 + 1] = (Math.random() - 0.5) * 15;
-      points[i3 + 2] = (Math.random() - 0.5) * 15;
-    }
-    return points;
-  }, []);
-
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 15;
-    ref.current.rotation.y -= delta / 20;
-  });
-
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
-        <PointMaterial
-          transparent
-          color="#4fd1c5"
-          size={0.03}
-          sizeAttenuation={true}
-          depthWrite={false}
-          opacity={0.4}
-        />
-      </Points>
-    </group>
-  );
-}
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -92,14 +53,7 @@ export function Hero() {
 
   return (
     <section ref={containerRef} className="relative pt-32 pb-20 overflow-hidden min-h-[95vh] flex items-center">
-      {/* Three.js Background Layer */}
-      <div className="absolute inset-0 -z-30 opacity-40">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ParticleField />
-        </Canvas>
-      </div>
-
-      {/* Ambient Moving Blobs */}
+      {/* Ambient Moving Blobs - Still kept for depth combined with global particles */}
       <div ref={blob1Ref} className="absolute top-[15%] right-[10%] -z-10 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px]" />
       <div ref={blob2Ref} className="absolute bottom-[15%] left-[5%] -z-10 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[130px]" />
 
