@@ -22,9 +22,9 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div className={cn("relative group pt-14 h-full", className)}>
-      {/* Tilted card behind - The "Shadow" Glow Layer */}
+      {/* Tilted card behind - The Secondary Layer (No Blur) */}
       <div className={cn(
-        "absolute bottom-0 right-0 w-[95%] h-[120px] bg-gradient-to-r rounded-[32px] rotate-[6deg] -translate-x-1 translate-y-4 z-0 opacity-70 blur-[2px] transition-all duration-700 group-hover:rotate-[8deg] group-hover:translate-y-6 group-hover:opacity-100 group-hover:blur-[4px]",
+        "absolute bottom-0 right-0 w-[95%] h-[120px] bg-gradient-to-r rounded-[32px] rotate-[6deg] -translate-x-1 translate-y-4 z-0 opacity-70 transition-all duration-700 group-hover:rotate-[8deg] group-hover:translate-y-6 group-hover:opacity-100",
         gradientFrom,
         gradientTo
       )}></div>
