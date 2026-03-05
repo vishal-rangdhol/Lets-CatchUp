@@ -1,5 +1,5 @@
+
 import { Hero } from "@/components/home/Hero";
-import { Features } from "@/components/home/Features";
 import { CTASection } from "@/components/home/CTASection";
 import { PlatformDescription } from "@/components/home/PlatformDescription";
 import { UnifiedSpace } from "@/components/home/UnifiedSpace";
@@ -12,8 +12,6 @@ export default function Home() {
       <PlatformDescription />
       <UnifiedSpace />
       <Onboarding />
-      
-      <Features />
       <CTASection />
     </div>
   );

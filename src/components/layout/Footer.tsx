@@ -15,7 +15,6 @@ export function Footer() {
     navigation: [
       { name: "Home", href: "/" },
       { name: "About Us", href: "/about" },
-      { name: "Features", href: "/features" },
       { name: "Pricing", href: "/pricing" },
       { name: "Testimonials", href: "/testimonials" },
     ],
@@ -39,7 +38,7 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Top Newsletter Section - Floating Style */}
+        {/* Top Newsletter Section */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

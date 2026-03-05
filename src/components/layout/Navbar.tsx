@@ -3,13 +3,16 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +25,6 @@ export function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Features", href: "/features" },
     { name: "Services", href: "/services" },
     { name: "Pricing", href: "/pricing" },
     { name: "Testimonials", href: "/testimonials" },
@@ -50,7 +52,7 @@ export function Navbar() {
           y: 10,
           width: "calc(100% - 3rem)",
           left: "1.5rem",
-          backgroundColor: "rgba(35, 45, 95, 0.9)", // Brightened for better visibility on scroll
+          backgroundColor: "rgba(35, 45, 95, 0.9)",
           backdropFilter: "blur(20px)",
           paddingTop: "0.85rem",
           paddingBottom: "0.85rem",
@@ -78,26 +80,32 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Nav Links - Centered and Aligned */}
+        {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 h-full">
-          {navLinks.map((link) => (
-            <div key={link.name} className="relative flex items-center h-full">
-              <Link href={link.href} className="flex items-center h-full">
-                <motion.span
-                  className="inline-block text-sm font-bold text-gray-300 transition-colors cursor-pointer whitespace-nowrap"
-                  whileHover={{ 
-                    scale: 1.2,
-                    color: "hsl(var(--accent))",
-                    paddingLeft: "12px",
-                    paddingRight: "12px"
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  {link.name}
-                </motion.span>
-              </Link>
-            </div>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <div key={link.name} className="relative flex items-center h-full">
+                <Link href={link.href} className="flex items-center h-full">
+                  <motion.span
+                    className={cn(
+                      "inline-block text-sm font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full",
+                      isActive 
+                        ? "text-accent bg-white/10 shadow-[0_0_15px_rgba(79,209,197,0.2)]" 
+                        : "text-gray-300 hover:text-white"
+                    )}
+                    whileHover={{ 
+                      scale: 1.1,
+                      color: "hsl(var(--accent))",
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    {link.name}
+                  </motion.span>
+                </Link>
+              </div>
+            );
+          })}
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
@@ -130,28 +138,29 @@ export function Navbar() {
             className="absolute top-full left-0 right-0 mt-4 bg-[#0b0f2f]/98 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] lg:hidden overflow-hidden mx-4 shadow-2xl"
           >
             <div className="flex flex-col p-8 gap-6">
-              {navLinks.map((link, idx) => (
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  key={link.name}
-                >
-                  <Link
-                    href={link.href}
-                    className="text-xl font-bold py-2 text-gray-300 hover:text-accent flex items-center justify-between group"
-                    onClick={() => setIsMobileMenuOpen(false)}
+              {navLinks.map((link, idx) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    key={link.name}
                   >
-                    {link.name}
-                    <motion.div 
-                      whileHover={{ x: 5 }}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "text-xl font-bold py-2 flex items-center justify-between group",
+                        isActive ? "text-accent" : "text-gray-300 hover:text-white"
+                      )}
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <X className="w-4 h-4 rotate-45" />
-                    </motion.div>
-                  </Link>
-                </motion.div>
-              ))}
+                      {link.name}
+                      {isActive && <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <div className="flex flex-col gap-4 pt-6 border-t border-white/10">
                 <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="outline" className="w-full glass border-white/10 rounded-full h-14 text-lg font-bold">
