@@ -4,16 +4,17 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Briefcase, MessageSquare, Share2, Target, Users2, Zap } from "lucide-react";
+import { MessageSquare, Share2, Target, Users2, Zap, Briefcase } from "lucide-react";
+import { FeatureCard } from "@/components/ui/FeatureCard";
 
 export default function StartupsOrganizationsPage() {
   const tools = [
-    { title: "Team Communication", desc: "Real-time channels and threads for seamless organizational alignment.", icon: MessageSquare },
-    { title: "Project Collaboration", desc: "Kanban boards, task tracking, and milestone management for agile teams.", icon: Zap },
-    { title: "Shared Workspaces", desc: "Secure environments for cross-functional teams to build and scale projects.", icon: Users2 },
-    { title: "Knowledge Sharing", desc: "Internal wikis and documentation hubs to build a culture of learning.", icon: Share2 },
-    { title: "Skill Assessments", desc: "Quantifiable metrics to track team growth and technical proficiency.", icon: Target },
-    { title: "Org Administration", desc: "Enterprise-grade controls for user access and departmental management.", icon: Briefcase },
+    { title: "Team Communication", desc: "Real-time channels and threads for seamless organizational alignment.", icon: MessageSquare, color: "from-blue-400 to-indigo-400" },
+    { title: "Project Collaboration", desc: "Kanban boards, task tracking, and milestone management for agile teams.", icon: Zap, color: "from-amber-400 to-orange-400" },
+    { title: "Shared Workspaces", desc: "Secure environments for cross-functional teams to build and scale projects.", icon: Users2, color: "from-emerald-400 to-teal-400" },
+    { title: "Knowledge Sharing", desc: "Internal wikis and documentation hubs to build a culture of learning.", icon: Share2, color: "from-purple-400 to-pink-400" },
+    { title: "Skill Assessments", desc: "Quantifiable metrics to track team growth and technical proficiency.", icon: Target, color: "from-rose-400 to-red-400" },
+    { title: "Org Administration", desc: "Enterprise-grade controls for user access and departmental management.", icon: Briefcase, color: "from-cyan-400 to-blue-400" },
   ];
 
   return (
@@ -33,20 +34,21 @@ export default function StartupsOrganizationsPage() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-32">
           {tools.map((tool, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="glass-card p-8 space-y-6 group hover:border-primary/30"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <tool.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold">{tool.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{tool.desc}</p>
+              <FeatureCard
+                title={tool.title}
+                description={tool.desc}
+                icon={tool.icon}
+                gradientFrom={tool.color.split(' ')[0]}
+                gradientTo={tool.color.split(' ')[1]}
+              />
             </motion.div>
           ))}
         </div>
