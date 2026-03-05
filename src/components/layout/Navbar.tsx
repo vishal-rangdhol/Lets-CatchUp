@@ -16,7 +16,7 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,11 +31,27 @@ export function Navbar() {
   ];
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        isScrolled ? "bg-[#0b0f2f]/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
-      )}
+    <motion.nav
+      initial={false}
+      animate={isScrolled ? "scrolled" : "top"}
+      variants={{
+        top: {
+          backgroundColor: "rgba(11, 15, 47, 0)",
+          backdropFilter: "blur(0px)",
+          paddingTop: "1.5rem",
+          paddingBottom: "1.5rem",
+          borderBottomColor: "rgba(255, 255, 255, 0)",
+        },
+        scrolled: {
+          backgroundColor: "rgba(11, 15, 47, 0.8)",
+          backdropFilter: "blur(12px)",
+          paddingTop: "1rem",
+          paddingBottom: "1rem",
+          borderBottomColor: "rgba(255, 255, 255, 0.1)",
+        },
+      }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 px-6 border-b"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group shrink-0">
@@ -87,9 +103,9 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
             className="absolute top-full left-0 right-0 bg-[#0b0f2f]/95 backdrop-blur-xl border-b border-white/10 lg:hidden overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
@@ -117,6 +133,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
