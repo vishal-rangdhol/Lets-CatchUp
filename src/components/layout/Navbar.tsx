@@ -1,11 +1,10 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -52,7 +51,7 @@ export function Navbar() {
           y: 10,
           width: "calc(100% - 3rem)",
           left: "1.5rem",
-          backgroundColor: "rgba(35, 45, 95, 0.9)",
+          backgroundColor: "rgba(20, 26, 75, 0.95)",
           backdropFilter: "blur(20px)",
           paddingTop: "0.85rem",
           paddingBottom: "0.85rem",
@@ -73,7 +72,7 @@ export function Navbar() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             className="bg-accent-gradient p-2 rounded-lg shadow-lg"
           >
-            <ProjectIcon className="w-6 h-6 text-white" />
+            <GraduationCap className="w-6 h-6 text-white" />
           </motion.div>
           <span className="font-headline font-bold text-xl tracking-tight text-white">
             LetsCatchUp
@@ -95,7 +94,8 @@ export function Navbar() {
                         : "text-gray-300 hover:text-white"
                     )}
                     whileHover={{ 
-                      scale: 1.1,
+                      scale: 1.25,
+                      marginInline: "1.5rem",
                       color: "hsl(var(--accent))",
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -129,13 +129,14 @@ export function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 mt-4 bg-[#0b0f2f]/98 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] lg:hidden overflow-hidden mx-4 shadow-2xl"
+            className="absolute top-full left-0 right-0 mt-4 bg-[#0b0f2f]/98 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] lg:hidden overflow-hidden mx-4 shadow-2xl z-50"
           >
             <div className="flex flex-col p-8 gap-6">
               {navLinks.map((link, idx) => {
@@ -176,22 +177,5 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
-  );
-}
-
-function ProjectIcon({ className }: { className?: string }) {
-  return (
-    <svg 
-      className={className} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-      <path d="M6 12v5c3 3 9 3 12 0v-5" />
-    </svg>
   );
 }
