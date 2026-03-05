@@ -1,20 +1,108 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle2, Layout, Users, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const orbRef = useRef<HTMLDivElement>(null);
+  const ring1Ref = useRef<SVGSVGElement>(null);
+  const ring2Ref = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Floating animation for the core
+      gsap.to(orbRef.current, {
+        y: -30,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      // Rotation animations for rings
+      gsap.to(ring1Ref.current, {
+        rotate: 360,
+        duration: 20,
+        repeat: -1,
+        ease: "none",
+      });
+
+      gsap.to(ring2Ref.current, {
+        rotate: -360,
+        duration: 25,
+        repeat: -1,
+        ease: "none",
+      });
+
+      // Scroll-triggered interactions
+      gsap.to(ring1Ref.current, {
+        scale: 1.5,
+        opacity: 0.1,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.5,
+        },
+      });
+
+      gsap.to(orbRef.current, {
+        scale: 0.8,
+        filter: "blur(10px)",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      // Mouse Move Interaction
+      const handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const xPos = (clientX / window.innerWidth - 0.5) * 50;
+        const yPos = (clientY / window.innerHeight - 0.5) * 50;
+
+        gsap.to(orbRef.current, {
+          x: xPos,
+          y: yPos,
+          duration: 1.2,
+          ease: "power2.out",
+        });
+
+        gsap.to([ring1Ref.current, ring2Ref.current], {
+          x: xPos * 0.5,
+          y: yPos * 0.5,
+          duration: 1.5,
+          ease: "power2.out",
+        });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section ref={containerRef} className="relative pt-32 pb-20 overflow-hidden">
       {/* Decorative Glow Elements */}
       <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-0 left-0 -z-10 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-10 animate-in fade-in slide-in-from-left duration-1000">
+        <div className="space-y-10">
           <Badge variant="secondary" className="bg-white/5 border-white/10 text-accent px-5 py-2 rounded-full backdrop-blur-md">
             🚀 Accelerate Your Growth
           </Badge>
@@ -53,64 +141,78 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Floating UI Cards */}
-        <div className="relative min-h-[500px] flex items-center justify-center animate-in fade-in zoom-in duration-1000">
-          {/* Main Large Card */}
-          <div className="glass-card w-full max-w-[440px] p-8 space-y-6 relative z-10 rotate-1 shadow-2xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-accent-gradient flex items-center justify-center">
-                  <Layout className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-sm">Main Dashboard</p>
-                  <p className="text-[10px] text-muted-foreground">Activity Overview</p>
-                </div>
-              </div>
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-6 h-6 rounded-full border-2 border-[#141a4b] bg-gray-600" />
-                ))}
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden">
-                <div className="h-full w-3/4 bg-accent-gradient" />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="h-20 rounded-xl bg-white/5 border border-white/10" />
-                <div className="h-20 rounded-xl bg-white/5 border border-white/10" />
+        {/* Interactive Object Animation */}
+        <div className="relative min-h-[600px] flex items-center justify-center">
+          <div ref={orbRef} className="relative z-20">
+            {/* The Core Orb */}
+            <div className="w-64 h-64 rounded-full bg-accent-gradient p-[1px] shadow-[0_0_80px_rgba(79,209,197,0.4)] transition-all">
+              <div className="w-full h-full rounded-full bg-[#0b0f2f] flex items-center justify-center backdrop-blur-3xl overflow-hidden relative">
+                <div className="absolute inset-0 bg-accent/10 animate-pulse" />
+                <div className="w-32 h-32 rounded-full bg-accent-gradient blur-3xl opacity-30" />
+                <div className="relative z-10 text-accent font-headline font-bold text-4xl tracking-tighter">LCU</div>
               </div>
             </div>
           </div>
 
-          {/* Floating Accents */}
-          <div className="absolute top-10 -right-4 glass-card p-6 rounded-2xl z-20 floating shadow-xl border-white/20">
-            <div className="flex items-center gap-3">
-              <div className="bg-primary/20 p-2 rounded-lg">
-                <Users className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider">Active Members</p>
-                <p className="text-xl font-bold">1,284</p>
-              </div>
-            </div>
-          </div>
+          {/* Rotating Rings */}
+          <svg 
+            ref={ring1Ref}
+            className="absolute w-[500px] h-[500px] pointer-events-none z-10"
+            viewBox="0 0 100 100"
+          >
+            <circle 
+              cx="50" cy="50" r="48" 
+              fill="none" 
+              stroke="url(#grad1)" 
+              strokeWidth="0.5" 
+              strokeDasharray="15 10"
+              className="opacity-40"
+            />
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#4fd1c5" />
+                <stop offset="100%" stopColor="#667eea" />
+              </linearGradient>
+            </defs>
+          </svg>
 
-          <div className="absolute bottom-10 -left-10 glass-card p-6 rounded-2xl z-20 floating shadow-xl border-white/20" style={{ animationDelay: '1s' }}>
-            <div className="flex items-center gap-3">
-              <div className="bg-accent/20 p-2 rounded-lg">
-                <Zap className="w-5 h-5 text-accent" />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider">Productivity</p>
-                <p className="text-xl font-bold">+24%</p>
-              </div>
-            </div>
-          </div>
+          <svg 
+            ref={ring2Ref}
+            className="absolute w-[400px] h-[400px] pointer-events-none z-10"
+            viewBox="0 0 100 100"
+          >
+            <circle 
+              cx="50" cy="50" r="42" 
+              fill="none" 
+              stroke="url(#grad2)" 
+              strokeWidth="0.2" 
+              strokeDasharray="5 5"
+              className="opacity-30"
+            />
+            <defs>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#667eea" />
+                <stop offset="100%" stopColor="#f687b3" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Decorative floating dots */}
+          {[...Array(6)].map((_, i) => (
+            <div 
+              key={i}
+              className="absolute w-1 h-1 bg-accent rounded-full animate-pulse blur-[1px]"
+              style={{
+                top: `${20 + Math.random() * 60}%`,
+                left: `${20 + Math.random() * 60}%`,
+                animationDelay: `${i * 0.5}s`,
+                opacity: 0.5
+              }}
+            />
+          ))}
 
           {/* Background decoration */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent/5 rounded-full blur-[80px] -z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-accent/5 rounded-full blur-[100px] -z-10" />
         </div>
       </div>
     </section>
