@@ -34,7 +34,6 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <div className="bg-accent-gradient p-2 rounded-lg transition-transform group-hover:scale-110">
             <GraduationCap className="w-6 h-6 text-white" />
@@ -44,7 +43,6 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Center: Navigation Links */}
         <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
@@ -57,7 +55,6 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Right: Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <Link href="/dashboard">
             <Button variant="ghost" className="text-sm font-medium text-gray-300 hover:text-white">
@@ -71,7 +68,6 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className="md:hidden p-2 text-gray-300"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -80,7 +76,6 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-[#0b0f2f]/95 backdrop-blur-xl border-b border-white/10 md:hidden animate-in slide-in-from-top duration-300">
           <div className="flex flex-col p-6 gap-4">

@@ -12,7 +12,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto space-y-24">
-        {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <Badge variant="secondary" className="glass text-accent px-4 py-1 border-white/10">
@@ -43,7 +42,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Core Values */}
         <div className="space-y-12">
           <div className="text-center">
             <h2 className="text-4xl font-headline font-bold">Our Core Values</h2>

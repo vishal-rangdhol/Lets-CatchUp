@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, MapPin, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,10 +10,8 @@ export function Footer() {
   return (
     <footer className="relative pt-24 pb-12 border-t border-white/10 bg-[#0b0f2f]">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-      <div className="absolute -top-24 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] -z-10" />
       
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-        {/* Brand & Address */}
         <div className="space-y-6">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="bg-accent-gradient p-2 rounded-lg transition-transform group-hover:scale-110">
@@ -46,7 +44,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Navigation */}
         <div className="space-y-6">
           <h5 className="font-bold text-white text-lg">Navigation</h5>
           <ul className="space-y-4">
@@ -65,7 +62,6 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Services */}
         <div className="space-y-6">
           <h5 className="font-bold text-white text-lg">Services</h5>
           <ul className="space-y-4">
@@ -82,7 +78,6 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Policies */}
         <div className="space-y-6">
           <h5 className="font-bold text-white text-lg">Policies</h5>
           <ul className="space-y-4">
