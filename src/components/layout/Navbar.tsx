@@ -51,7 +51,7 @@ export function Navbar() {
           y: 10,
           width: "calc(100% - 3rem)",
           left: "1.5rem",
-          backgroundColor: "rgba(25, 35, 95, 0.95)", // Brightened scrolled background
+          backgroundColor: "rgba(35, 45, 115, 0.98)", // Brightened scrolled background
           backdropFilter: "blur(20px)",
           paddingTop: "0.85rem",
           paddingBottom: "0.85rem",
@@ -67,50 +67,54 @@ export function Navbar() {
       className="fixed top-0 z-50 px-6 border-b"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between relative h-full">
-        <Link href="/" className="flex items-center gap-2 group shrink-0">
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center gap-2 group shrink-0 relative z-10">
           <motion.div 
             whileHover={{ scale: 1.1, rotate: 5 }}
             className="bg-accent-gradient p-2 rounded-lg shadow-lg"
           >
             <GraduationCap className="w-6 h-6 text-white" />
           </motion.div>
-          <span className="font-headline font-bold text-xl tracking-tight text-white">
+          <span className="font-headline font-bold text-xl tracking-tight text-white hidden sm:inline-block">
             LetsCatchUp
           </span>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 h-full">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <div key={link.name} className="relative flex items-center h-full">
-                <Link href={link.href} className="flex items-center h-full">
-                  <motion.span
-                    className={cn(
-                      "inline-block text-sm font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full",
-                      isActive 
-                        ? "text-accent bg-white/10 shadow-[0_0_15px_rgba(79,209,197,0.2)]" 
-                        : "text-gray-300 hover:text-white"
-                    )}
-                    whileHover={{ 
-                      scale: 1.25,
-                      marginInline: "1.5rem",
-                      color: "hsl(var(--accent))",
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    {link.name}
-                  </motion.span>
-                </Link>
-              </div>
-            );
-          })}
+        {/* Center Group: Navigation Items */}
+        <div className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2 h-full py-2">
+          <div className="flex items-center gap-1 bg-white/5 border border-white/5 backdrop-blur-md rounded-full px-4 py-1.5 shadow-inner">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <div key={link.name} className="relative flex items-center h-full">
+                  <Link href={link.href} className="flex items-center h-full">
+                    <motion.span
+                      className={cn(
+                        "inline-block text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-3 py-1.5 rounded-full",
+                        isActive 
+                          ? "text-accent bg-white/10 shadow-[0_0_15px_rgba(79,209,197,0.2)]" 
+                          : "text-gray-300 hover:text-white"
+                      )}
+                      whileHover={{ 
+                        scale: 1.25,
+                        marginInline: "0.5rem",
+                        color: "hsl(var(--accent))",
+                      }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      {link.name}
+                    </motion.span>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="hidden lg:flex items-center gap-4">
+        {/* Right Group: Action Buttons */}
+        <div className="hidden lg:flex items-center gap-4 relative z-10">
           <Link href="/dashboard">
-            <Button variant="ghost" className="text-sm font-bold text-gray-300 hover:text-white hover:bg-white/5 rounded-full px-5 transition-all">
+            <Button variant="ghost" className="text-sm font-bold text-gray-300 hover:text-white hover:bg-white/10 rounded-full px-5 transition-all">
               Log in
             </Button>
           </Link>
@@ -121,8 +125,9 @@ export function Navbar() {
           </Link>
         </div>
 
+        {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden p-2 text-gray-300 hover:bg-white/5 rounded-full transition-colors"
+          className="lg:hidden p-2 text-gray-300 hover:bg-white/5 rounded-full transition-colors relative z-10"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
