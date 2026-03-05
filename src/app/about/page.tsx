@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
+import { Shield, Sparkles } from "lucide-react";
 
 export default function AboutPage() {
   const aboutImg = PlaceHolderImages?.find((img) => img.id === "about-img");
@@ -18,10 +19,10 @@ export default function AboutPage() {
               Our Story
             </Badge>
             <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
-              Empowering the <span className="text-gradient">Next Generation</span> of Builders.
+              The journey of <span className="text-gradient">Lets Catch Up</span>
             </h1>
             <p className="text-xl text-gray-400 leading-relaxed">
-              LetsCatchUp was founded on the principle that high-quality education should be accessible, engaging, and directly linked to career success. We're building the future of learning by combining world-class curriculum with AI-driven personalization.
+              Founded with the vision to democratize technical education, Lets Catch Up started as a small project to bridge the gap between classroom learning and industry requirements. Today, we are a unified ecosystem empowering thousands of students and educators worldwide.
             </p>
           </div>
           <div className="relative">
@@ -42,18 +43,31 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Vision/Mission */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Our Mission", text: "To bridge the gap between education and industry through practical, project-based learning." },
-            { title: "Our Vision", text: "A world where anyone can master a technical skill regardless of their starting point." },
-            { title: "Our Values", text: "Transparency, continuous iteration, and a student-first approach to everything we build." },
-          ].map((item, i) => (
-            <div key={i} className="glass-card p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-accent">{item.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{item.text}</p>
+        {/* Core Values */}
+        <div className="space-y-12">
+          <div className="text-center">
+            <h2 className="text-4xl font-headline font-bold">Our Core Values</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="glass-card p-10 space-y-6 group">
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <Sparkles className="w-7 h-7 text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold">Empowerment & Inclusivity</h3>
+              <p className="text-gray-400 leading-relaxed">
+                We believe that every learner, regardless of their background, should have the tools and community support to build their dream career in tech.
+              </p>
             </div>
-          ))}
+            <div className="glass-card p-10 space-y-6 group">
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Shield className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold">Trust & Transparency</h3>
+              <p className="text-gray-400 leading-relaxed">
+                We maintain open communication with our community and focus on delivering measurable educational outcomes that students can trust.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

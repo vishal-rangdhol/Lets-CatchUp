@@ -8,29 +8,33 @@ import { Check } from "lucide-react";
 export default function PricingPage() {
   const plans = [
     {
-      name: "Starter",
-      price: "Free",
-      desc: "Perfect for exploring our platform.",
-      features: ["Access to free courses", "Community support", "Public profile", "Mobile app access"],
-      cta: "Start Learning",
+      name: "Small School",
+      price: "₹300",
+      period: "per user / month",
+      min: "min ₹1,500/month",
+      desc: "Perfect for localized learning centers.",
+      features: ["Up to 50 students", "Basic LMS tools", "Community forums", "Standard support"],
+      cta: "Get Started",
       popular: false,
     },
     {
-      name: "Pro",
-      price: "$29",
-      period: "/month",
-      desc: "Best for serious learners.",
-      features: ["All Premium courses", "AI Learning Paths", "Verified Certificates", "Priority Support", "Interactive labs"],
-      cta: "Get Pro Access",
+      name: "Growing School",
+      price: "₹250",
+      period: "per user / month",
+      min: "min ₹12,500/month",
+      desc: "Optimized for expanding institutions.",
+      features: ["Unlimited students", "Advanced Analytics", "Custom branding", "Priority support", "AI Learning Paths"],
+      cta: "Contact Sales",
       popular: true,
     },
     {
-      name: "Team",
-      price: "$99",
-      period: "/month",
-      desc: "For small teams and organizations.",
-      features: ["Everything in Pro", "Team analytics", "Manage 5+ members", "Custom workshops", "Admin dashboard"],
-      cta: "Contact Sales",
+      name: "International School",
+      price: "₹500",
+      period: "per user / month",
+      min: "min ₹10,000/month",
+      desc: "For globally recognized campuses.",
+      features: ["Multilingual support", "Global data hosting", "SSO & Security", "Dedicated manager", "Research tools"],
+      cta: "Talk to Expert",
       popular: false,
     },
   ];
@@ -41,7 +45,7 @@ export default function PricingPage() {
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <Badge className="glass text-accent border-white/10">Pricing Plans</Badge>
           <h1 className="text-5xl font-headline font-bold">Choose Your <span className="text-gradient">Path</span></h1>
-          <p className="text-xl text-gray-400">Flexible options tailored to your learning goals.</p>
+          <p className="text-xl text-gray-400">Scale your institution with flexible plans designed for growth.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -49,15 +53,16 @@ export default function PricingPage() {
             <div key={i} className={`glass-card p-10 flex flex-col relative ${plan.popular ? 'border-accent/40 scale-105 z-10' : 'border-white/5'}`}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-accent-gradient text-white border-none py-1 px-4">Most Popular</Badge>
+                  <Badge className="bg-accent-gradient text-white border-none py-1 px-4">Recommended</Badge>
                 </div>
               )}
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-gray-400">{plan.period}</span>
+                  <span className="text-gray-400 text-xs">{plan.period}</span>
                 </div>
+                <p className="text-xs text-accent mt-2 font-bold">{plan.min}</p>
                 <p className="text-sm text-gray-400 mt-4">{plan.desc}</p>
               </div>
               <div className="flex-1 space-y-4 mb-10">

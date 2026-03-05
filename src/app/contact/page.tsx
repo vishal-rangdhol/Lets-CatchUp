@@ -28,41 +28,45 @@ export default function ContactPage() {
             <Badge className="glass text-accent border-white/10">Contact Us</Badge>
             <h1 className="text-6xl font-headline font-bold leading-tight">Get in <span className="text-gradient">Touch</span></h1>
             <p className="text-xl text-gray-400 max-w-lg leading-relaxed">
-              Have questions about our programs or need technical support? Our team is standing by to help you catch up!
+              Have questions about our programs or need technical support? Visit our office or drop us a message.
             </p>
           </div>
 
           <div className="grid gap-6">
-            {[
-              { icon: Mail, label: "Email Us", val: "support@letscatchup.com", color: "text-accent" },
-              { icon: Phone, label: "Call Us", val: "+1 (555) 123-4567", color: "text-primary" },
-              { icon: MapPin, label: "Our Office", val: "123 Learning Ave, Tech City", color: "text-emerald-400" },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-5 items-center glass-card p-6 border-white/5 group">
-                <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform">
-                  <item.icon className={`w-6 h-6 ${item.color} glow-icon`} />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">{item.label}</p>
-                  <p className="font-bold text-lg">{item.val}</p>
+            <div className="flex gap-5 items-start glass-card p-6 border-white/5 group">
+              <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform">
+                <MapPin className="w-6 h-6 text-emerald-400 glow-icon" />
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Our Office</p>
+                <div className="font-bold text-sm text-gray-200 leading-relaxed">
+                  Building No.: 3-37<br />
+                  Old RC Puram, Back Side ZPHS School<br />
+                  Mumbai Highway, Hyderabad<br />
+                  Ramachandrapuram, Sangareddy<br />
+                  Telangana – 502032
                 </div>
               </div>
-            ))}
+            </div>
+            
+            <div className="flex gap-5 items-center glass-card p-6 border-white/5 group">
+              <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform">
+                <Mail className="w-6 h-6 text-accent glow-icon" />
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Email Us</p>
+                <p className="font-bold text-lg">support@letscatchup.com</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="glass-card p-8 md:p-12 border-white/10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10" />
           <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-3">
-                <Label htmlFor="first-name" className="text-gray-300">First Name</Label>
-                <Input id="first-name" placeholder="John" className="bg-white/5 border-white/10 h-14 rounded-xl px-4 focus-visible:ring-accent" required />
-              </div>
-              <div className="space-y-3">
-                <Label htmlFor="last-name" className="text-gray-300">Last Name</Label>
-                <Input id="last-name" placeholder="Doe" className="bg-white/5 border-white/10 h-14 rounded-xl px-4 focus-visible:ring-accent" required />
-              </div>
+            <div className="space-y-3">
+              <Label htmlFor="name" className="text-gray-300">Name</Label>
+              <Input id="name" placeholder="John Doe" className="bg-white/5 border-white/10 h-14 rounded-xl px-4 focus-visible:ring-accent" required />
             </div>
             <div className="space-y-3">
               <Label htmlFor="email" className="text-gray-300">Email Address</Label>
