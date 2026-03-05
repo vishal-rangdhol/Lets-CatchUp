@@ -7,6 +7,7 @@ import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Sparkles, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function AboutPage() {
   const aboutImg = PlaceHolderImages?.find((img) => img.id === "about-img");
@@ -16,13 +17,15 @@ export default function AboutPage() {
       title: "Empowerment & Inclusivity",
       desc: "We believe that every learner, regardless of their background, should have the tools and community support to build their dream career in tech.",
       icon: Sparkles,
-      color: "from-teal-400 to-cyan-300",
+      color: "accent",
+      gradient: "from-teal-400 to-cyan-300",
     },
     {
       title: "Trust & Transparency",
       desc: "We maintain open communication with our community and focus on delivering measurable educational outcomes that students can trust.",
       icon: Shield,
-      color: "from-indigo-500 to-purple-500",
+      color: "primary",
+      gradient: "from-indigo-500 to-purple-500",
     },
   ];
 
@@ -45,12 +48,16 @@ export default function AboutPage() {
               Founded with the vision to democratize technical education, Lets Catch Up started as a small project to bridge the gap between classroom learning and industry requirements. Today, we are a unified ecosystem empowering thousands of students and educators worldwide.
             </p>
           </motion.div>
+          
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="relative"
+            className="relative group"
           >
-            <div className="glass-card p-3 rotate-3 relative z-10 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
+            {/* The Horizontal Layered Effect for Image */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[32px] bg-gradient-to-br from-primary/30 to-accent/30 opacity-40 transition-all duration-500 group-hover:opacity-70 group-hover:-bottom-5 group-hover:-right-5" />
+            
+            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] p-3 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
               <div className="relative rounded-[20px] overflow-hidden aspect-video">
                 {aboutImg && (
                   <Image
@@ -63,7 +70,6 @@ export default function AboutPage() {
                 )}
               </div>
             </div>
-            <div className="absolute -top-6 -right-6 w-48 h-48 bg-primary/20 rounded-full blur-[100px]" />
           </motion.div>
         </div>
 
@@ -71,46 +77,50 @@ export default function AboutPage() {
           <div className="text-center">
             <h2 className="text-4xl lg:text-5xl font-headline font-bold">Our Core Values</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid lg:grid-cols-2 gap-12">
             {values.map((v, i) => (
               <motion.div 
                 key={i} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative"
+                initial={{ opacity: 0, x: i === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative group h-full"
               >
-                {/* The "Success Card" Rounded-Tab Design */}
-                <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[40px] h-full flex flex-col items-center text-center space-y-8 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl">
-                  
-                  {/* Top Glossy Lip */}
-                  <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent z-20" />
+                {/* Sharp Layered Effect */}
+                <div className={cn(
+                  "absolute -bottom-4 -right-4 w-full h-full rounded-[32px] bg-gradient-to-br opacity-40 transition-all duration-500 group-hover:opacity-70 group-hover:-bottom-5 group-hover:-right-5",
+                  v.gradient
+                )} />
 
-                  {/* Icon with Floating Animation */}
-                  <motion.div 
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
-                    className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${v.color} flex items-center justify-center text-white shadow-xl rotate-3 group-hover:rotate-6 transition-transform`}
-                  >
-                    <v.icon className="w-10 h-10" />
-                  </motion.div>
-
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold tracking-tight">{v.title}</h3>
-                    <p className="text-gray-400 text-lg leading-relaxed font-medium">
-                      {v.desc}
-                    </p>
+                <div className="relative h-full bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] p-8 md:p-10 shadow-2xl overflow-hidden flex flex-col md:flex-row gap-6 items-center md:items-start group-hover:border-white/20 transition-all duration-500">
+                  <div className="relative shrink-0">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-xl">
+                      <v.icon className={cn(
+                        "w-8 h-8 md:w-10 md:h-10 glow-icon",
+                        v.color === "accent" ? "text-accent" : "text-primary"
+                      )} />
+                    </div>
                   </div>
 
-                  <div className="pt-4 mt-auto">
-                    <button className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-all text-white">
+                  <div className="space-y-4 flex-1 text-center md:text-left">
+                    <div className="space-y-2">
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                        {v.title}
+                      </h3>
+                      <p className="text-gray-400 text-base md:text-lg leading-relaxed font-medium">
+                        {v.desc}
+                      </p>
+                    </div>
+
+                    <button className={cn(
+                      "flex items-center gap-2 font-bold uppercase tracking-widest text-[10px] transition-all group/btn mx-auto md:mx-0",
+                      v.color === "accent" ? "text-accent" : "text-primary"
+                    )}>
                       <span>Learn more</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                      <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
                     </button>
                   </div>
-
-                  {/* Ambient inner glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${v.color} blur-3xl opacity-5 rounded-[40px] pointer-events-none`} />
                 </div>
               </motion.div>
             ))}

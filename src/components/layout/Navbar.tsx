@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -82,7 +83,7 @@ export function Navbar() {
 
         {/* Center Group: Navigation Items */}
         <div className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2 h-full py-2">
-          <div className="flex items-center gap-1 bg-white/5 border border-white/5 backdrop-blur-md rounded-full px-4 py-1.5 shadow-inner">
+          <div className="flex items-center gap-10 bg-white/5 border border-white/5 backdrop-blur-md rounded-full px-6 py-1.5 shadow-inner">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -97,7 +98,7 @@ export function Navbar() {
                       )}
                       whileHover={{ 
                         scale: 1.25,
-                        marginInline: "0.5rem",
+                        marginInline: "0.75rem",
                         color: "hsl(var(--accent))",
                       }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
