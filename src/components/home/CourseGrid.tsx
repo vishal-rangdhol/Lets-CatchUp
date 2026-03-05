@@ -1,12 +1,13 @@
+
 "use client";
 
 import React from "react";
 import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Star, Users } from "lucide-react";
+import { Clock, Star, Users, ArrowRight } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { motion } from "framer-motion";
 
 export function CourseGrid() {
   const courses = [
@@ -19,6 +20,7 @@ export function CourseGrid() {
       duration: "12 weeks",
       category: "Development",
       price: "$199",
+      color: "from-teal-400 to-cyan-300",
     },
     {
       id: "course-data-science",
@@ -29,6 +31,7 @@ export function CourseGrid() {
       duration: "15 weeks",
       category: "Data Science",
       price: "$249",
+      color: "from-indigo-500 to-purple-500",
     },
     {
       id: "course-ai",
@@ -39,6 +42,7 @@ export function CourseGrid() {
       duration: "8 weeks",
       category: "Artificial Intelligence",
       price: "$299",
+      color: "from-pink-500 to-rose-500",
     },
   ];
 
@@ -46,7 +50,9 @@ export function CourseGrid() {
     <section className="py-24 max-w-7xl mx-auto px-6">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div className="space-y-4">
-          <h2 className="text-accent font-bold tracking-widest text-sm uppercase">Course Catalog</h2>
+          <Badge variant="outline" className="border-accent/30 text-accent px-4 py-1 uppercase tracking-widest text-[10px] font-black">
+            Course Catalog
+          </Badge>
           <h3 className="text-5xl font-headline font-bold">Featured Programs</h3>
         </div>
         <Button variant="outline" className="rounded-full glass border-white/20 h-12 px-8 font-semibold">
@@ -55,56 +61,76 @@ export function CourseGrid() {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {courses.map((course) => {
+        {courses.map((course, idx) => {
           const courseImg = PlaceHolderImages?.find((img) => img.id === course.id);
           return (
-            <Card key={course.id} className="glass-card border-white/5 overflow-hidden group hover:translate-y-[-12px] transition-all duration-500">
-              <div className="relative h-56 overflow-hidden">
-                {courseImg && (
-                  <Image
-                    src={courseImg.imageUrl}
-                    alt={course.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    data-ai-hint={courseImg.imageHint}
-                  />
-                )}
-                <div className="absolute top-5 left-5">
-                  <Badge className="bg-primary/80 backdrop-blur-md px-3 py-1 font-bold">{course.category}</Badge>
+            <motion.div
+              key={course.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              className="group relative"
+            >
+              {/* The "Success Card" Rounded-Tab Design */}
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] overflow-hidden flex flex-col h-full transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl">
+                
+                {/* Top Glossy Lip */}
+                <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent z-20" />
+
+                <div className="relative h-56 overflow-hidden">
+                  {courseImg && (
+                    <Image
+                      src={courseImg.imageUrl}
+                      alt={course.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      data-ai-hint={courseImg.imageHint}
+                    />
+                  )}
+                  <div className="absolute top-5 left-5 z-20">
+                    <Badge className={`bg-gradient-to-br ${course.color} text-white border-none px-3 py-1 font-bold shadow-lg`}>
+                      {course.category}
+                    </Badge>
+                  </div>
                 </div>
+                
+                <div className="p-8 flex-1 flex flex-col space-y-4">
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-1.5 text-accent">
+                      <Star className="w-4 h-4 fill-current glow-icon" />
+                      <span className="text-sm font-bold">{course.rating}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-muted-foreground">
+                      <Users className="w-4 h-4" />
+                      <span className="text-xs font-semibold">{course.students}</span>
+                    </div>
+                  </div>
+
+                  <h4 className="text-2xl font-bold leading-tight group-hover:text-accent transition-colors duration-300">
+                    {course.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground font-medium italic">by {course.instructor}</p>
+
+                  <div className="flex items-center gap-4 text-muted-foreground text-sm font-semibold pt-2">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-primary" />
+                      {course.duration}
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center border-t border-white/5 pt-6 mt-auto">
+                    <span className="text-3xl font-bold text-white">{course.price}</span>
+                    <button className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-white opacity-60 group-hover:opacity-100 transition-all">
+                      <span>Enroll Now</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Ambient glow matching course theme */}
+                <div className={`absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br ${course.color} blur-[60px] opacity-10 pointer-events-none`} />
               </div>
-              
-              <CardHeader className="pb-4 space-y-4">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-1.5 text-accent">
-                    <Star className="w-4 h-4 fill-current glow-icon" />
-                    <span className="text-sm font-bold">{course.rating}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-muted-foreground">
-                    <Users className="w-4 h-4" />
-                    <span className="text-xs font-semibold">{course.students}</span>
-                  </div>
-                </div>
-                <h4 className="text-2xl font-bold leading-tight group-hover:text-gradient transition-colors duration-300">{course.title}</h4>
-                <p className="text-sm text-muted-foreground font-medium italic">by {course.instructor}</p>
-              </CardHeader>
-              
-              <CardContent className="pb-6">
-                <div className="flex items-center gap-4 text-muted-foreground text-sm font-semibold">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-primary" />
-                    {course.duration}
-                  </div>
-                </div>
-              </CardContent>
-              
-              <CardFooter className="flex justify-between items-center border-t border-white/5 pt-6 mt-2">
-                <span className="text-3xl font-bold text-white">{course.price}</span>
-                <Button variant="secondary" className="rounded-full px-8 bg-white/5 hover:bg-accent-gradient transition-all duration-500 hover:text-white font-bold h-11">
-                  Learn More
-                </Button>
-              </CardFooter>
-            </Card>
+            </motion.div>
           );
         })}
       </div>
