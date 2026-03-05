@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -50,11 +49,11 @@ export function Navbar() {
           y: 10,
           width: "calc(100% - 3rem)",
           left: "1.5rem",
-          backgroundColor: "rgba(11, 15, 47, 0.85)",
+          backgroundColor: "rgba(35, 45, 95, 0.9)", // Brightened from 11, 15, 47
           backdropFilter: "blur(20px)",
           paddingTop: "0.85rem",
           paddingBottom: "0.85rem",
-          borderBottomColor: "rgba(255, 255, 255, 0.15)",
+          borderBottomColor: "rgba(255, 255, 255, 0.25)",
           borderRadius: "2.5rem",
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6)",
         },
@@ -65,7 +64,7 @@ export function Navbar() {
       }}
       className="fixed top-0 z-50 px-6 border-b"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto flex items-center justify-between relative h-full">
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <motion.div 
             whileHover={{ scale: 1.1, rotate: 5 }}
@@ -78,36 +77,25 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Nav Links - Increased Gap and Interactive Hover */}
-        <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 h-full">
+        {/* Desktop Nav Links - Centered and Aligned */}
+        <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
           {navLinks.map((link) => (
-            <motion.div
-              key={link.name}
-              layout
-              className="relative"
-            >
-              <Link
-                href={link.href}
-                className="block"
-              >
+            <div key={link.name} className="relative flex items-center h-full">
+              <Link href={link.href} className="flex items-center h-full">
                 <motion.span
-                  className="inline-block text-sm font-bold text-gray-300 transition-colors cursor-pointer"
+                  className="inline-block text-sm font-bold text-gray-300 transition-colors cursor-pointer whitespace-nowrap"
                   whileHover={{ 
-                    scale: 1.25,
+                    scale: 1.2,
                     color: "hsl(var(--accent))",
-                    margin: "0 8px"
+                    paddingLeft: "8px",
+                    paddingRight: "8px"
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {link.name}
                 </motion.span>
-                <motion.span 
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent rounded-full"
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 
