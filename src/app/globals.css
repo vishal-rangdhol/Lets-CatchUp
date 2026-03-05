@@ -47,6 +47,11 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+.glass-card:hover {
+  @apply translate-y-[-8px] border-white/20;
+  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.5);
+}
+
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-[#4fd1c5] via-[#667eea] to-[#f687b3];
 }
@@ -59,8 +64,8 @@
   @apply bg-gradient-to-r from-[#4fd1c5] via-[#667eea] to-[#f687b3];
 }
 
-.soft-shadow {
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+.button-glow {
+  @apply shadow-[0_0_15px_rgba(79,209,197,0.3)] hover:shadow-[0_0_25px_rgba(79,209,197,0.6)] transition-shadow duration-300;
 }
 
 .floating {
@@ -71,4 +76,13 @@
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
+}
+
+/* Scroll Reveal Utility */
+.reveal {
+  @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
+}
+
+.reveal-active {
+  @apply opacity-100 translate-y-0;
 }

@@ -14,7 +14,7 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 -z-10 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-10">
+        <div className="space-y-10 animate-in fade-in slide-in-from-left duration-1000">
           <Badge variant="secondary" className="bg-white/5 border-white/10 text-accent px-5 py-2 rounded-full backdrop-blur-md">
             🚀 Accelerate Your Growth
           </Badge>
@@ -30,7 +30,7 @@ export function Hero() {
 
           <div className="flex flex-wrap gap-5">
             <Link href="/contact">
-              <Button size="lg" className="bg-accent-gradient hover:opacity-90 rounded-full px-10 h-16 text-lg font-bold transition-all hover:scale-105 shadow-xl">
+              <Button size="lg" className="bg-accent-gradient hover:opacity-90 rounded-full px-10 h-16 text-lg font-bold transition-all hover:scale-105 button-glow border-none">
                 Get Started <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -54,7 +54,7 @@ export function Hero() {
         </div>
 
         {/* Floating UI Cards */}
-        <div className="relative min-h-[500px] flex items-center justify-center">
+        <div className="relative min-h-[500px] flex items-center justify-center animate-in fade-in zoom-in duration-1000">
           {/* Main Large Card */}
           <div className="glass-card w-full max-w-[440px] p-8 space-y-6 relative z-10 rotate-1 shadow-2xl">
             <div className="flex items-center justify-between">
