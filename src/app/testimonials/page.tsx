@@ -1,11 +1,9 @@
-
 "use client";
 
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { TestimonialCard } from "@/components/ui/TestimonialCard";
 
 export default function TestimonialsPage() {
   const testimonials = [
@@ -37,43 +35,50 @@ export default function TestimonialsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center space-y-6 max-w-3xl mx-auto"
         >
-          <Badge className="glass text-accent border-white/10 px-4 py-1">Wall of Love</Badge>
+          <Badge className="glass text-accent border-white/10 px-6 py-1.5 uppercase tracking-widest text-[10px] font-black">
+            Community Voices
+          </Badge>
           <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
             Trusted by the <br /><span className="text-gradient">Community</span>
           </h1>
-          <p className="text-xl text-gray-400">Hear from the educators and founders building the future with us.</p>
+          <p className="text-xl text-gray-400 font-medium leading-relaxed">
+            Hear from the educators and founders who are redefining collaboration and learning on our platform.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 items-stretch">
           {testimonials.map((t, i) => (
-            <motion.div
+            <TestimonialCard
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card p-10 flex flex-col justify-between group"
-            >
-              <div className="space-y-6">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-4 h-4 text-accent fill-accent" />
-                  ))}
-                </div>
-                <p className="text-xl text-gray-200 italic leading-relaxed font-medium">"{t.quote}"</p>
-              </div>
-              
-              <div className="flex items-center gap-4 mt-12 pt-8 border-t border-white/5">
-                <Avatar className="w-14 h-14 border border-white/10">
-                  <AvatarFallback className="bg-accent/20 text-accent font-bold text-lg">{t.initials}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-bold text-white text-lg">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-            </motion.div>
+              index={i}
+              name={t.name}
+              role={t.role}
+              quote={t.quote}
+              initials={t.initials}
+            />
           ))}
         </div>
+        
+        {/* Additional Stats / Social Proof */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="glass-card p-12 mt-24 border-white/10 text-center space-y-8"
+        >
+          <h4 className="text-2xl font-bold">Join 10,000+ Students & 500+ Educators</h4>
+          <div className="flex flex-wrap justify-center gap-12">
+            {[
+              { label: "Active Users", val: "10k+" },
+              { label: "Partner Schools", val: "150+" },
+              { label: "Satisfaction", val: "99.9%" },
+            ].map((stat, i) => (
+              <div key={i} className="space-y-1">
+                <p className="text-4xl font-bold text-accent">{stat.val}</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground font-black">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );
