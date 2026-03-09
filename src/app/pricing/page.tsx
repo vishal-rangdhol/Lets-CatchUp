@@ -253,16 +253,16 @@ export default function PricingPage() {
               <Table>
                 <TableHeader className="border-white/10 bg-white/5">
                   <TableRow className="hover:bg-transparent border-white/10">
-                    <TableHead className="w-[300px] text-gray-400 font-bold uppercase tracking-widest text-sm py-8">Features</TableHead>
-                    <TableHead className="text-center text-teal-400 font-bold uppercase tracking-widest text-sm py-8">Small School</TableHead>
-                    <TableHead className="text-center text-primary font-bold uppercase tracking-widest text-sm py-8">Growing School</TableHead>
-                    <TableHead className="text-center text-rose-400 font-bold uppercase tracking-widest text-sm py-8">International School</TableHead>
+                    <TableHead className="w-[300px] text-gray-400 font-bold uppercase tracking-widest text-lg py-8">Features</TableHead>
+                    <TableHead className="text-center text-accent font-bold uppercase tracking-widest text-lg py-8">Small School</TableHead>
+                    <TableHead className="text-center text-primary font-bold uppercase tracking-widest text-lg py-8">Growing School</TableHead>
+                    <TableHead className="text-center text-accent font-bold uppercase tracking-widest text-lg py-8">International School</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {comparisonData.map((row, idx) => (
                     <TableRow key={idx} className="border-white/5 hover:bg-white/5 transition-colors">
-                      <TableCell className="font-bold text-white py-8 text-lg">{row.feature}</TableCell>
+                      <TableCell className="font-bold text-white py-8 text-xl">{row.feature}</TableCell>
                       <TableCell className="text-center py-8">{renderVal(row.small)}</TableCell>
                       <TableCell className="text-center py-8 bg-primary/5">{renderVal(row.growing)}</TableCell>
                       <TableCell className="text-center py-8">{renderVal(row.intl)}</TableCell>

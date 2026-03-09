@@ -120,7 +120,7 @@ export function Navbar() {
                         <motion.span
                           className={cn(
                             "inline-block text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
-                            isActive ? "text-accent" : "text-gray-300 hover:text-accent"
+                            isActive ? "text-[#2dd4bf]" : "text-gray-300 hover:text-[#2dd4bf]"
                           )}
                           whileHover={{ scale: 1.15 }}
                         >
@@ -137,7 +137,7 @@ export function Navbar() {
                       <div
                         className={cn(
                           "inline-flex items-center gap-1 text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
-                          isActive ? "text-accent" : "text-gray-300 hover:text-accent"
+                          isActive ? "text-[#2dd4bf]" : "text-gray-300 hover:text-[#2dd4bf]"
                         )}
                       >
                         {item.name}
@@ -169,8 +169,8 @@ export function Navbar() {
                                 className={cn(
                                   "block px-5 py-3 rounded-xl text-sm font-bold transition-all",
                                   pathname === sub.href 
-                                    ? "text-accent bg-white/10" 
-                                    : "text-gray-300 hover:bg-white/5 hover:text-accent"
+                                    ? "text-[#2dd4bf] bg-white/10" 
+                                    : "text-gray-300 hover:bg-white/5 hover:text-[#2dd4bf]"
                                 )}
                               >
                                 {sub.name}
@@ -189,7 +189,7 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-4 relative z-10">
           <Link href="/login">
-            <Button variant="ghost" className="text-gray-300 hover:text-accent hover:bg-white/5 text-sm font-bold rounded-full px-6 h-11 transition-all">
+            <Button variant="ghost" className="text-gray-300 hover:text-[#2dd4bf] hover:bg-white/5 text-sm font-bold rounded-full px-6 h-11 transition-all">
               Sign In
             </Button>
           </Link>
@@ -222,7 +222,7 @@ export function Navbar() {
                   if (item.type === "dropdown") {
                     return (
                       <AccordionItem key={item.name} value={item.name} className="border-none">
-                        <AccordionTrigger className="text-lg font-bold py-2 text-gray-300 hover:text-accent hover:no-underline">
+                        <AccordionTrigger className="text-lg font-bold py-2 text-gray-300 hover:text-[#2dd4bf] hover:no-underline">
                           {item.name}
                         </AccordionTrigger>
                         <AccordionContent className="flex flex-col gap-2 pl-4 pt-2">
@@ -232,7 +232,7 @@ export function Navbar() {
                               href={sub.href}
                               className={cn(
                                 "font-semibold py-2 transition-colors",
-                                pathname === sub.href ? "text-accent" : "text-gray-400 hover:text-accent"
+                                pathname === sub.href ? "text-[#2dd4bf]" : "text-gray-400 hover:text-[#2dd4bf]"
                               )}
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
@@ -249,7 +249,7 @@ export function Navbar() {
                         href={item.href!}
                         className={cn(
                           "text-lg font-bold block",
-                          pathname === item.href ? "text-accent" : "text-gray-300 hover:text-accent"
+                          pathname === item.href ? "text-[#2dd4bf]" : "text-gray-300 hover:text-[#2dd4bf]"
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
