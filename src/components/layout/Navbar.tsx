@@ -1,11 +1,10 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, GraduationCap, ChevronDown } from "lucide-react";
+import { Menu, X, Zap, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
@@ -91,16 +90,16 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2 group shrink-0 relative z-10">
           <motion.div 
             whileHover={{ scale: 1.1, rotate: 5 }}
-            className="bg-accent-gradient p-2 rounded-lg shadow-lg"
+            className="bg-accent-gradient p-2.5 rounded-xl shadow-lg"
           >
-            < GraduationCap className="w-6 h-6 text-white" />
+            <Zap className="w-6 h-6 text-white" />
           </motion.div>
           <span className="font-headline font-bold text-xl tracking-tight text-white hidden sm:inline-block">
-            LetsCatchUp
+            Let's Catch Up
           </span>
         </Link>
 
-        {/* Floating Center Group - Transparent Container */}
+        {/* Floating Center Group */}
         <div className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full">
           <div className="flex items-center gap-1">
             {navItems.map((item) => {
@@ -121,7 +120,7 @@ export function Navbar() {
                         <motion.span
                           className={cn(
                             "inline-block text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
-                            isActive ? "text-accent" : "text-gray-300 hover:text-white"
+                            isActive ? "text-primary" : "text-gray-300 hover:text-white"
                           )}
                           whileHover={{ scale: 1.15 }}
                         >
@@ -138,7 +137,7 @@ export function Navbar() {
                       <div
                         className={cn(
                           "inline-flex items-center gap-1 text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
-                          isActive ? "text-accent" : "text-gray-300 hover:text-white"
+                          isActive ? "text-primary" : "text-gray-300 hover:text-white"
                         )}
                       >
                         {item.name}
@@ -170,7 +169,7 @@ export function Navbar() {
                                 className={cn(
                                   "block px-5 py-3 rounded-xl text-sm font-bold transition-all",
                                   pathname === sub.href 
-                                    ? "text-accent bg-white/10" 
+                                    ? "text-primary bg-white/10" 
                                     : "text-gray-300 hover:bg-white/5 hover:text-white"
                                 )}
                               >
@@ -233,7 +232,7 @@ export function Navbar() {
                               href={sub.href}
                               className={cn(
                                 "font-semibold py-2 transition-colors",
-                                pathname === sub.href ? "text-accent" : "text-gray-400"
+                                pathname === sub.href ? "text-primary" : "text-gray-400"
                               )}
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
@@ -250,7 +249,7 @@ export function Navbar() {
                         href={item.href!}
                         className={cn(
                           "text-lg font-bold block",
-                          pathname === item.href ? "text-accent" : "text-gray-300"
+                          pathname === item.href ? "text-primary" : "text-gray-300"
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >

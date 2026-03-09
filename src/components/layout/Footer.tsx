@@ -1,9 +1,8 @@
-
 "use client";
 
 import React from "react";
 import Link from "next/link";
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, MapPin, Mail, ArrowRight, Send, ShieldCheck } from "lucide-react";
+import { Zap, Facebook, Twitter, Instagram, Linkedin, MapPin, Mail, ArrowRight, Send, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,7 +53,7 @@ export function Footer() {
             <div className="flex w-full max-w-md gap-3">
               <Input 
                 placeholder="Enter your email" 
-                className="h-14 bg-white/5 border-white/10 rounded-2xl px-6 focus-visible:ring-accent" 
+                className="h-14 bg-white/5 border-white/10 rounded-2xl px-6 focus-visible:ring-primary" 
               />
               <Button size="icon" className="h-14 w-14 shrink-0 rounded-2xl bg-accent-gradient hover:opacity-90 transition-all shadow-lg border-none">
                 <Send className="w-6 h-6" />
@@ -70,17 +69,17 @@ export function Footer() {
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="bg-accent-gradient p-2.5 rounded-xl shadow-xl transition-transform group-hover:scale-110">
-                <GraduationCap className="w-7 h-7 text-white" />
+                <Zap className="w-7 h-7 text-white" />
               </div>
               <span className="font-headline font-bold text-2xl tracking-tight text-white">
-                LetsCatchUp
+                Let's Catch Up
               </span>
             </Link>
             
             <div className="space-y-4">
               <div className="flex gap-4 items-start group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
-                  <MapPin className="w-5 h-5 text-accent" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 transition-colors">
+                  <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Building No.: 3-37, Old RC Puram,<br />
@@ -89,8 +88,8 @@ export function Footer() {
                 </p>
               </div>
               <div className="flex gap-4 items-center group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
-                  <Mail className="w-4 h-4 text-accent" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 transition-colors">
+                  <Mail className="w-4 h-4 text-primary" />
                 </div>
                 <p className="text-gray-400 text-sm">support@letscatchup.com</p>
               </div>
@@ -102,7 +101,7 @@ export function Footer() {
                   key={i}
                   whileHover={{ scale: 1.15, y: -5 }}
                   href="#" 
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-accent/40 transition-all text-gray-400 hover:text-white"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-primary/40 transition-all text-gray-400 hover:text-white"
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
@@ -117,7 +116,7 @@ export function Footer() {
               {footerLinks.navigation.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
-                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
+                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-primary opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
                     {link.name}
@@ -181,7 +180,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-            © {currentYear} LetsCatchUp. All rights reserved.
+            © {currentYear} Let's Catch Up. All rights reserved.
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-black text-gray-500">
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
