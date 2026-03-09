@@ -4,7 +4,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Sparkles, X, Minus } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Minus } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Table,
@@ -86,7 +86,7 @@ export default function PricingPage() {
       intl: "20 Users (₹10,000 / month)",
     },
     {
-      feature: "Student Information Management",
+      feature: "Student Information System",
       small: true,
       growing: true,
       intl: true,
@@ -111,9 +111,9 @@ export default function PricingPage() {
     },
     {
       feature: "Fee Management",
-      small: "Basic Record Keeping",
-      growing: "Online Payments + Payment Reminders",
-      intl: "Multi-Currency Payments + Scholarship Support",
+      small: "Core Fee Records",
+      growing: "Online Payments + Reminders",
+      intl: "Multi-Currency Payments + Scholarships",
     },
     {
       feature: "Timetable Scheduling",
@@ -143,7 +143,7 @@ export default function PricingPage() {
       feature: "User Roles & Permissions",
       small: "Not Included",
       growing: "Not Included",
-      intl: "Advanced Role & Permission Management",
+      intl: "Role & Permission Management",
     },
   ];
 
