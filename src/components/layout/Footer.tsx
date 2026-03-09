@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -83,8 +82,8 @@ export function Footer() {
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Building No.: 3-37, Old RC Puram,<br />
-                  Mumbai Highway, Hyderabad,<br />
-                  Sangareddy, Telangana – 502032
+                  Back Side ZPHS School, Mumbai Highway,<br />
+                  Hyderabad, Telangana – 502032
                 </p>
               </div>
               <div className="flex gap-4 items-center group">
