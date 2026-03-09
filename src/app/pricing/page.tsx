@@ -9,14 +9,14 @@ import { motion } from "framer-motion";
 
 export default function PricingPage() {
   const unifiedFeatures = [
-    "Digital Student Database",
-    "Smart Attendance System",
-    "Exams & Dynamic Gradebooks",
-    "Fee Collection & Invoicing",
-    "Staff Management & Payroll",
-    "Parent & Student Mobile App",
-    "SMS & Email Notifications",
-    "24/7 Institutional Support"
+    "Student Information Management",
+    "Attendance Tracking",
+    "Gradebook (basic features)",
+    "Parent-Teacher Communication",
+    "Fee Management (basic record-keeping)",
+    "Timetable Scheduling",
+    "Basic Reporting",
+    "Standard email support"
   ];
 
   const plans = [
