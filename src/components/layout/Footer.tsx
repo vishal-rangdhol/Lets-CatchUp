@@ -72,7 +72,7 @@ export function Footer() {
                 <Zap className="w-7 h-7 text-white" />
               </div>
               <span className="font-headline font-bold text-2xl tracking-tight text-white">
-                Let’s Catch Up
+                Let’s catch up
               </span>
             </Link>
             
@@ -84,7 +84,7 @@ export function Footer() {
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Building No.: 3-37, Old RC Puram,<br />
                   Mumbai Highway, Hyderabad,<br />
-                  Telangana – 502032
+                  Sangareddy, Telangana – 502032
                 </p>
               </div>
               <div className="flex gap-4 items-center group">
@@ -164,8 +164,8 @@ export function Footer() {
           <div className="lg:col-span-2 flex flex-col items-center lg:items-end justify-center">
             <div className="glass px-4 py-2 rounded-full border-white/5 flex items-center gap-3">
               <div className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2dd4bf] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2dd4bf]"></span>
               </div>
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300">System Online</span>
             </div>
@@ -180,7 +180,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-            © {currentYear} Let’s Catch Up. All rights reserved.
+            © {currentYear} Let’s catch up. All rights reserved.
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-black text-gray-500">
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, MapPin, Navigation } from "lucide-react";
+import { Mail, MapPin, Navigation, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
@@ -44,28 +44,33 @@ export default function ContactPage() {
             </div>
 
             <div className="grid gap-6">
-              <div className="flex gap-5 items-start glass-card p-6 border-white/5 group">
+              <div className="flex gap-5 items-start glass-card p-6 border-white/5 group relative overflow-hidden">
+                {/* Visual indicator */}
+                <div className="absolute top-0 left-0 w-1 h-full bg-accent-gradient opacity-50" />
+                
                 <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform shadow-xl border border-white/10">
-                  <MapPin className="w-6 h-6 text-emerald-400 glow-icon" />
+                  <MapPin className="w-6 h-6 text-accent glow-icon" />
                 </div>
-                <div>
-                  <p className="text-[10px] text-accent uppercase tracking-widest font-black mb-1">Our Office</p>
+                <div className="space-y-1">
+                  <p className="text-[10px] text-accent uppercase tracking-widest font-black">Our Office</p>
                   <div className="font-bold text-sm text-gray-200 leading-relaxed">
                     Building No.: 3-37<br />
                     Old RC Puram, Back Side ZPHS School<br />
                     Mumbai Highway, Hyderabad<br />
+                    Nearby: Shri Durga Bhawani Steel Work<br />
                     Ramachandrapuram, Sangareddy<br />
                     Telangana – 502032
                   </div>
                 </div>
               </div>
               
-              <div className="flex gap-5 items-center glass-card p-6 border-white/5 group">
+              <div className="flex gap-5 items-center glass-card p-6 border-white/5 group relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-accent-gradient opacity-50" />
                 <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform shadow-xl border border-white/10">
                   <Mail className="w-6 h-6 text-accent glow-icon" />
                 </div>
-                <div>
-                  <p className="text-[10px] text-accent uppercase tracking-widest font-black mb-1">Email Us</p>
+                <div className="space-y-1">
+                  <p className="text-[10px] text-accent uppercase tracking-widest font-black">Email Us</p>
                   <p className="font-bold text-lg text-white">support@letscatchup.com</p>
                 </div>
               </div>
@@ -91,8 +96,9 @@ export default function ContactPage() {
                 <Label htmlFor="message" className="text-gray-300 font-bold uppercase tracking-widest text-[10px]">Message</Label>
                 <Textarea id="message" placeholder="How can we help?" className="bg-white/5 border-white/10 min-h-[160px] rounded-xl p-4 focus-visible:ring-accent" required />
               </div>
-              <Button type="submit" className="w-full bg-accent-gradient hover:opacity-90 h-16 rounded-full text-xl font-black shadow-lg border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
-                Send Message
+              <Button type="submit" className="w-full bg-accent-gradient hover:opacity-90 h-16 rounded-full text-xl font-black shadow-lg border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest flex items-center justify-center gap-3">
+                <span>Send Message</span>
+                <Send className="w-5 h-5" />
               </Button>
             </form>
           </motion.div>
@@ -114,7 +120,7 @@ export default function ContactPage() {
           </div>
 
           <div className="relative group">
-            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[40px] bg-gradient-to-br from-primary/30 to-accent/30 opacity-40 transition-all duration-500 group-hover:opacity-70 group-hover:-bottom-5 group-hover:-right-5" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[40px] bg-accent-gradient opacity-20 transition-all duration-500 group-hover:opacity-40 group-hover:-bottom-5 group-hover:-right-5" />
 
             <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[40px] p-3 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
               <div className="relative h-[500px] w-full rounded-[32px] overflow-hidden grayscale contrast-125 opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
