@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -16,6 +17,7 @@ export function Footer() {
       { name: "About Us", href: "/about" },
       { name: "Pricing", href: "/pricing" },
       { name: "Testimonials", href: "/testimonials" },
+      { name: "FAQ", href: "/faq" },
     ],
     services: [
       { name: "Institutions", href: "/services/educational-institutions" },
@@ -70,14 +72,14 @@ export function Footer() {
                 <Zap className="w-7 h-7 text-white" />
               </div>
               <span className="font-headline font-bold text-2xl tracking-tight text-white">
-                Let's Catch Up
+                Let’s Catch Up
               </span>
             </Link>
             
             <div className="space-y-4">
               <div className="flex gap-4 items-start group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 transition-colors">
-                  <MapPin className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
+                  <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Building No.: 3-37, Old RC Puram,<br />
@@ -86,8 +88,8 @@ export function Footer() {
                 </p>
               </div>
               <div className="flex gap-4 items-center group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
+                  <Mail className="w-4 h-4 text-accent" />
                 </div>
                 <p className="text-gray-400 text-sm">support@letscatchup.com</p>
               </div>
@@ -99,7 +101,7 @@ export function Footer() {
                   key={i}
                   whileHover={{ scale: 1.15, y: -5 }}
                   href="#" 
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-primary/40 transition-all text-gray-400 hover:text-white"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-accent/40 transition-all text-gray-400 hover:text-white"
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
@@ -178,7 +180,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-            © {currentYear} Let's Catch Up. All rights reserved.
+            © {currentYear} Let’s Catch Up. All rights reserved.
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-black text-gray-500">
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
