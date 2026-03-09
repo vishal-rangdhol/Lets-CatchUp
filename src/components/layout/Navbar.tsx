@@ -9,12 +9,6 @@ import { Menu, X, GraduationCap, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -24,6 +18,7 @@ import {
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -72,25 +67,21 @@ export function Navbar() {
           paddingBottom: "1.5rem",
           borderBottomColor: "rgba(255, 255, 255, 0)",
           borderRadius: "0px",
-          boxShadow: "0 0 0 rgba(0,0,0,0)",
         },
         scrolled: {
           y: 10,
           width: "calc(100% - 3rem)",
           left: "1.5rem",
-          backgroundColor: "rgba(45, 65, 155, 0.98)",
+          backgroundColor: "rgba(20, 29, 75, 0.95)",
           backdropFilter: "blur(20px)",
-          paddingTop: "0.85rem",
-          paddingBottom: "0.85rem",
-          borderBottomColor: "rgba(255, 255, 255, 0.25)",
+          paddingTop: "0.75rem",
+          paddingBottom: "0.75rem",
+          borderBottomColor: "rgba(255, 255, 255, 0.15)",
           borderRadius: "2.5rem",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6)",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
         },
       }}
-      transition={{ 
-        duration: 0.6, 
-        ease: [0.22, 1, 0.36, 1] 
-      }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 z-50 px-6 border-b"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between relative h-full">
@@ -108,59 +99,78 @@ export function Navbar() {
         </Link>
 
         {/* Center Group: Navigation Items */}
-        <div className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full py-2">
-          <div className="flex items-center gap-6">
+        <div className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full">
+          <div className="flex items-center gap-4">
             {navItems.map((item) => {
-              if (item.type === "dropdown") {
-                const isActive = item.items?.some(sub => pathname === sub.href);
-                return (
-                  <DropdownMenu key={item.name}>
-                    <DropdownMenuTrigger asChild>
-                      <motion.div
+              const isActive = item.type === "dropdown" 
+                ? item.items?.some(sub => pathname === sub.href)
+                : pathname === item.href;
+
+              return (
+                <div 
+                  key={item.name} 
+                  className="relative group py-4"
+                  onMouseEnter={() => setHoveredItem(item.name)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  <div className="flex items-center">
+                    {item.type === "link" ? (
+                      <Link href={item.href!}>
+                        <motion.span
+                          className={cn(
+                            "inline-block text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full",
+                            isActive ? "text-accent bg-white/10" : "text-gray-300 hover:text-white"
+                          )}
+                          whileHover={{ scale: 1.15, x: 0 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        >
+                          {item.name}
+                        </motion.span>
+                      </Link>
+                    ) : (
+                      <div
                         className={cn(
-                          "inline-flex items-center gap-1 text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-3 py-1.5 rounded-full outline-none",
+                          "inline-flex items-center gap-1 text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full",
                           isActive ? "text-accent bg-white/10" : "text-gray-300 hover:text-white"
                         )}
-                        whileHover={{ scale: 1.1 }}
                       >
                         {item.name}
-                        <ChevronDown className="w-3 h-3 opacity-50" />
-                      </motion.div>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="glass border-white/10 rounded-2xl p-2 min-w-[200px] mt-2">
-                      {item.items?.map((sub) => (
-                        <DropdownMenuItem key={sub.name} asChild className="rounded-xl focus:bg-white/10 focus:text-accent">
-                          <Link href={sub.href} className="w-full px-4 py-2 text-sm font-semibold">
-                            {sub.name}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                );
-              }
+                        <ChevronDown className={cn("w-3 h-3 opacity-50 transition-transform duration-300", hoveredItem === item.name && "rotate-180")} />
+                      </div>
+                    )}
+                  </div>
 
-              const isActive = pathname === item.href;
-              return (
-                <div key={item.name} className="relative flex items-center h-full">
-                  <Link href={item.href!} className="flex items-center h-full">
-                    <motion.span
-                      className={cn(
-                        "inline-block text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-3 py-1.5 rounded-full",
-                        isActive 
-                          ? "text-accent bg-white/10 shadow-[0_0_15px_rgba(79,209,197,0.2)]" 
-                          : "text-gray-300 hover:text-white"
+                  {/* Hover Dropdown Content */}
+                  {item.type === "dropdown" && (
+                    <AnimatePresence>
+                      {hoveredItem === item.name && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-0 pt-2 w-max min-w-[220px] z-50"
+                        >
+                          <div className="bg-[#141d4b]/95 backdrop-blur-xl border border-white/10 rounded-[24px] p-2 shadow-2xl">
+                            {item.items?.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sub.href}
+                                className={cn(
+                                  "block px-5 py-3 rounded-xl text-sm font-bold transition-all",
+                                  pathname === sub.href 
+                                    ? "text-accent bg-white/10" 
+                                    : "text-gray-300 hover:bg-white/5 hover:text-white"
+                                )}
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
                       )}
-                      whileHover={{ 
-                        scale: 1.25,
-                        marginInline: "0.75rem",
-                        color: "hsl(var(--accent))",
-                      }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                      {item.name}
-                    </motion.span>
-                  </Link>
+                    </AnimatePresence>
+                  )}
                 </div>
               );
             })}
