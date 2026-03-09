@@ -114,7 +114,7 @@ export function Footer() {
               {footerLinks.navigation.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
-                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-primary opacity-0 group-hover:opacity-100">
+                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
                     {link.name}
@@ -131,7 +131,7 @@ export function Footer() {
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
-                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-primary opacity-0 group-hover:opacity-100">
+                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
                     {link.name}
@@ -148,7 +148,7 @@ export function Footer() {
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
-                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-emerald-400 opacity-0 group-hover:opacity-100">
+                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
                     {link.name}

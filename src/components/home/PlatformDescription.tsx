@@ -3,7 +3,7 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Globe, Sparkles } from "lucide-react";
+import { GraduationCap, Briefcase, Globe, Sparkles, Library } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function PlatformDescription() {
@@ -11,6 +11,7 @@ export function PlatformDescription() {
     { name: "Schools", icon: GraduationCap, color: "text-accent" },
     { name: "Startups", icon: Briefcase, color: "text-primary" },
     { name: "Organizations", icon: Globe, color: "text-rose-400" },
+    { name: "Educational Institutes", icon: Library, color: "text-emerald-400" },
   ];
 
   return (
