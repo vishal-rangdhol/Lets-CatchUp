@@ -4,8 +4,16 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight, Sparkles, X, Minus } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export default function PricingPage() {
   const plans = [
@@ -70,15 +78,97 @@ export default function PricingPage() {
     },
   ];
 
+  const comparisonData = [
+    {
+      feature: "Minimum Users",
+      small: "5 Users (₹1500 / month)",
+      growing: "50 Users (₹12,500 / month)",
+      intl: "20 Users (₹10,000 / month)",
+    },
+    {
+      feature: "Student Information Management",
+      small: true,
+      growing: true,
+      intl: true,
+    },
+    {
+      feature: "Attendance Tracking",
+      small: true,
+      growing: true,
+      intl: true,
+    },
+    {
+      feature: "Academic Gradebook",
+      small: "Basic",
+      growing: "Advanced",
+      intl: "Advanced",
+    },
+    {
+      feature: "Parent–Teacher Communication",
+      small: "Basic Messaging",
+      growing: "Messaging + Meetings",
+      intl: "Advanced Messaging + Website Integration",
+    },
+    {
+      feature: "Fee Management",
+      small: "Basic Record Keeping",
+      growing: "Online Payments + Payment Reminders",
+      intl: "Multi-Currency Payments + Scholarship Support",
+    },
+    {
+      feature: "Timetable Scheduling",
+      small: true,
+      growing: true,
+      intl: true,
+    },
+    {
+      feature: "Reports & Analytics",
+      small: "Basic Reports",
+      growing: "Advanced Reports",
+      intl: "Customizable Reports",
+    },
+    {
+      feature: "LMS Integration",
+      small: "Not Included",
+      growing: "Basic LMS Integration",
+      intl: "Advanced LMS Integration",
+    },
+    {
+      feature: "Support",
+      small: "Standard Email Support",
+      growing: "Priority Email Support",
+      intl: "Dedicated Customer Support",
+    },
+    {
+      feature: "User Roles & Permissions",
+      small: "Not Included",
+      growing: "Not Included",
+      intl: "Advanced Role & Permission Management",
+    },
+  ];
+
+  const renderVal = (val: string | boolean) => {
+    if (typeof val === "boolean") {
+      return val ? (
+        <Check className="w-5 h-5 text-accent mx-auto" />
+      ) : (
+        <Minus className="w-5 h-5 text-gray-600 mx-auto" />
+      );
+    }
+    return <span className="text-sm font-medium text-gray-300">{val}</span>;
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto space-y-16">
+      <div className="max-w-7xl mx-auto space-y-24">
+        {/* Header */}
         <div className="text-center space-y-6 max-w-3xl mx-auto">
           <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">Pricing Plans</Badge>
           <h1 className="text-5xl font-headline font-bold">Choose Your <span className="text-gradient">Path</span></h1>
           <p className="text-xl text-gray-400">Scale your institution with flexible plans designed for growth.</p>
         </div>
 
+        {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, i) => (
             <motion.div 
@@ -126,8 +216,8 @@ export default function PricingPage() {
                 <div className="flex-1 space-y-5 mb-12">
                   {plan.features.map((feature, j) => (
                     <div key={j} className="flex items-center gap-4 group/item">
-                      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                        <Check className="w-3.5 h-3.5 text-orange-500 stroke-[3px]" />
+                      <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                        <Check className="w-3.5 h-3.5 text-accent stroke-[3px]" />
                       </div>
                       <span className="text-sm text-gray-300 font-medium">{feature}</span>
                     </div>
@@ -146,6 +236,44 @@ export default function PricingPage() {
             </motion.div>
           ))}
         </div>
+
+        {/* Comparison Table Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-16 pt-12"
+        >
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-headline font-bold tracking-tight">Compare <span className="text-gradient">Plans</span></h2>
+            <p className="text-gray-400 font-medium">A side-by-side look at our institutional capabilities.</p>
+          </div>
+
+          <div className="glass-card p-4 md:p-8 border-white/10 overflow-hidden shadow-2xl">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader className="border-white/10 bg-white/5">
+                  <TableRow className="hover:bg-transparent border-white/10">
+                    <TableHead className="w-[300px] text-gray-400 font-bold uppercase tracking-widest text-[10px] py-6">Features</TableHead>
+                    <TableHead className="text-center text-teal-400 font-bold uppercase tracking-widest text-[10px] py-6">Small School</TableHead>
+                    <TableHead className="text-center text-primary font-bold uppercase tracking-widest text-[10px] py-6">Growing School</TableHead>
+                    <TableHead className="text-center text-rose-400 font-bold uppercase tracking-widest text-[10px] py-6">International School</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {comparisonData.map((row, idx) => (
+                    <TableRow key={idx} className="border-white/5 hover:bg-white/5 transition-colors">
+                      <TableCell className="font-bold text-white py-6">{row.feature}</TableCell>
+                      <TableCell className="text-center py-6">{renderVal(row.small)}</TableCell>
+                      <TableCell className="text-center py-6 bg-primary/5">{renderVal(row.growing)}</TableCell>
+                      <TableCell className="text-center py-6">{renderVal(row.intl)}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
