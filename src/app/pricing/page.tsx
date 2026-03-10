@@ -133,12 +133,12 @@ export default function PricingPage() {
   const renderVal = (val: string | boolean) => {
     if (typeof val === "boolean") {
       return val ? (
-        <div className="flex justify-center"><Check className="w-6 h-6 text-accent drop-shadow-[0_0_8px_rgba(45,212,191,0.5)]" /></div>
+        <div className="flex justify-center"><Check className="w-5 h-5 text-accent drop-shadow-[0_0_8px_rgba(45,212,191,0.5)]" /></div>
       ) : (
-        <div className="flex justify-center"><Minus className="w-6 h-6 text-white/20" /></div>
+        <div className="flex justify-center"><Minus className="w-5 h-5 text-white/20" /></div>
       );
     }
-    return <span className="text-sm md:text-base font-bold text-gray-300">{val}</span>;
+    return <span className="text-sm font-bold text-gray-300">{val}</span>;
   };
 
   return (
@@ -180,7 +180,7 @@ export default function PricingPage() {
                   <p className="text-[10px] text-accent mt-2 font-black uppercase tracking-widest">{plan.min}</p>
                 </div>
 
-                <div className="flex-1 space-y-5 mb-12">
+                <div className="flex-1 space-y-4 mb-12">
                   {plan.features.slice(0, 6).map((feature, j) => (
                     <div key={j} className="flex items-center gap-4 group/item">
                       <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
@@ -217,30 +217,30 @@ export default function PricingPage() {
             <p className="text-gray-400 font-medium">A detailed look at our institutional tools.</p>
           </div>
 
-          <div className="relative group">
+          <div className="relative group max-w-6xl mx-auto">
             {/* Architectural Layered Effect */}
             <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[40px] bg-accent-gradient opacity-10 -z-10" />
 
             <div className="glass-card border-white/10 overflow-hidden shadow-2xl bg-gradient-to-br from-[#1e294b] to-[#0f172a]">
-              <div className="overflow-x-auto scrollbar-hide">
-                <Table className="min-w-[800px] md:min-w-full">
+              <div className="overflow-x-auto">
+                <Table>
                   <TableHeader className="bg-white/5">
                     <TableRow className="hover:bg-transparent border-white/10">
-                      <TableHead className="w-[200px] md:w-[300px] text-gray-200 font-black uppercase tracking-[0.2em] text-[10px] py-8 pl-8 sticky left-0 bg-[#1e294b] z-20">Features</TableHead>
-                      <TableHead className="text-center text-teal-400 font-black uppercase tracking-[0.2em] text-[10px] py-8">Small School</TableHead>
-                      <TableHead className="text-center text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px] py-8 bg-white/5">Growing School</TableHead>
-                      <TableHead className="text-center text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] py-8">International</TableHead>
+                      <TableHead className="w-[260px] text-gray-200 font-black uppercase tracking-[0.2em] text-[10px] py-5 px-6">Features</TableHead>
+                      <TableHead className="text-center text-teal-400 font-black uppercase tracking-[0.2em] text-[10px] py-5">Small School</TableHead>
+                      <TableHead className="text-center text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px] py-5 bg-white/5">Growing School</TableHead>
+                      <TableHead className="text-center text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] py-5">International</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {comparisonData.map((row, idx) => (
                       <TableRow key={idx} className="border-white/5 hover:bg-white/5 transition-colors group/row">
-                        <TableCell className="font-bold text-white py-6 pl-8 text-lg md:text-2xl sticky left-0 bg-[#1e294b]/95 backdrop-blur-xl z-10 group-hover/row:text-accent transition-colors">
+                        <TableCell className="font-bold text-white py-4 px-6 text-base md:text-xl group-hover/row:text-accent transition-colors">
                           {row.feature}
                         </TableCell>
-                        <TableCell className="text-center py-6">{renderVal(row.small)}</TableCell>
-                        <TableCell className="text-center py-6 bg-white/5">{renderVal(row.growing)}</TableCell>
-                        <TableCell className="text-center py-6">{renderVal(row.intl)}</TableCell>
+                        <TableCell className="text-center py-4">{renderVal(row.small)}</TableCell>
+                        <TableCell className="text-center py-4 bg-white/5">{renderVal(row.growing)}</TableCell>
+                        <TableCell className="text-center py-4">{renderVal(row.intl)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
