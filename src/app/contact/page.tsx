@@ -113,7 +113,7 @@ export default function ContactPage() {
               <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">
                 Connect With Us
               </Badge>
-              <h1 className="text-6xl font-headline font-bold leading-tight">
+              <h1 className="text-6xl font-headline font-bold leading-tight text-white">
                 Let's <span className="text-gradient">Catch Up</span>
               </h1>
               <p className="text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
@@ -272,7 +272,7 @@ export default function ContactPage() {
           className="space-y-12"
         >
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-headline font-bold">Our <span className="text-gradient">Location</span></h2>
+            <h2 className="text-4xl md:text-5xl font-headline font-bold text-white">Our <span className="text-gradient">Location</span></h2>
           </div>
 
           <div className="relative group max-w-5xl mx-auto">
@@ -300,8 +300,8 @@ export default function ContactPage() {
                 {/* Click Overlay */}
                 <div className="absolute inset-0 bg-black/20 group-hover/map:bg-black/0 transition-all flex flex-col items-center justify-center opacity-0 group-hover/map:opacity-100">
                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-full shadow-2xl scale-90 group-hover/map:scale-100 transition-transform">
-                    {/* Updated Redirect Icon Color to rgb(56, 190, 199) */}
-                    <ExternalLink className="w-8 h-8 text-[#38bec7]" />
+                    {/* Redirect Icon Color updated to theme blue (primary) */}
+                    <ExternalLink className="w-8 h-8 text-primary" />
                   </div>
                   <span className="mt-4 text-white font-black uppercase tracking-widest text-xs">Open in Google Maps</span>
                 </div>
