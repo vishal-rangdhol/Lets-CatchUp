@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -29,6 +28,29 @@ export function Footer() {
       { name: "Refund Policy", href: "#" },
     ]
   };
+
+  const socialLinks = [
+    { 
+      Icon: Facebook, 
+      href: "https://www.facebook.com/people/Kandhugule-Consultancy-Services/61563863545091/#",
+      label: "Facebook"
+    },
+    { 
+      Icon: Twitter, 
+      href: "#",
+      label: "Twitter"
+    },
+    { 
+      Icon: Instagram, 
+      href: "https://www.instagram.com/kandhuguleconsultancyservices/",
+      label: "Instagram"
+    },
+    { 
+      Icon: Linkedin, 
+      href: "https://www.linkedin.com/company/kandhuguleconsultancyservicespvtltd/posts/?feedView=all",
+      label: "LinkedIn"
+    },
+  ];
 
   return (
     <footer className="relative pt-32 pb-12 bg-[#0b0f2f] overflow-hidden">
@@ -68,7 +90,7 @@ export function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="bg-accent-gradient w-12 h-12 rounded-xl shadow-xl flex items-center justify-center transition-transform group-hover:scale-110">
+              <div className="bg-accent-gradient w-12 h-12 rounded-xl shadow-xl flex items-center justify-center transition-transform">
                 <span className="text-white font-black text-lg leading-none tracking-tighter">LC</span>
               </div>
               <span className="font-headline font-bold text-2xl tracking-tight text-white">
@@ -98,11 +120,14 @@ export function Footer() {
             </div>
 
             <div className="flex gap-3">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+              {socialLinks.map(({ Icon, href, label }, i) => (
                 <motion.a 
                   key={i}
                   whileHover={{ scale: 1.15, y: -5 }}
-                  href="#" 
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-accent/40 transition-all text-gray-400 hover:text-white"
                 >
                   <Icon className="w-5 h-5" />
