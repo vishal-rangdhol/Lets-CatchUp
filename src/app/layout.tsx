@@ -9,7 +9,12 @@ export const metadata: Metadata = {
   title: "Let's Catch Up | Modern LMS Platform",
   description: 'Empower your future with high-quality online courses and personalized learning paths.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 };
 
