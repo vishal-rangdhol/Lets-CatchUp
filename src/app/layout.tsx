@@ -8,6 +8,9 @@ import { GlobalBackground } from '@/components/layout/GlobalBackground';
 export const metadata: Metadata = {
   title: "Let's Catch Up | Modern LMS Platform",
   description: 'Empower your future with high-quality online courses and personalized learning paths.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
