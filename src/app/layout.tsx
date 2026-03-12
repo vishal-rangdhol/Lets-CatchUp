@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Empower your future with high-quality online courses and personalized learning paths.',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
+      { url: '/favicon-v2.ico' },
       { url: '/icon.png', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
