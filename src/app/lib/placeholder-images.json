@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -75,7 +76,7 @@
     {
       "id": "iso-logo",
       "description": "ISO Certified Company Logo",
-      "imageUrl": "https://picsum.photos/seed/iso-logo/200/200",
+      "imageUrl": "/iso-logo.png",
       "imageHint": "iso certification"
     }
   ]
