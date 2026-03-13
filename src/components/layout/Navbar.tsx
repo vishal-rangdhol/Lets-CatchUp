@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -21,10 +20,8 @@ import { cn } from "@/lib/utils";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Separator } from "@/components/ui/separator";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -109,7 +106,7 @@ export function Navbar() {
           y: 12,
           width: "calc(100% - 2rem)",
           left: "1rem",
-          backgroundColor: "rgba(20, 29, 75, 0.95)",
+          backgroundColor: "rgba(15, 21, 61, 0.95)",
           backdropFilter: "blur(24px)",
           paddingTop: "0.5rem",
           paddingBottom: "0.5rem",
@@ -201,12 +198,6 @@ export function Navbar() {
                       </div>
                       <span className="text-white font-headline font-bold text-xl tracking-tight">Let's Catch Up</span>
                     </div>
-                    
-                    <div className="flex items-center gap-2 mb-2">
-                      <MenuIcon className="w-4 h-4 text-accent" />
-                      <span className="text-white/60 font-black uppercase tracking-[0.2em] text-[10px]">Menu</span>
-                    </div>
-                    <Separator className="bg-white/10" />
                   </div>
                   
                   <nav className="flex flex-col gap-2 relative z-10 flex-1 px-6">
