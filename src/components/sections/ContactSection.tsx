@@ -46,22 +46,22 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="py-24 px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-32">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <div className="max-w-7xl mx-auto space-y-20 md:space-y-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-10 lg:sticky lg:top-32"
+            className="space-y-8 lg:sticky lg:top-32"
           >
             <div className="space-y-6">
               <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">
                 Connect With Us
               </Badge>
-              <h2 className="text-5xl md:text-6xl font-headline font-bold leading-tight text-white">
+              <h2 className="text-4xl md:text-6xl font-headline font-bold leading-tight text-white">
                 Let's <span className="text-gradient">Catch Up</span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
+              <p className="text-base md:text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
                 Have questions about our programs or interested in a partnership? Our team is here to help you scale your potential.
               </p>
             </div>
@@ -101,27 +101,27 @@ export function ContactSection() {
             className="relative group"
           >
             <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-full h-full rounded-3xl md:rounded-[40px] bg-accent-gradient opacity-20 transition-all duration-500 group-hover:opacity-30 -z-10" />
-            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-3xl md:rounded-[40px] p-6 md:p-10 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
-              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8 relative z-10">
+            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-3xl md:rounded-[40px] p-5 md:p-10 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-8 relative z-10">
                 <div className="grid md:grid-cols-2 gap-4 md:gap-8">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-12 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Email Address</Label>
-                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-11 md:h-12 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Subject</Label>
-                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-12 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Message</Label>
-                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[100px] md:min-h-[180px] rounded-xl md:rounded-2xl p-5 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
+                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[80px] md:min-h-[180px] rounded-xl md:rounded-2xl p-4 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
-                <Button type="submit" disabled={loading} className="w-full bg-accent-gradient h-12 md:h-16 rounded-full text-lg md:text-xl font-black shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
+                <Button type="submit" disabled={loading} className="w-full bg-accent-gradient h-11 md:h-16 rounded-full text-base md:text-xl font-black shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
                   {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -189,10 +188,10 @@ export function Navbar() {
                   <Menu className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-accent group-hover:drop-shadow-[0_0_10px_hsla(var(--accent)/1)]" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="bg-blue-900/98 border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
+              <SheetContent side="left" className="bg-blue-600/95 border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
                 <div className="flex flex-col h-full p-6 md:p-8 relative overflow-hidden">
-                  <div className="absolute top-[-100px] left-[-100px] w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
-                  <div className="absolute bottom-[-100px] right-[-100px] w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
+                  <div className="absolute top-[-100px] left-[-100px] w-64 h-64 bg-accent/20 rounded-full blur-[80px] pointer-events-none" />
+                  <div className="absolute bottom-[-100px] right-[-100px] w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
 
                   <SheetHeader className="text-left mb-8 relative z-10">
                     <SheetTitle className="text-white font-headline font-bold text-2xl flex items-center gap-4">
@@ -222,12 +221,12 @@ export function Navbar() {
                               "flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-300 group relative overflow-hidden",
                               isActive 
                                 ? "bg-accent-gradient text-white shadow-xl shadow-accent/10" 
-                                : "text-gray-400 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/5"
+                                : "text-gray-400 hover:text-white hover:bg-white/10 border border-transparent hover:border-white/20"
                             )}
                           >
                             <item.icon className={cn(
                               "w-5 h-5 transition-transform duration-300 group-hover:scale-110",
-                              isActive ? "text-white" : "text-accent/60"
+                              isActive ? "text-white" : "text-white/60"
                             )} />
                             <span className="font-bold text-base tracking-tight">{item.name}</span>
                             {isActive && (
@@ -242,7 +241,7 @@ export function Navbar() {
                     })}
                   </nav>
 
-                  <div className="mt-auto pt-6 border-t border-white/10 flex flex-col gap-3 relative z-10">
+                  <div className="mt-auto pt-6 border-t border-white/20 flex flex-col gap-3 relative z-10">
                     <Link 
                       href="https://app.letscatchup-kcs.com/"
                       onClick={() => setIsOpen(false)}
@@ -261,13 +260,13 @@ export function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="w-full"
                     >
-                      <Button variant="outline" className="w-full h-12 rounded-2xl border-white/10 bg-white/5 text-white font-bold gap-3 hover:bg-white/10 hover:text-accent hover:border-accent/40 transition-all">
+                      <Button variant="outline" className="w-full h-12 rounded-2xl border-white/20 bg-white/10 text-white font-bold gap-3 hover:bg-white/20 hover:text-accent hover:border-accent/40 transition-all">
                         <Phone className="w-4 h-4 text-accent" />
                         Get in touch
                       </Button>
                     </Link>
                     
-                    <p className="text-center text-[8px] text-gray-500 uppercase tracking-[0.3em] font-black mt-2">
+                    <p className="text-center text-[8px] text-white/50 uppercase tracking-[0.3em] font-black mt-2">
                       Lets Catch Up v2.0
                     </p>
                   </div>

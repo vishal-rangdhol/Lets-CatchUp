@@ -59,7 +59,7 @@ export function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-5xl mx-auto mb-20 space-y-12"
+          className="text-center max-w-5xl mx-auto mb-16 md:mb-20 space-y-12"
         >
           <div className="space-y-6">
             <div className="flex justify-center">
