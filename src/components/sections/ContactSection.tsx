@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -29,12 +28,12 @@ export function ContactSection() {
     }
     try {
       setLoading(true);
-      // Simulate sending mail to support@letscatchup.com with user context
+      // Simulate sending mail to info@kandhugule-kcs.com with user context
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({ 
         title: "Message Sent!", 
-        description: `Your interest has been recorded and sent to support@letscatchup.com.` 
+        description: `Your interest has been recorded and sent to info@kandhugule-kcs.com.` 
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error: any) {
@@ -89,7 +88,7 @@ export function ContactSection() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-[10px] text-accent uppercase tracking-widest font-black">Direct Communication</p>
-                  <p className="font-bold text-lg text-white">support@letscatchup.com</p>
+                  <p className="font-bold text-lg text-white">info@kandhugule-kcs.com</p>
                 </div>
               </div>
             </div>

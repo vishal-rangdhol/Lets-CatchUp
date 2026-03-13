@@ -87,7 +87,7 @@ export function Footer() {
       
       toast({
         title: "Subscription Successful!",
-        description: `Your interest for updates has been sent to support@letscatchup.com. Registered: ${email}`,
+        description: `Your interest for updates has been sent to info@kandhugule-kcs.com. Registered: ${email}`,
       });
       setEmail("");
     } catch (error) {
@@ -170,7 +170,7 @@ export function Footer() {
                 <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
                   <Mail className="w-3 h-3 md:w-4 md:h-4 text-accent" />
                 </div>
-                <p className="text-gray-400 text-sm">support@letscatchup.com</p>
+                <p className="text-gray-400 text-sm">info@kandhugule-kcs.com</p>
               </div>
             </div>
 
