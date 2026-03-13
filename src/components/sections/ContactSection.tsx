@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -102,25 +101,25 @@ export function ContactSection() {
             className="relative group"
           >
             <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-full h-full rounded-3xl md:rounded-[40px] bg-accent-gradient opacity-20 transition-all duration-500 group-hover:opacity-30 -z-10" />
-            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-3xl md:rounded-[40px] p-6 md:p-12 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-3xl md:rounded-[40px] p-6 md:p-10 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
               <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8 relative z-10">
                 <div className="grid md:grid-cols-2 gap-4 md:gap-8">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-14 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-12 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Email Address</Label>
-                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-11 md:h-14 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-11 md:h-12 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Subject</Label>
-                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-14 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-12 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Message</Label>
-                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[120px] md:min-h-[180px] rounded-xl md:rounded-2xl p-5 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
+                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[100px] md:min-h-[180px] rounded-xl md:rounded-2xl p-5 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
                 <Button type="submit" disabled={loading} className="w-full bg-accent-gradient h-12 md:h-16 rounded-full text-lg md:text-xl font-black shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
                   {loading ? "Sending..." : "Send Message"}
