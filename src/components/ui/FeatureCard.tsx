@@ -75,7 +75,7 @@ export function FeatureCard({
             {title}
           </h3>
 
-          <p className="text-[#cfd6ec] text-[11px] md:text-sm leading-relaxed mt-2 md:mt-5 flex-1 z-20 relative font-medium">
+          <p className="text-[#cfd6ec] text-[10px] md:text-sm leading-relaxed mt-2 md:mt-5 flex-1 z-20 relative font-medium">
             {description}
           </p>
 

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -39,7 +38,7 @@ export default function FAQPage() {
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
 
-      <div className="max-w-4xl mx-auto space-y-20 relative z-10">
+      <div className="max-w-4xl mx-auto space-y-16 md:space-y-20 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,17 +72,17 @@ export default function FAQPage() {
               <HelpCircle size={160} strokeWidth={1} />
             </div>
 
-            <Accordion type="single" collapsible className="w-full space-y-6 relative z-10">
+            <Accordion type="single" collapsible className="w-full space-y-4 md:space-y-6 relative z-10">
               {faqs.map((faq, i) => (
                 <AccordionItem 
                   key={i} 
                   value={`item-${i}`} 
                   className="border-white/5 bg-white/5 rounded-2xl px-6 md:px-8 border hover:bg-white/10 transition-all duration-300"
                 >
-                  <AccordionTrigger className="text-lg md:text-xl font-bold hover:text-accent py-6 transition-all text-left hover:no-underline gap-4">
+                  <AccordionTrigger className="text-base md:text-xl font-bold hover:text-accent py-6 transition-all text-left hover:no-underline gap-4">
                     <span className="flex-1">{faq.q}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base md:text-lg text-gray-400 leading-relaxed pb-8 pt-2 font-medium">
+                  <AccordionContent className="text-xs md:text-lg text-gray-400 leading-relaxed pb-8 pt-2 font-medium">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>

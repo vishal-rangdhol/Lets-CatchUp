@@ -68,7 +68,7 @@ export function Invitation() {
             <h2 className="text-4xl md:text-7xl font-headline font-bold leading-tight tracking-tight text-white">
               Join the <span className="text-gradient">Movement</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-sm md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium">
               We are building the architecture of the next decade. Be part of a transition that prioritizes utility, safety, and human growth over engagement metrics.
             </p>
           </motion.div>
@@ -136,7 +136,7 @@ export function Invitation() {
                             <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 opacity-5 pointer-events-none -z-10">
                                 <Icon size={160} strokeWidth={0.5} className={inv.hoverText} />
                             </div>
-                            <p className="text-sm md:text-xl text-gray-400 leading-relaxed font-medium relative z-10">
+                            <p className="text-[10px] md:text-xl text-gray-400 leading-relaxed font-medium relative z-10">
                               {inv.desc}
                             </p>
                           </div>

@@ -63,7 +63,7 @@ export function TestimonialCard({
             ))}
           </div>
 
-          <p className="text-base md:text-2xl text-gray-200 italic leading-relaxed font-medium tracking-tight">
+          <p className="text-xs md:text-2xl text-gray-200 italic leading-relaxed font-medium tracking-tight">
             "{quote}"
           </p>
         </div>

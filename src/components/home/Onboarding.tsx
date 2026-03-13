@@ -91,7 +91,7 @@ export function Onboarding() {
 
                   <div className="space-y-2 md:space-y-3">
                     <h3 className="text-lg md:text-xl font-bold tracking-tight">{step.title}</h3>
-                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-medium">
+                    <p className="text-gray-400 text-[10px] md:text-sm leading-relaxed font-medium">
                       {step.description}
                     </p>
                   </div>

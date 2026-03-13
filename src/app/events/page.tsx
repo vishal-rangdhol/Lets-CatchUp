@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -44,7 +43,7 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto space-y-24">
+      <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
@@ -86,13 +85,13 @@ export default function EventsPage() {
           </motion.div>
         </div>
 
-        {/* Events Grid - Using the Horizontal Layered Panel Effect */}
-        <div className="space-y-16">
+        {/* Events Grid */}
+        <div className="space-y-12 md:space-y-16">
           <div className="text-center">
             <h2 className="text-4xl lg:text-5xl font-headline font-bold">Event Calendar</h2>
           </div>
           
-          <div className="grid gap-12">
+          <div className="grid gap-8 md:gap-12">
             {events.map((event, i) => (
               <motion.div 
                 key={i} 
@@ -126,21 +125,21 @@ export default function EventsPage() {
                       <h3 className="text-2xl md:text-4xl font-bold tracking-tight group-hover:text-accent transition-colors">
                         {event.title}
                       </h3>
-                      <p className="text-gray-400 text-base md:text-lg leading-relaxed font-medium">
+                      <p className="text-gray-400 text-xs md:text-lg leading-relaxed font-medium">
                         {event.description}
                       </p>
                     </div>
 
                     <div className="flex flex-wrap justify-center md:justify-start gap-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-300 font-bold uppercase tracking-widest">
+                      <div className="flex items-center gap-2 text-[10px] md:text-sm text-gray-300 font-bold uppercase tracking-widest">
                         <MapPin className="w-4 h-4 text-accent" />
                         {event.location}
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-300 font-bold uppercase tracking-widest">
+                      <div className="flex items-center gap-2 text-[10px] md:text-sm text-gray-300 font-bold uppercase tracking-widest">
                         <Users className="w-4 h-4 text-primary" />
                         {event.attendees} Attending
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-300 font-bold uppercase tracking-widest">
+                      <div className="flex items-center gap-2 text-[10px] md:text-sm text-gray-300 font-bold uppercase tracking-widest">
                         <Zap className="w-4 h-4 text-rose-400" />
                         {event.date}
                       </div>
