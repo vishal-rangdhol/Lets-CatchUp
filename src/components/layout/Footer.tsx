@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -17,8 +16,9 @@ const FOOTER_LINKS = {
     { name: "FAQ", href: "/faq" },
   ],
   services: [
-    { name: "Institutions", href: "/services/educational-institutions" },
-    { name: "Startups", href: "/services/startups-organizations" },
+    { name: "Academic Operations", href: "/services/educational-institutions" },
+    { name: "Professional Collaboration", href: "/services/startups-organizations" },
+    { name: "Healthy Social Spaces", href: "/services/healthy-social-spaces" },
   ],
   legal: [
     { name: "Privacy Policy", href: "#" },
