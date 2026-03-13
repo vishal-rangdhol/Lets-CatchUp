@@ -1,9 +1,12 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const FOOTER_LINKS = {
   navigation: [
@@ -59,6 +62,7 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const [currentYear, setCurrentYear] = useState<number | string>(2025);
+  const isoLogo = PlaceHolderImages.find(img => img.id === "iso-logo");
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
@@ -168,9 +172,22 @@ export function Footer() {
         </div>
 
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            {isoLogo && (
+              <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5 border border-white/10 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-500 group">
+                <Image 
+                  src={isoLogo.imageUrl} 
+                  alt={isoLogo.description} 
+                  width={40} 
+                  height={40} 
+                  className="object-contain"
+                  data-ai-hint={isoLogo.imageHint}
+                />
+                <span className="text-[8px] font-black uppercase tracking-[0.2em] text-gray-500 group-hover:text-accent transition-colors">ISO Certified</span>
+              </div>
+            )}
             <p className="text-gray-500 text-[10px] uppercase tracking-widest font-medium">
-              @COPYRIGHT 2025 | ALL RIGHTS RESERVED BY <span className="font-bold text-white">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
+              @COPYRIGHT {currentYear} | ALL RIGHTS RESERVED BY <span className="font-bold text-white uppercase">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
             </p>
           </div>
 
