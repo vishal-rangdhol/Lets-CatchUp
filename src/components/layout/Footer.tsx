@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -173,8 +172,8 @@ export function Footer() {
 
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-              © {currentYear} Let’s catch up. All rights reserved.
+            <p className="text-gray-500 text-[10px] uppercase tracking-widest font-medium">
+              @COPYRIGHT 2025 | ALL RIGHTS RESERVED BY <span className="font-bold">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
             </p>
             
             {/* ISO Certification Logo & Badge */}
