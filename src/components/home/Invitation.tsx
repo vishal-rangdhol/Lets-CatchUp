@@ -21,8 +21,8 @@ export function Invitation() {
       icon: Target,
       color: "text-amber-400",
       accentBorder: "border-l-amber-400/40",
-      glowColor: "group-hover:border-amber-400/50",
-      hoverText: "group-hover:text-amber-400",
+      glowColor: "lg:group-hover:border-amber-400/50 group-data-[state=open]:border-amber-400/50",
+      hoverText: "lg:group-hover:text-amber-400 group-data-[state=open]:text-amber-400",
       label: "Operational Impact",
       bgGradient: "from-amber-400/5 to-transparent"
     },
@@ -32,8 +32,8 @@ export function Invitation() {
       icon: Rocket,
       color: "text-emerald-400",
       accentBorder: "border-l-emerald-400/40",
-      glowColor: "group-hover:border-emerald-400/50",
-      hoverText: "group-hover:text-emerald-400",
+      glowColor: "lg:group-hover:border-emerald-400/50 group-data-[state=open]:border-emerald-400/50",
+      hoverText: "lg:group-hover:text-emerald-400 group-data-[state=open]:text-emerald-400",
       label: "Strategic Partnership",
       bgGradient: "from-emerald-400/5 to-transparent"
     },
@@ -43,8 +43,8 @@ export function Invitation() {
       icon: Sparkles,
       color: "text-violet-400",
       accentBorder: "border-l-violet-400/40",
-      glowColor: "group-hover:border-violet-400/50",
-      hoverText: "group-hover:text-violet-400",
+      glowColor: "lg:group-hover:border-violet-400/50 group-data-[state=open]:border-violet-400/50",
+      hoverText: "lg:group-hover:text-violet-400 group-data-[state=open]:text-violet-400",
       label: "Human Centric",
       bgGradient: "from-violet-400/5 to-transparent"
     }
@@ -97,14 +97,14 @@ export function Invitation() {
                     <div className="relative">
                       {/* Layered architectural background panel */}
                       <div className={cn(
-                        "absolute -bottom-2 -right-2 w-full h-full rounded-[32px] bg-white/5 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 group-data-[state=open]:-bottom-4 group-data-[state=open]:-right-4 group-data-[state=open]:bg-accent/10"
+                        "absolute -bottom-2 -right-2 w-full h-full rounded-[32px] bg-white/5 opacity-0 lg:group-hover:opacity-100 transition-all duration-500 -z-10 group-data-[state=open]:-bottom-4 group-data-[state=open]:-right-4 group-data-[state=open]:bg-accent/10 group-data-[state=open]:opacity-100"
                       )} />
 
                       <div className={cn(
-                        "relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] transition-all duration-500 overflow-hidden shadow-2xl group-hover:border-white/20 group-data-[state=open]:border-accent/30",
+                        "relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] transition-all duration-500 overflow-hidden shadow-2xl lg:group-hover:border-white/20 group-data-[state=open]:border-accent/30",
                       )}>
                         {/* Subtle internal gradient highlight */}
-                        <div className={cn("absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none", inv.bgGradient)} />
+                        <div className={cn("absolute inset-0 bg-gradient-to-br opacity-0 lg:group-hover:opacity-100 transition-opacity pointer-events-none group-data-[state=open]:opacity-100", inv.bgGradient)} />
 
                         <AccordionTrigger className="hover:no-underline py-8 px-8 md:px-12 [&>svg]:hidden">
                           <div className="flex items-center gap-6 text-left w-full">
@@ -129,8 +129,8 @@ export function Invitation() {
                             </div>
                             
                             {/* Custom Indicator - Idle points down, Open points up */}
-                            <div className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-180 shadow-lg shrink-0">
-                              <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-accent transition-all" />
+                            <div className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 lg:group-hover:border-accent/40 group-data-[state=open]:rotate-180 group-data-[state=open]:border-accent/40 shadow-lg shrink-0">
+                              <ChevronDown className="w-5 h-5 text-gray-500 lg:group-hover:text-accent group-data-[state=open]:text-accent transition-all" />
                             </div>
                           </div>
                         </AccordionTrigger>
@@ -139,7 +139,7 @@ export function Invitation() {
                           
                           {/* Designed Box for Description */}
                           <div className={cn(
-                            "relative bg-white/[0.03] border border-white/5 border-l-2 p-4 md:p-10 rounded-2xl md:rounded-[2rem] shadow-inner backdrop-blur-sm transition-all duration-500 group-data-[state=open]:translate-y-0 translate-y-4 opacity-0 group-data-[state=open]:opacity-100 overflow-hidden",
+                            "relative bg-white/[0.03] border border-white/5 border-l-2 p-5 md:p-10 rounded-2xl md:rounded-[2rem] shadow-inner backdrop-blur-sm transition-all duration-500 group-data-[state=open]:translate-y-0 translate-y-4 opacity-0 group-data-[state=open]:opacity-100 overflow-hidden",
                             inv.accentBorder
                           )}>
                             {/* Stylized Background Icon */}
@@ -174,7 +174,7 @@ export function Invitation() {
               <span className="sr-only">Go to Contact section</span>
               <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
               {/* Dynamic pulse effect */}
-              <div className="absolute inset-0 rounded-full bg-accent animate-ping opacity-0 group-hover:opacity-20 transition-opacity" />
+              <div className="absolute inset-0 rounded-full bg-accent animate-ping opacity-0 lg:group-hover:opacity-20 transition-opacity" />
             </button>
           </Link>
         </motion.div>
