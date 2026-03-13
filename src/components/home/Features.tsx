@@ -51,7 +51,7 @@ export function Features() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden px-6">
+    <section id="ecosystem" className="py-24 relative overflow-hidden px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

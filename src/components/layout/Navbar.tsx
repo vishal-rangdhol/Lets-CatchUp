@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -11,7 +12,8 @@ import {
   MessageSquare,
   Menu,
   LogIn,
-  Phone
+  Phone,
+  LayoutGrid
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -59,7 +61,7 @@ export function Navbar() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    const sections = ["home", "about", "testimonials", "pricing", "contact"];
+    const sections = ["home", "ecosystem", "about", "testimonials", "pricing", "contact"];
     sections.forEach(id => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -70,6 +72,7 @@ export function Navbar() {
 
   const navItems = [
     { name: "Home", href: pathname === "/" ? "#home" : "/#home", icon: Home },
+    { name: "Ecosystem", href: pathname === "/" ? "#ecosystem" : "/#ecosystem", icon: LayoutGrid },
     { name: "About Us", href: pathname === "/" ? "#about" : "/#about", icon: Info },
     { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials", icon: MessageSquare },
     { name: "Pricing", href: pathname === "/" ? "#pricing" : "/#pricing", icon: CreditCard },
@@ -80,6 +83,7 @@ export function Navbar() {
 
     if (pathname === "/") {
       if (item.name === "Home") return activeSection === "home";
+      if (item.name === "Ecosystem") return activeSection === "ecosystem";
       if (item.name === "About Us") return activeSection === "about";
       if (item.name === "Testimonials") return activeSection === "testimonials";
       if (item.name === "Pricing") return activeSection === "pricing";
