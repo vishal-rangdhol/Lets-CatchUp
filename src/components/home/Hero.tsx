@@ -1,11 +1,11 @@
+
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, GraduationCap, BookOpen, Trophy, PlayCircle } from 'lucide-react';
-import { Progress } from '@/components/ui/progress';
+import { ArrowRight, BookOpen, Trophy, GraduationCap } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -64,7 +64,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Dynamic Learning Hub Visual */}
+          {/* Right Column: Dynamic Floating LMS Objects */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -75,7 +75,7 @@ export function Hero() {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-12 z-30"
+              className="absolute top-10 right-12 z-30"
             >
               <div className="glass px-4 py-2 rounded-full border-white/20 flex items-center gap-2 shadow-2xl">
                 <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -83,86 +83,66 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Main Learning Card */}
-            <div className="relative group z-20">
-              <div className="absolute -inset-1 bg-gradient-to-r from-accent via-primary to-rose-400 rounded-[40px] blur-2xl opacity-20 group-hover:opacity-30 transition-opacity" />
+            {/* Abstract LMS Object (Using a central floating element) */}
+            <div className="relative z-20 group">
+              <div className="absolute -inset-8 bg-accent-gradient opacity-10 blur-3xl rounded-full group-hover:opacity-20 transition-opacity" />
               
-              <div className="relative glass-card border-white/10 bg-[#1e294b]/80 p-8 md:p-10 w-full max-w-[420px] shadow-2xl">
-                <div className="space-y-8">
-                  <div className="flex items-center justify-between">
-                    <div className="bg-accent-gradient w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl">
-                      <GraduationCap className="text-white w-6 h-6" />
-                    </div>
-                    <div className="flex -space-x-3">
-                      {[1, 2, 3].map((i) => (
-                        <div key={i} className="w-10 h-10 rounded-full border-2 border-[#1e294b] bg-white/10 flex items-center justify-center overflow-hidden">
-                           <img src={`https://picsum.photos/seed/user${i}/100/100`} alt="user" className="w-full h-full object-cover" />
-                        </div>
-                      ))}
-                      <div className="w-10 h-10 rounded-full border-2 border-[#1e294b] bg-accent flex items-center justify-center text-[10px] font-black text-black">
-                        +12
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-accent text-[10px] font-black uppercase tracking-widest">
-                      <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                      Active Lesson
-                    </div>
-                    <h3 className="text-2xl font-bold text-white tracking-tight">Advanced React Architecture</h3>
-                    <p className="text-slate-400 text-sm font-medium">
-                      Master the complexities of modern web ecosystems.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 pt-4 border-t border-white/5">
-                    <div className="flex justify-between items-end">
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Course Progress</span>
-                      <span className="text-sm font-black text-white">75%</span>
-                    </div>
-                    <Progress value={75} className="h-2.5 bg-white/5">
-                      <div className="h-full bg-accent transition-all" />
-                    </Progress>
-                  </div>
-
-                  <Button className="w-full bg-white/5 hover:bg-white/10 border-white/10 text-white rounded-2xl h-14 font-bold flex items-center justify-center gap-2">
-                    <PlayCircle className="w-5 h-5 text-accent" />
-                    Resume Learning
-                  </Button>
+              <motion.div
+                animate={{ 
+                  y: [0, -20, 0],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{ 
+                  duration: 8, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+                className="relative w-72 h-72 glass rounded-[64px] border-white/10 flex flex-col items-center justify-center gap-6 shadow-2xl overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                <div className="bg-accent-gradient w-20 h-20 rounded-3xl flex items-center justify-center shadow-xl">
+                  <GraduationCap className="text-white w-10 h-10" />
                 </div>
-              </div>
+                <div className="text-center space-y-1">
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-accent">Unified Learning</p>
+                  <p className="text-2xl font-bold text-white tracking-tight">The Ecosystem</p>
+                </div>
+              </motion.div>
             </div>
 
             {/* Floating Objects */}
-            {/* Mastery Badge */}
+            {/* Trophy Badge */}
             <motion.div 
-              animate={{ y: [0, -15, 0], rotate: [0, -5, 0] }}
+              animate={{ y: [0, -15, 0], rotate: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -top-4 -left-10 w-28 h-28 glass rounded-[32px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
+              className="absolute top-1/4 -left-10 w-28 h-28 glass rounded-[32px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
             >
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
                 <Trophy className="text-accent w-6 h-6" />
               </div>
-              <span className="text-[8px] font-black uppercase tracking-widest text-white">Mastery Badge</span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-white">Mastery</span>
             </motion.div>
 
             {/* Resource Hub */}
             <motion.div 
               animate={{ y: [0, 20, 0], rotate: [0, 8, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-6 -right-6 w-32 h-32 glass rounded-[40px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
+              className="absolute bottom-1/4 -right-10 w-32 h-32 glass rounded-[40px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
             >
               <div className="w-14 h-14 rounded-full bg-accent-gradient flex items-center justify-center mb-2 shadow-lg">
                 <BookOpen className="text-white w-7 h-7" />
               </div>
-              <span className="text-[8px] font-black uppercase tracking-widest text-white">Resource Hub</span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-white">Resources</span>
             </motion.div>
 
-            {/* Background Glow Ring */}
+            {/* Background Glow Rings */}
             <div className="absolute inset-0 flex items-center justify-center -z-10">
-              <div className="w-[400px] h-[400px] rounded-full border border-white/5 animate-pulse" />
-              <div className="absolute w-[500px] h-[500px] rounded-full border border-white/5 opacity-50" />
+              <motion.div 
+                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="w-[400px] h-[400px] rounded-full border border-white/5" 
+              />
+              <div className="absolute w-[500px] h-[500px] rounded-full border border-white/5 opacity-30" />
             </div>
           </motion.div>
         </div>
