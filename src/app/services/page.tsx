@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -49,7 +48,7 @@ export default function ServicesPage() {
           <p className="text-xl text-gray-400">Professional platforms designed for the unique needs of every learner and leader.</p>
         </motion.div>
 
-        <div className="grid gap-16">
+        <div className="grid gap-8 md:gap-16">
           {services.map((s, i) => (
             <motion.div
               key={i}

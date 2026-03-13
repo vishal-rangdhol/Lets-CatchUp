@@ -107,7 +107,7 @@ export default function EducationalInstitutionsPage() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-32">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-32">
           {tools.map((tool, i) => (
             <motion.div
               key={i}

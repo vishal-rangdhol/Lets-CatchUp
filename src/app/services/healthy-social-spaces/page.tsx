@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "human-framer-motion"; // Note: This looks like a typo in original but I will stick to framer-motion based on package.json
 import { motion as motionFM } from "framer-motion";
 import { Shield, Sparkles, Heart, MessageSquare, Handshake, Users, MessageCircle } from "lucide-react";
 import { FeatureCard } from "@/components/ui/FeatureCard";
@@ -36,7 +35,7 @@ export default function HealthySocialSpacesPage() {
           </p>
         </motionFM.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-32">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-32">
           {pillars.map((pillar, i) => (
             <motionFM.div
               key={i}

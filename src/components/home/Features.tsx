@@ -108,7 +108,7 @@ export function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20 max-w-6xl mx-auto"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-20 max-w-6xl mx-auto"
         >
           {features.map((feature, idx) => (
             <motion.div key={idx} variants={itemVariants}>
