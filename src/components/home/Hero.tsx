@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { ArrowRight, BarChart3, TrendingUp } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
@@ -24,9 +23,6 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="glass text-accent border-white/10 px-4 py-1.5 uppercase tracking-widest text-[10px] font-black rounded-full mb-8">
-                🚀 Accelerate Your Growth
-              </Badge>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-bold text-white leading-[1.05] tracking-tight">
                 Unlock potential <br />
                 and <span className="text-gradient">build <br />connections</span>
