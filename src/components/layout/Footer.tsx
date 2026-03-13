@@ -1,14 +1,19 @@
+
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight, Send } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight, Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const footerLinks = {
     navigation: [
@@ -33,19 +38,56 @@ export function Footer() {
     { 
       Icon: Facebook, 
       href: "https://www.facebook.com/people/Kandhugule-Consultancy-Services/61563863545091/#",
-      label: "Facebook"
+      label: "Facebook",
+      hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]"
     },
     { 
       Icon: Instagram, 
       href: "https://www.instagram.com/kandhuguleconsultancyservices/",
-      label: "Instagram"
+      label: "Instagram",
+      hoverClass: "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:shadow-[0_0_20px_rgba(228,64,95,0.5)]"
     },
     { 
       Icon: Linkedin, 
       href: "https://www.linkedin.com/company/kandhuguleconsultancyservicespvtltd/posts/?feedView=all",
-      label: "LinkedIn"
+      label: "LinkedIn",
+      hoverClass: "hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:shadow-[0_0_20px_rgba(10,102,194,0.5)]"
     },
   ];
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast({
+        title: "Email Required",
+        description: "Please enter your email address to subscribe.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulating API call/Email sending logic
+    // In a real implementation, this would call a backend service to notify support@letscatchup.com
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast({
+        title: "Subscription Successful!",
+        description: `We've registered ${email} for platform updates. Support has been notified.`,
+      });
+      setEmail("");
+    } catch (error) {
+      toast({
+        title: "Subscription Failed",
+        description: "Unable to process your request at this moment.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <footer className="relative pt-32 pb-12 bg-[#0b0f2f] overflow-hidden">
@@ -67,15 +109,28 @@ export function Footer() {
               <h4 className="text-3xl font-headline font-bold">Stay in the <span className="text-gradient">Loop</span></h4>
               <p className="text-gray-400 max-w-sm">Get the latest updates on new courses and technical workshops.</p>
             </div>
-            <div className="flex w-full max-w-md gap-3">
+            <form onSubmit={handleSubscribe} className="flex w-full max-w-md gap-3">
               <Input 
+                type="email"
                 placeholder="Enter your email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="h-14 bg-white/5 border-white/10 rounded-2xl px-6 focus-visible:ring-primary" 
+                required
               />
-              <Button size="icon" className="h-14 w-14 shrink-0 rounded-2xl bg-accent-gradient hover:opacity-90 transition-all shadow-lg border-none">
-                <Send className="w-6 h-6" />
+              <Button 
+                type="submit"
+                disabled={isSubmitting}
+                size="icon" 
+                className="h-14 w-14 shrink-0 rounded-2xl bg-accent-gradient hover:opacity-90 transition-all shadow-lg border-none"
+              >
+                {isSubmitting ? (
+                  <Loader2 className="w-6 h-6 animate-spin" />
+                ) : (
+                  <Send className="w-6 h-6" />
+                )}
               </Button>
-            </div>
+            </form>
           </div>
         </motion.div>
 
@@ -115,7 +170,7 @@ export function Footer() {
             </div>
 
             <div className="flex gap-3">
-              {socialLinks.map(({ Icon, href, label }, i) => (
+              {socialLinks.map(({ Icon, href, label, hoverClass }, i) => (
                 <motion.a 
                   key={i}
                   whileHover={{ scale: 1.15, y: -5 }}
@@ -123,7 +178,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-accent/40 transition-all text-gray-400 hover:text-white"
+                  className={`w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all text-gray-400 ${hoverClass}`}
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
