@@ -25,16 +25,16 @@ export default function StartupsOrganizationsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center space-y-6 max-w-4xl mx-auto"
         >
-          <Badge className="glass text-primary border-white/10 px-4 py-1">For Corporate & Startups</Badge>
+          <Badge className="glass text-primary border-white/10 px-4 py-1">For startups and organisations</Badge>
           <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
             Scale Your <br /><span className="text-gradient">Team's Potential</span>
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed">
+          <p className="text-xl text-gray-400 leading-relaxed font-medium">
             Move faster with a unified workspace that combines project management, team learning, and professional collaboration.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24">
           {tools.map((tool, i) => (
             <motion.div
               key={i}

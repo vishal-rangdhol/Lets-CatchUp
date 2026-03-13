@@ -22,7 +22,6 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
@@ -195,7 +194,7 @@ export function Navbar() {
                   <div className="absolute top-[-100px] left-[-100px] w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
                   <div className="absolute bottom-[-100px] right-[-100px] w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
-                  <SheetHeader className="text-left mb-4 relative z-10 px-6 pt-8 pb-4">
+                  <div className="text-left mb-4 relative z-10 px-6 pt-8 pb-4">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="relative w-10 h-10 overflow-hidden">
                         <Image src="/favicon-v2.ico" alt="Logo" fill className="object-contain" />
@@ -208,7 +207,7 @@ export function Navbar() {
                       <span className="text-white/60 font-black uppercase tracking-[0.2em] text-[10px]">Menu</span>
                     </div>
                     <Separator className="bg-white/10" />
-                  </SheetHeader>
+                  </div>
                   
                   <nav className="flex flex-col gap-2 relative z-10 flex-1 px-6">
                     {navItems.map((item, idx) => {

@@ -48,23 +48,23 @@ export function Onboarding() {
           <h2 className="text-3xl md:text-5xl font-headline font-bold">Your path to <span className="text-gradient">success</span></h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 relative z-10">
           {steps.map((step, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: step.delay, duration: 0.6 }}
+              transition={{ delay: step.delay, duration: 0.6, ease: "easeOut" }}
               className="group relative"
             >
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-[32px] h-full flex flex-col items-center text-center space-y-4 transition-all duration-500 group-hover:bg-white/10 shadow-2xl">
-                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-lg font-black shadow-lg`}>
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-[32px] h-full flex flex-col items-center text-center space-y-6 transition-all duration-500 group-hover:bg-white/10 shadow-2xl">
+                <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-xl font-black shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
                   0{idx + 1}
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg md:text-xl font-bold tracking-tight">{step.title}</h3>
-                  <p className="text-gray-400 text-[10px] md:text-sm leading-relaxed font-medium">
+                <div className="space-y-4">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight">{step.title}</h3>
+                  <p className="text-gray-400 text-sm md:text-base leading-relaxed font-medium">
                     {step.description}
                   </p>
                 </div>
