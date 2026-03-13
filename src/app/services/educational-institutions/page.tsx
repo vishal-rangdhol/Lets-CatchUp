@@ -13,12 +13,19 @@ import {
   CreditCard, 
   MessageSquare, 
   Bus, 
-  Activity 
+  Activity,
+  LayoutGrid
 } from "lucide-react";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 
 export default function EducationalInstitutionsPage() {
   const tools = [
+    { 
+      title: "SaaS Consolidation", 
+      desc: "Reduces the overhead of managing multiple SaaS tools by consolidating all institutional operations into one secure platform.", 
+      icon: LayoutGrid, 
+      color: "from-blue-600 to-indigo-600" 
+    },
     { 
       title: "Student Management", 
       desc: "Complete digital records, attendance tracking, and behavioral profiles for every student.", 
