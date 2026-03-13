@@ -129,8 +129,8 @@ export function Invitation() {
                               </h3>
                             </div>
                             
-                            {/* Custom Indicator */}
-                            <div className="hidden md:flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-90">
+                            {/* Custom Indicator - Now visible on mobile */}
+                            <div className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-90 shadow-lg">
                               <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-accent transition-all" />
                             </div>
                           </div>
