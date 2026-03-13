@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { 
   Home, 
   Info, 
-  Layers, 
   CreditCard, 
   MessageSquare,
   Menu,
@@ -72,17 +71,12 @@ export function Navbar() {
   const navItems = [
     { name: "Home", href: pathname === "/" ? "#home" : "/#home", icon: Home },
     { name: "About Us", href: pathname === "/" ? "#about" : "/#about", icon: Info },
-    { name: "Services", href: "/services", icon: Layers },
     { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials", icon: MessageSquare },
     { name: "Pricing", href: pathname === "/" ? "#pricing" : "/#pricing", icon: CreditCard },
   ];
 
   const getIsActive = (item: any) => {
     if (!mounted || !pathname) return false;
-    
-    if (item.name === "Services") {
-      return pathname.startsWith("/services");
-    }
 
     if (pathname === "/") {
       if (item.name === "Home") return activeSection === "home";
