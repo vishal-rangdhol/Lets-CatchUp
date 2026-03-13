@@ -1,5 +1,4 @@
-
-"use client";
+'use client';
 
 import React from "react";
 import Link from "next/link";
@@ -129,18 +128,18 @@ export function Invitation() {
                               </h3>
                             </div>
                             
-                            {/* Custom Indicator - Now visible on mobile */}
-                            <div className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-90 shadow-lg">
+                            {/* Custom Indicator - Visible on all screens */}
+                            <div className="flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-90 shadow-lg shrink-0">
                               <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-accent transition-all" />
                             </div>
                           </div>
                         </AccordionTrigger>
-                        <AccordionContent className="pb-12 pt-0 px-8 md:px-12">
-                          <div className="h-[1px] w-full bg-white/5 mb-8" />
+                        <AccordionContent className="pb-6 md:pb-12 pt-0 px-8 md:px-12">
+                          <div className="h-[1px] w-full bg-white/5 mb-4 md:mb-8" />
                           
                           {/* Designed Box for Description */}
                           <div className={cn(
-                            "relative bg-white/[0.03] border border-white/5 border-l-2 p-6 md:p-10 rounded-2xl md:rounded-[2rem] shadow-inner backdrop-blur-sm transition-all duration-500 group-data-[state=open]:translate-y-0 translate-y-4 opacity-0 group-data-[state=open]:opacity-100 overflow-hidden",
+                            "relative bg-white/[0.03] border border-white/5 border-l-2 p-4 md:p-10 rounded-2xl md:rounded-[2rem] shadow-inner backdrop-blur-sm transition-all duration-500 group-data-[state=open]:translate-y-0 translate-y-4 opacity-0 group-data-[state=open]:opacity-100 overflow-hidden",
                             inv.accentBorder
                           )}>
                             {/* Stylized Background Icon */}
@@ -148,7 +147,7 @@ export function Invitation() {
                                 <Icon size={240} strokeWidth={0.5} className={inv.hoverText} />
                             </div>
 
-                            <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium relative z-10">
+                            <p className="text-sm md:text-xl text-gray-400 leading-relaxed font-medium relative z-10">
                               {inv.desc}
                             </p>
                           </div>
