@@ -189,21 +189,27 @@ export function Navbar() {
                   <Menu className="w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:text-accent group-hover:drop-shadow-[0_0_10px_hsla(var(--accent)/1)]" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="bg-[#0f153d] border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
-                <div className="flex flex-col h-full p-6 md:p-8 relative overflow-hidden">
+              <SheetContent side="left" className="bg-[rgb(15,21,61)]/98 border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
+                <div className="flex flex-col h-full p-0 relative overflow-hidden">
                   <div className="absolute top-[-100px] left-[-100px] w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
                   <div className="absolute bottom-[-100px] right-[-100px] w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
-                  <SheetHeader className="text-left mb-8 relative z-10">
-                    <SheetTitle className="text-white font-headline font-bold text-2xl flex items-center gap-4">
+                  <SheetHeader className="text-left mb-4 relative z-10 px-6 pt-8 pb-4">
+                    <div className="flex items-center gap-3 mb-6">
                       <div className="relative w-10 h-10 overflow-hidden">
                         <Image src="/favicon-v2.ico" alt="Logo" fill className="object-contain" />
                       </div>
-                      <span className="text-lg">Menu</span>
-                    </SheetTitle>
+                      <span className="text-white font-headline font-bold text-xl tracking-tight">Let's Catch Up</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 mb-2">
+                      <Menu className="w-4 h-4 text-accent" />
+                      <span className="text-white/60 font-black uppercase tracking-[0.2em] text-[10px]">Menu</span>
+                    </div>
+                    <div className="h-[1px] w-full bg-white/10" />
                   </SheetHeader>
                   
-                  <nav className="flex flex-col gap-2 relative z-10 flex-1">
+                  <nav className="flex flex-col gap-2 relative z-10 flex-1 px-6">
                     {navItems.map((item, idx) => {
                       const isActive = getIsActive(item);
                       return (
@@ -234,7 +240,7 @@ export function Navbar() {
                     })}
                   </nav>
 
-                  <div className="mt-auto pt-6 border-t border-white/20 flex flex-col gap-3 relative z-10">
+                  <div className="mt-auto p-6 border-t border-white/20 flex flex-col gap-3 relative z-10 bg-black/20">
                     <Link href="https://app.letscatchup-kcs.com/" onClick={() => setIsOpen(false)} className="w-full">
                       <Button className="w-full h-12 rounded-2xl bg-accent-gradient text-white font-black uppercase tracking-widest text-[10px] gap-3 shadow-xl border-none">
                         <LogIn className="w-4 h-4" /> Sign In
