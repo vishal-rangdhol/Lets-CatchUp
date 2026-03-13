@@ -76,7 +76,7 @@
     {
       "id": "iso-logo",
       "description": "ISO Certified Company Logo",
-      "imageUrl": "https://picsum.photos/seed/iso-logo-placeholder/200/200",
+      "imageUrl": "/iso.png",
       "imageHint": "iso certification"
     }
   ]
