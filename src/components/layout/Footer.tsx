@@ -190,7 +190,6 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-black uppercase tracking-widest text-white leading-none">ISO Certified</span>
-                <span className="text-[7px] font-bold text-gray-500 uppercase tracking-tighter leading-tight mt-1">High Trust Institutional Environment</span>
               </div>
             </div>
           </div>
