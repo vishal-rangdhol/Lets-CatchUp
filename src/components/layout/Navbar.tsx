@@ -220,13 +220,14 @@ export function Navbar() {
                       <div 
                         key={item.name} 
                         className="py-2"
-                        onMouseEnter={() => setMobileHoveredItem(item.name)}
-                        onMouseLeave={() => setMobileHoveredItem(null)}
                       >
-                        <div className={cn(
-                          "text-lg font-bold flex items-center group transition-all duration-300 cursor-pointer",
-                          isActive ? "text-[#2dd4bf]" : "text-gray-300 hover:text-[#2dd4bf]"
-                        )}>
+                        <div 
+                          className={cn(
+                            "text-lg font-bold flex items-center group transition-all duration-300 cursor-pointer",
+                            isActive ? "text-[#2dd4bf]" : "text-gray-300 hover:text-[#2dd4bf]"
+                          )}
+                          onClick={() => setMobileHoveredItem(mobileHoveredItem === item.name ? null : item.name)}
+                        >
                           <span className="w-0 group-hover:w-6 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100 flex items-center">
                             <ArrowRight className="w-4 h-4 mr-2" />
                           </span>
@@ -251,7 +252,10 @@ export function Navbar() {
                                     "font-semibold py-2 flex items-center group transition-all duration-300",
                                     pathname === sub.href ? "text-[#2dd4bf]" : "text-gray-400 hover:text-[#2dd4bf]"
                                   )}
-                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setMobileHoveredItem(null);
+                                  }}
                                 >
                                   <span className="w-0 group-hover:w-5 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100 flex items-center">
                                     <ArrowRight className="w-3 h-3 mr-2" />
