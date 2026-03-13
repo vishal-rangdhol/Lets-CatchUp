@@ -4,7 +4,7 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Network, Settings, Users, Layout, Zap, Shield, Cpu } from "lucide-react";
+import { Network, Settings, Users, Layout, Zap, Shield, Cpu, ShieldCheck } from "lucide-react";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 
 export default function FeaturesPage() {
@@ -83,18 +83,27 @@ export default function FeaturesPage() {
           ))}
         </div>
 
+        {/* ISO Certified Trust & Security Section */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="glass-card p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-white/10 flex flex-col md:flex-row items-center justify-between gap-12"
+          className="glass-card p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-white/10 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden"
         >
-          <div className="space-y-4 text-center md:text-left">
-            <h2 className="text-4xl font-headline font-bold">Secure & Reliable</h2>
-            <p className="text-lg text-gray-400 max-w-xl">
-              Our infrastructure is built with enterprise-grade security to ensure your data is always protected and your platform stays online.
+          <div className="space-y-6 text-center md:text-left relative z-10">
+            <div className="flex flex-col md:flex-row items-center gap-4">
+               <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center border border-accent/30 shadow-2xl">
+                <ShieldCheck className="w-10 h-10 text-accent glow-icon" />
+              </div>
+              <div className="space-y-1">
+                <Badge variant="outline" className="border-accent/40 text-accent font-black uppercase tracking-widest text-[10px]">Certified Trust</Badge>
+                <h2 className="text-4xl font-headline font-bold">ISO Certified Environment</h2>
+              </div>
+            </div>
+            <p className="text-lg text-gray-400 max-w-xl font-medium">
+              ISO-certified, secure, and private environment — built to the highest standards of data integrity and protection for <strong>High Trust</strong> institutional operations.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-6 shrink-0">
+          <div className="grid grid-cols-2 gap-6 shrink-0 relative z-10">
             <div className="flex items-center gap-3 glass p-4 rounded-xl">
               <Shield className="text-accent" />
               <span className="font-bold">Encrypted</span>
@@ -103,6 +112,11 @@ export default function FeaturesPage() {
               <Cpu className="text-primary" />
               <span className="font-bold">99.9% Uptime</span>
             </div>
+          </div>
+          
+          {/* Decorative background ISO stamp */}
+          <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none">
+            <ShieldCheck size={300} strokeWidth={0.5} />
           </div>
         </motion.div>
       </div>

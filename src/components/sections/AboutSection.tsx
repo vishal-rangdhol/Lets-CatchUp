@@ -5,7 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Sparkles } from "lucide-react";
+import { Shield, Sparkles, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -21,9 +21,9 @@ export function AboutSection() {
       gradient: "from-teal-400 to-cyan-300",
     },
     {
-      title: "Trust & Transparency",
-      desc: "We maintain open communication with our community and focus on delivering measurable educational outcomes that students can trust.",
-      icon: Shield,
+      title: "ISO Certified Trust",
+      desc: "ISO-certified, secure, and private environment — maintaining the highest levels of data security and institutional integrity for high trust operations.",
+      icon: ShieldCheck,
       color: "primary",
       gradient: "from-indigo-500 to-purple-500",
     },
