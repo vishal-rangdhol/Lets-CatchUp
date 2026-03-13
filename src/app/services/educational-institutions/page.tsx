@@ -3,17 +3,82 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Users, Calendar, ClipboardCheck, MessageCircle, BarChart3, GraduationCap } from "lucide-react";
+import { 
+  Users, 
+  Calendar, 
+  ClipboardCheck, 
+  MessageCircle, 
+  BarChart3, 
+  GraduationCap, 
+  CreditCard, 
+  MessageSquare, 
+  Bus, 
+  Activity 
+} from "lucide-react";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 
 export default function EducationalInstitutionsPage() {
   const tools = [
-    { title: "Student Management", desc: "Complete digital records, attendance tracking, and behavioral profiles for every student.", icon: Users, color: "from-emerald-400 to-teal-300" },
-    { title: "Attendance Tracking", desc: "Automated daily attendance with instant notification systems for parents and staff.", icon: ClipboardCheck, color: "from-blue-400 to-cyan-400" },
-    { title: "Digital Gradebooks", desc: "Sophisticated grading systems with automated weightage and performance analytics.", icon: GraduationCap, color: "from-purple-400 to-pink-400" },
-    { title: "Parent Communication", desc: "Integrated portal for real-time updates, feedback loops, and progress monitoring.", icon: MessageCircle, color: "from-orange-400 to-yellow-400" },
-    { title: "Timetable Scheduling", desc: "Intelligent conflict-free scheduling for classes, labs, and elective subjects.", icon: Calendar, color: "from-indigo-400 to-blue-400" },
-    { title: "Advanced Reporting", desc: "Comprehensive data visualization for institutional growth and academic auditing.", icon: BarChart3, color: "from-rose-400 to-red-400" },
+    { 
+      title: "Student Management", 
+      desc: "Complete digital records, attendance tracking, and behavioral profiles for every student.", 
+      icon: Users, 
+      color: "from-emerald-400 to-teal-300" 
+    },
+    { 
+      title: "Attendance Tracking", 
+      desc: "Automated daily attendance with instant notification systems for parents and staff.", 
+      icon: ClipboardCheck, 
+      color: "from-blue-400 to-cyan-400" 
+    },
+    { 
+      title: "Digital Gradebooks", 
+      desc: "Sophisticated grading systems with automated weightage and performance analytics.", 
+      icon: GraduationCap, 
+      color: "from-purple-400 to-pink-400" 
+    },
+    { 
+      title: "Parent Communication", 
+      desc: "Integrated portal for real-time updates, feedback loops, and progress monitoring.", 
+      icon: MessageCircle, 
+      color: "from-orange-400 to-yellow-400" 
+    },
+    { 
+      title: "Timetable Scheduling", 
+      desc: "Intelligent conflict-free scheduling for classes, labs, and elective subjects.", 
+      icon: Calendar, 
+      color: "from-indigo-400 to-blue-400" 
+    },
+    { 
+      title: "Advanced Reporting", 
+      desc: "Comprehensive data visualization for institutional growth and academic auditing.", 
+      icon: BarChart3, 
+      color: "from-rose-400 to-red-400" 
+    },
+    { 
+      title: "Payment Gateway", 
+      desc: "Integrated fee collection with secure processing and automated digital receipts.", 
+      icon: CreditCard, 
+      color: "from-amber-400 to-orange-500" 
+    },
+    { 
+      title: "Meetings & Chats", 
+      desc: "Secure virtual meeting rooms and real-time chat channels for students and staff.", 
+      icon: MessageSquare, 
+      color: "from-blue-500 to-indigo-500" 
+    },
+    { 
+      title: "Student Bus Tracking", 
+      desc: "Real-time GPS tracking for school transport with instant arrival notifications.", 
+      icon: Bus, 
+      color: "from-teal-500 to-emerald-400" 
+    },
+    { 
+      title: "Student Progress Tracking", 
+      desc: "Comprehensive visual dashboards to monitor academic performance and developmental milestones.", 
+      icon: Activity, 
+      color: "from-violet-500 to-fuchsia-500" 
+    },
   ];
 
   return (
@@ -24,11 +89,13 @@ export default function EducationalInstitutionsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center space-y-6 max-w-4xl mx-auto"
         >
-          <Badge className="glass text-accent border-white/10 px-4 py-1">For Schools & Colleges</Badge>
+          <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">
+            Academic Operations
+          </Badge>
           <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
             The Modern <br /><span className="text-gradient">LMS Ecosystem</span>
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed">
+          <p className="text-xl text-gray-400 leading-relaxed font-medium">
             Empower your faculty and engage your students with tools built specifically for the needs of modern educational institutions.
           </p>
         </motion.div>
