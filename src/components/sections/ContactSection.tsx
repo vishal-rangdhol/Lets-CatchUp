@@ -59,37 +59,37 @@ export function ContactSection() {
               <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">
                 Connect With Us
               </Badge>
-              <h2 className="text-6xl font-headline font-bold leading-tight text-white">
+              <h2 className="text-5xl md:text-6xl font-headline font-bold leading-tight text-white">
                 Let's <span className="text-gradient">Catch Up</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
                 Have questions about our programs or interested in a partnership? Our team is here to help you scale your potential.
               </p>
             </div>
 
             <div className="grid gap-6">
-              <div className="flex gap-5 items-start glass-card p-8 border-white/5 group relative overflow-hidden">
+              <div className="flex gap-5 items-start glass-card p-6 md:p-8 border-white/5 group relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-accent-gradient opacity-50" />
-                <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform shadow-xl border border-white/10">
-                  <MapPin className="w-6 h-6 text-accent glow-icon" />
+                <div className="bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl group-hover:scale-110 transition-transform shadow-xl border border-white/10">
+                  <MapPin className="w-5 h-5 md:w-6 md:h-6 text-accent glow-icon" />
                 </div>
                 <div className="space-y-2">
                   <p className="text-[10px] text-accent uppercase tracking-widest font-black">Headquarters</p>
-                  <div className="font-bold text-sm text-gray-200 leading-relaxed">
+                  <div className="font-bold text-xs md:text-sm text-gray-200 leading-relaxed">
                     Building: 3-37 RC Puram, behind SR chambers,<br />
                     Hyderabad, 502032,<br />
                     Telangana
                   </div>
                 </div>
               </div>
-              <div className="flex gap-5 items-center glass-card p-8 border-white/5 group relative overflow-hidden">
+              <div className="flex gap-5 items-center glass-card p-6 md:p-8 border-white/5 group relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-accent-gradient opacity-50" />
-                <div className="bg-white/5 p-4 rounded-2xl group-hover:scale-110 transition-transform shadow-xl border border-white/10">
-                  <Mail className="w-6 h-6 text-accent glow-icon" />
+                <div className="bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl group-hover:scale-110 transition-transform shadow-xl border border-white/10">
+                  <Mail className="w-5 h-5 md:w-6 md:h-6 text-accent glow-icon" />
                 </div>
                 <div className="space-y-2">
                   <p className="text-[10px] text-accent uppercase tracking-widest font-black">Direct Communication</p>
-                  <p className="font-bold text-lg text-white">info@kandhugule-kcs.com</p>
+                  <p className="font-bold text-base md:text-lg text-white">info@kandhugule-kcs.com</p>
                 </div>
               </div>
             </div>
@@ -101,28 +101,28 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="relative group"
           >
-            <div className="absolute -bottom-6 -right-6 w-full h-full rounded-[40px] bg-accent-gradient opacity-20 transition-all duration-500 group-hover:opacity-30 -z-10" />
-            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[40px] p-8 md:p-12 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
-              <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <Label htmlFor="name" className="text-gray-300 font-bold uppercase tracking-widest text-[10px]">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-14 rounded-2xl px-6 focus-visible:ring-accent" required />
+            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-full h-full rounded-3xl md:rounded-[40px] bg-accent-gradient opacity-20 transition-all duration-500 group-hover:opacity-30 -z-10" />
+            <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-3xl md:rounded-[40px] p-6 md:p-12 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8 relative z-10">
+                <div className="grid md:grid-cols-2 gap-4 md:gap-8">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Full Name</Label>
+                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-14 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
-                  <div className="space-y-3">
-                    <Label htmlFor="email" className="text-gray-300 font-bold uppercase tracking-widest text-[10px]">Email Address</Label>
-                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-14 rounded-2xl px-6 focus-visible:ring-accent" required />
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Email Address</Label>
+                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-11 md:h-14 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                 </div>
-                <div className="space-y-3">
-                  <Label htmlFor="subject" className="text-gray-300 font-bold uppercase tracking-widest text-[10px]">Subject</Label>
-                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-14 rounded-2xl px-6 focus-visible:ring-accent" required />
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Subject</Label>
+                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-11 md:h-14 rounded-xl md:rounded-2xl px-5 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
-                <div className="space-y-3">
-                  <Label htmlFor="message" className="text-gray-300 font-bold uppercase tracking-widest text-[10px]">Message</Label>
-                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[180px] rounded-2xl p-6 focus-visible:ring-accent" required />
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Message</Label>
+                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[120px] md:min-h-[180px] rounded-xl md:rounded-2xl p-5 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
-                <Button type="submit" disabled={loading} className="w-full bg-accent-gradient h-16 rounded-full text-xl font-black shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
+                <Button type="submit" disabled={loading} className="w-full bg-accent-gradient h-12 md:h-16 rounded-full text-lg md:text-xl font-black shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
                   {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
@@ -132,11 +132,11 @@ export function ContactSection() {
 
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-12">
           <div className="text-center space-y-4">
-            <h3 className="text-4xl md:text-5xl font-headline font-bold text-white">Our <span className="text-gradient">Location</span></h3>
+            <h3 className="text-3xl md:text-5xl font-headline font-bold text-white">Our <span className="text-gradient">Location</span></h3>
           </div>
           <div className="relative group max-w-full md:max-w-2xl mx-auto">
-            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[40px] bg-accent-gradient opacity-10 -z-10" />
-            <div className="glass-card border-white/10 overflow-hidden shadow-2xl bg-[#0f172a]">
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl md:rounded-[40px] bg-accent-gradient opacity-10 -z-10" />
+            <div className="glass-card border-white/10 overflow-hidden shadow-2xl bg-[#0f172a] rounded-2xl md:rounded-[40px]">
               <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="aspect-video w-full relative block cursor-pointer group/map">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.2891!2d78.3004977!3d17.5253292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91065c71510b%3A0x74a001174092b77a!2sRC+Puram+BHEL+Township%2C+Hyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1709456000000!5m2!1sen!2sin" 
