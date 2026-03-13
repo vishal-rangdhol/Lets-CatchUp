@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -72,12 +71,12 @@ export function CourseGrid() {
               className="group relative"
             >
               {/* The "Success Card" Rounded-Tab Design */}
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] overflow-hidden flex flex-col h-full transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl">
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] md:rounded-[40px] overflow-hidden flex flex-col h-full transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl">
                 
                 {/* Top Glossy Lip */}
                 <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent z-20" />
 
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 md:h-56 overflow-hidden">
                   {courseImg && (
                     <Image
                       src={courseImg.imageUrl}
@@ -87,39 +86,39 @@ export function CourseGrid() {
                       data-ai-hint={courseImg.imageHint}
                     />
                   )}
-                  <div className="absolute top-5 left-5 z-20">
-                    <Badge className={`bg-gradient-to-br ${course.color} text-white border-none px-3 py-1 font-bold shadow-lg`}>
+                  <div className="absolute top-4 left-4 md:top-5 md:left-5 z-20">
+                    <Badge className={`bg-gradient-to-br ${course.color} text-white border-none px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold shadow-lg`}>
                       {course.category}
                     </Badge>
                   </div>
                 </div>
                 
-                <div className="p-8 flex-1 flex flex-col space-y-4">
+                <div className="p-6 md:p-8 flex-1 flex flex-col space-y-3 md:space-y-4">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-1.5 text-accent">
-                      <Star className="w-4 h-4 fill-current glow-icon" />
-                      <span className="text-sm font-bold">{course.rating}</span>
+                      <Star className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current glow-icon" />
+                      <span className="text-xs md:text-sm font-bold">{course.rating}</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-muted-foreground">
-                      <Users className="w-4 h-4" />
-                      <span className="text-xs font-semibold">{course.students}</span>
+                      <Users className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                      <span className="text-[10px] md:text-xs font-semibold">{course.students}</span>
                     </div>
                   </div>
 
-                  <h4 className="text-2xl font-bold leading-tight group-hover:text-accent transition-colors duration-300">
+                  <h4 className="text-xl md:text-2xl font-bold leading-tight group-hover:text-accent transition-colors duration-300">
                     {course.title}
                   </h4>
-                  <p className="text-sm text-muted-foreground font-medium italic">by {course.instructor}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground font-medium italic">by {course.instructor}</p>
 
-                  <div className="flex items-center gap-4 text-muted-foreground text-sm font-semibold pt-2">
+                  <div className="flex items-center gap-4 text-muted-foreground text-xs md:text-sm font-semibold pt-1 md:pt-2">
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-primary" />
+                      <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                       {course.duration}
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center border-t border-white/5 pt-6 mt-auto">
-                    <span className="text-3xl font-bold text-white">{course.price}</span>
+                  <div className="flex justify-between items-center border-t border-white/5 pt-4 md:pt-6 mt-auto">
+                    <span className="text-2xl md:text-3xl font-bold text-white">{course.price}</span>
                   </div>
                 </div>
 

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -38,12 +37,12 @@ export function Onboarding() {
     <section className="py-24 px-6 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[160px] -z-10" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20 space-y-4"
+          className="text-center mb-16 md:mb-20 space-y-4"
         >
           <Badge variant="outline" className="border-accent/30 text-accent px-4 py-1 uppercase tracking-widest text-[10px] font-black">
             The Roadmap
@@ -62,7 +61,7 @@ export function Onboarding() {
             />
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 relative z-10">
             {steps.map((step, idx) => (
               <motion.div
                 key={idx}
@@ -76,23 +75,23 @@ export function Onboarding() {
                   <div className={`absolute inset-0 rounded-full animate-ping bg-gradient-to-r ${step.color}`} />
                 </div>
 
-                <div className={`relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-[40px] h-full flex flex-col items-center text-center space-y-6 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl ${step.glow}`}>
-                  <div className={`w-14 h-14 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-xl font-black shadow-lg rotate-3 group-hover:rotate-6 transition-transform`}>
+                <div className={`relative bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 lg:p-10 rounded-[32px] md:rounded-[40px] h-full flex flex-col items-center text-center space-y-4 md:space-y-6 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl ${step.glow}`}>
+                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl md:rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-lg md:text-xl font-black shadow-lg rotate-3 group-hover:rotate-6 transition-transform`}>
                     0{idx + 1}
                   </div>
 
                   <motion.div 
                     animate={{ y: [0, -6, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
-                    className="p-4 rounded-full bg-white/5 border border-white/10 relative"
+                    className="p-3 md:p-4 rounded-full bg-white/5 border border-white/10 relative"
                   >
-                    <step.icon className="w-8 h-8 text-white opacity-80" />
+                    <step.icon className="w-6 h-6 md:w-8 md:h-8 text-white opacity-80" />
                     <div className={`absolute inset-0 bg-gradient-to-br ${step.color} blur-xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full`} />
                   </motion.div>
 
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold tracking-tight">{step.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed font-medium">
+                  <div className="space-y-2 md:space-y-3">
+                    <h3 className="text-lg md:text-xl font-bold tracking-tight">{step.title}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-medium">
                       {step.description}
                     </p>
                   </div>
