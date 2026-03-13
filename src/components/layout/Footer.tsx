@@ -97,7 +97,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative pt-32 pb-12 bg-[#0b0f2f] overflow-hidden">
+    <footer className="relative pt-16 pb-12 bg-[#0b0f2f] overflow-hidden">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] -z-10" />
 
@@ -106,12 +106,12 @@ export function Footer() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative z-20 -mb-16"
+          className="relative z-20 -mb-10"
         >
-          <div className="glass-card p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
-            <div className="space-y-3 text-center lg:text-left">
-              <h4 className="text-3xl font-headline font-bold">Stay in the <span className="text-gradient">Loop</span></h4>
-              <p className="text-gray-400 max-w-sm">Get the latest updates on new courses and technical workshops.</p>
+          <div className="glass-card p-6 md:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
+            <div className="space-y-2 text-center lg:text-left">
+              <h4 className="text-2xl md:text-3xl font-headline font-bold">Stay in the <span className="text-gradient">Loop</span></h4>
+              <p className="text-gray-400 text-sm max-w-sm">Get the latest updates on new courses and technical workshops.</p>
             </div>
             <form onSubmit={handleSubscribe} className="flex w-full max-w-md gap-3">
               <Input 
@@ -119,26 +119,26 @@ export function Footer() {
                 placeholder="Enter your email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-14 bg-white/5 border-white/10 rounded-2xl px-6 focus-visible:ring-primary" 
+                className="h-12 bg-white/5 border-white/10 rounded-2xl px-6 focus-visible:ring-primary text-sm" 
                 required
               />
               <Button 
                 type="submit"
                 disabled={isSubmitting}
                 size="icon" 
-                className="h-14 w-14 shrink-0 rounded-2xl bg-accent-gradient hover:opacity-90 transition-all shadow-lg border-none"
+                className="h-12 w-12 shrink-0 rounded-2xl bg-accent-gradient hover:opacity-90 transition-all shadow-lg border-none"
               >
                 {isSubmitting ? (
-                  <Loader2 className="w-6 h-6 animate-spin" />
+                  <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
-                  <Send className="w-6 h-6" />
+                  <Send className="w-5 h-5" />
                 )}
               </Button>
             </form>
           </div>
         </motion.div>
 
-        <div className="pt-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 border-t border-white/5">
+        <div className="pt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 border-t border-white/5">
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="bg-accent-gradient w-12 h-12 rounded-xl shadow-xl flex items-center justify-center transition-transform">
