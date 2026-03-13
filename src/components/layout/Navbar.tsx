@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -9,7 +8,6 @@ import {
   Home, 
   Info, 
   CreditCard, 
-  MessageSquare,
   Menu,
   LogIn,
   Phone,
@@ -61,7 +59,7 @@ export function Navbar() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    const sections = ["home", "ecosystem", "about", "testimonials", "pricing", "contact"];
+    const sections = ["home", "ecosystem", "about", "pricing", "contact"];
     sections.forEach(id => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -74,7 +72,6 @@ export function Navbar() {
     { name: "Home", href: pathname === "/" ? "#home" : "/#home", icon: Home },
     { name: "Ecosystem", href: pathname === "/" ? "#ecosystem" : "/#ecosystem", icon: LayoutGrid },
     { name: "About Us", href: pathname === "/" ? "#about" : "/#about", icon: Info },
-    { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials", icon: MessageSquare },
     { name: "Pricing", href: pathname === "/" ? "#pricing" : "/#pricing", icon: CreditCard },
   ];
 
@@ -85,7 +82,6 @@ export function Navbar() {
       if (item.name === "Home") return activeSection === "home";
       if (item.name === "Ecosystem") return activeSection === "ecosystem";
       if (item.name === "About Us") return activeSection === "about";
-      if (item.name === "Testimonials") return activeSection === "testimonials";
       if (item.name === "Pricing") return activeSection === "pricing";
     }
 
@@ -160,23 +156,8 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Right Section: Buttons (Desktop) / Hamburger (Mobile & Tablet) */}
+        {/* Right Section: Hamburger Menu for all but Desktop */}
         <div className="flex items-center gap-4 relative z-10">
-          {/* Desktop Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link href="https://app.letscatchup-kcs.com/">
-              <Button variant="ghost" className="text-white hover:text-accent text-sm font-bold rounded-full px-6 transition-all">
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/#contact">
-              <Button className="bg-accent-gradient hover:opacity-90 text-white text-sm font-black rounded-full px-10 shadow-xl border-none h-12 transition-all active:scale-95">
-                Contact Us
-              </Button>
-            </Link>
-          </div>
-
-          {/* Hamburger Menu for non-desktop screens */}
           <div className="lg:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -242,6 +223,20 @@ export function Navbar() {
                 </div>
               </SheetContent>
             </Sheet>
+          </div>
+
+          {/* Desktop Only Buttons */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link href="https://app.letscatchup-kcs.com/">
+              <Button variant="ghost" className="text-white hover:text-accent text-sm font-bold rounded-full px-6 transition-all">
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/#contact">
+              <Button className="bg-accent-gradient hover:opacity-90 text-white text-sm font-black rounded-full px-10 shadow-xl border-none h-12 transition-all active:scale-95">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

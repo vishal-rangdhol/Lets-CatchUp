@@ -4,7 +4,6 @@ import { UnifiedSpace } from "@/components/home/UnifiedSpace";
 import { Onboarding } from "@/components/home/Onboarding";
 import { Features } from "@/components/home/Features";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { Testimonials } from "@/components/home/Testimonials";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -17,9 +16,6 @@ export default function Home() {
       <UnifiedSpace />
       <Onboarding />
       <AboutSection />
-      <section id="testimonials">
-        <Testimonials />
-      </section>
       <PricingSection />
       <ContactSection />
     </div>
