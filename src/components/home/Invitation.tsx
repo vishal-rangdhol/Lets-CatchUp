@@ -22,7 +22,7 @@ export function Invitation() {
       icon: Target,
       color: "text-teal-400",
       glowColor: "group-hover:border-teal-400/50",
-      iconGlow: "group-hover:text-teal-400",
+      hoverText: "group-hover:text-teal-400",
       label: "Operational Impact"
     },
     {
@@ -31,7 +31,7 @@ export function Invitation() {
       icon: Rocket,
       color: "text-indigo-400",
       glowColor: "group-hover:border-indigo-400/50",
-      iconGlow: "group-hover:text-indigo-400",
+      hoverText: "group-hover:text-indigo-400",
       label: "Strategic Partnership"
     },
     {
@@ -40,7 +40,7 @@ export function Invitation() {
       icon: Sparkles,
       color: "text-rose-400",
       glowColor: "group-hover:border-rose-400/50",
-      iconGlow: "group-hover:text-rose-400",
+      hoverText: "group-hover:text-rose-400",
       label: "Human Centric"
     }
   ];
@@ -82,15 +82,15 @@ export function Invitation() {
               >
                 <AccordionItem 
                   value={`invitation-${i}`}
-                  className="border-white/10 bg-white/5 rounded-[24px] px-6 md:px-10 border hover:bg-white/10 transition-all duration-300 overflow-hidden"
+                  className="border-white/10 bg-white/5 rounded-[24px] px-6 md:px-10 border hover:bg-white/10 transition-all duration-300 overflow-hidden group"
                 >
-                  <AccordionTrigger className="hover:no-underline py-8 group">
+                  <AccordionTrigger className="hover:no-underline py-8">
                     <div className="flex items-center gap-6 text-left w-full">
                       <div className={cn(
                         "w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shadow-xl shrink-0 transition-all duration-500",
                         inv.glowColor
                       )}>
-                        <inv.icon className={cn("w-6 h-6 text-gray-400 transition-colors duration-500", inv.iconGlow)} />
+                        <inv.icon className={cn("w-6 h-6 text-gray-400 transition-colors duration-500", inv.hoverText)} />
                       </div>
                       <div className="space-y-1">
                         <Badge variant="outline" className="border-white/10 text-[8px] font-black uppercase tracking-[0.2em] text-gray-400">
@@ -98,7 +98,7 @@ export function Invitation() {
                         </Badge>
                         <h3 className={cn(
                           "text-xl md:text-3xl font-headline font-bold text-white transition-colors duration-500",
-                          inv.iconGlow
+                          inv.hoverText
                         )}>
                           {inv.title}
                         </h3>
@@ -106,7 +106,10 @@ export function Invitation() {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-10 pt-2 px-2 md:px-20">
-                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium">
+                    <p className={cn(
+                      "text-lg md:text-xl text-gray-400 leading-relaxed font-medium transition-colors duration-500",
+                      inv.hoverText
+                    )}>
                       {inv.desc}
                     </p>
                   </AccordionContent>
