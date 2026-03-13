@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight, ShieldCheck } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const FOOTER_LINKS = {
   navigation: [
@@ -61,7 +59,6 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const [currentYear, setCurrentYear] = useState<number | string>(2025);
-  const isoLogo = PlaceHolderImages.find(img => img.id === "iso-logo");
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
@@ -173,31 +170,8 @@ export function Footer() {
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <p className="text-gray-500 text-[10px] uppercase tracking-widest font-medium">
-              @COPYRIGHT 2025 | ALL RIGHTS RESERVED BY <span className="font-bold">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
+              @COPYRIGHT 2025 | ALL RIGHTS RESERVED BY <span className="font-bold text-white">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
             </p>
-            
-            {/* ISO Certification Logo & Badge */}
-            <div className="flex items-center gap-4 px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10 group/iso hover:border-accent/30 transition-all duration-500">
-              <div className="relative w-10 h-10 shrink-0 overflow-hidden rounded-full border border-white/10 group-hover/iso:scale-110 transition-transform bg-accent/10 flex items-center justify-center">
-                {isoLogo ? (
-                  <Image 
-                    src={isoLogo.imageUrl} 
-                    alt={isoLogo.description} 
-                    fill 
-                    className="object-cover opacity-90 group-hover/iso:opacity-100" 
-                    data-ai-hint={isoLogo.imageHint}
-                  />
-                ) : (
-                  <ShieldCheck className="w-6 h-6 text-accent" />
-                )}
-                {/* Visual fallback icon always present behind image for high-trust feel */}
-                {!isoLogo && <ShieldCheck className="w-6 h-6 text-accent" />}
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-widest text-white leading-none">ISO Certified</span>
-                <span className="text-[8px] font-bold uppercase tracking-widest text-accent/60 leading-none mt-1">Institutional Trust</span>
-              </div>
-            </div>
           </div>
 
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-black text-gray-500">
