@@ -2,9 +2,10 @@
 "use client";
 
 import React from "react";
-import { GraduationCap, Zap, Users } from "lucide-react";
+import { GraduationCap, Zap, Users, Target, Network } from "lucide-react";
 import { motion } from "framer-motion";
 import { FeatureCard } from "@/components/ui/FeatureCard";
+import { Badge } from "@/components/ui/badge";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -53,29 +54,53 @@ export function Features() {
   return (
     <section id="ecosystem" className="py-24 relative overflow-hidden px-6">
       <div className="max-w-7xl mx-auto">
+        {/* Enhanced Architectural Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto mb-20 space-y-8"
+          className="text-center max-w-5xl mx-auto mb-20 space-y-12"
         >
-          <div className="space-y-4">
-            <h3 className="text-3xl md:text-5xl font-headline font-bold leading-tight">
-              Core capabilities for every community
+          <div className="space-y-6">
+            <div className="flex justify-center">
+              <Badge variant="outline" className="border-accent/30 text-accent px-6 py-1.5 uppercase tracking-[0.2em] text-[10px] font-black bg-accent/5 backdrop-blur-sm">
+                The Unified Institutional Command Center
+              </Badge>
+            </div>
+            <h3 className="text-4xl md:text-6xl font-headline font-bold leading-tight tracking-tight text-white">
+              Core capabilities for <br /><span className="text-gradient">every community</span>
             </h3>
-            <h4 className="text-xl md:text-2xl font-headline font-bold text-accent tracking-tight uppercase">
-              The Unified Institutional Command Center
-            </h4>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-4 text-gray-400 text-base md:text-lg font-medium leading-relaxed">
-            <p>
-              <span className="text-white font-bold">Our Philosophy:</span> Shifting the paradigm from superficial engagement to high-impact functional utility.
-            </p>
-            <p>
-              <span className="text-white font-bold">The Infrastructure:</span> Three foundational pillars seamlessly integrated within a secure, all-encompassing digital ecosystem.
-            </p>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Philosophy Card */}
+            <div className="glass-card p-6 md:p-8 border-white/5 text-left flex gap-6 items-start group hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
+               <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-20 group-hover:opacity-100 transition-opacity" />
+               <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors shadow-xl">
+                <Target className="w-6 h-6 text-accent glow-icon" />
+              </div>
+              <div className="space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-widest text-accent/60">Our Philosophy</p>
+                <p className="text-gray-300 text-sm md:text-base font-medium leading-relaxed">
+                  Shifting the paradigm from superficial engagement to <span className="text-white font-bold">high-impact functional utility</span>.
+                </p>
+              </div>
+            </div>
+
+            {/* Infrastructure Card */}
+            <div className="glass-card p-6 md:p-8 border-white/5 text-left flex gap-6 items-start group hover:border-primary/30 transition-all duration-500 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-20 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors shadow-xl">
+                <Network className="w-6 h-6 text-primary glow-icon" />
+              </div>
+              <div className="space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-widest text-primary/60">The Infrastructure</p>
+                <p className="text-gray-300 text-sm md:text-base font-medium leading-relaxed">
+                  Three foundational pillars seamlessly integrated within a <span className="text-white font-bold">secure, all-encompassing digital ecosystem</span>.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
 
