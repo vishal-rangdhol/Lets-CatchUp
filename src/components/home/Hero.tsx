@@ -71,18 +71,6 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative h-[500px] flex items-center justify-center"
           >
-            {/* 2.4k Live Badge */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 right-12 z-30"
-            >
-              <div className="glass px-4 py-2 rounded-full border-white/20 flex items-center gap-2 shadow-2xl">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-xs font-black text-white uppercase tracking-widest">2.4k Live</span>
-              </div>
-            </motion.div>
-
             {/* Abstract LMS Object (Using a central floating element) */}
             <div className="relative z-20 group">
               <div className="absolute -inset-8 bg-accent-gradient opacity-10 blur-3xl rounded-full group-hover:opacity-20 transition-opacity" />

@@ -29,21 +29,21 @@ export function Features() {
   const features = [
     {
       title: "Academic Operations",
-      description: "LMS for schools and universities.",
+      description: "A Learning Management System (LMS) designed for schools and universities to manage courses, students, assignments, and digital learning in one platform.",
       icon: GraduationCap,
       color: "from-emerald-400 to-teal-300",
       href: "/services/educational-institutions"
     },
     {
       title: "Professional Collaboration",
-      description: "Tools for startups and institutions.",
+      description: "An integrated platform offering smart tools for startups and institutions to simplify management, boost productivity, and accelerate growth.",
       icon: Zap,
       color: "from-blue-500 to-indigo-400",
       href: "/services/startups-organizations"
     },
     {
       title: "Healthy Social Spaces",
-      description: "Private (school-level) and Public (human-centric) spaces built for connection, not dopamine loops.",
+      description: "A platform offering private school-level spaces and public human-centric communities built for meaningful connection rather than dopamine-driven engagement.",
       icon: Users,
       color: "from-pink-500 to-rose-400",
       href: "/services/healthy-social-spaces"
