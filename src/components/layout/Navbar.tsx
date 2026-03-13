@@ -13,6 +13,7 @@ import {
   LogIn,
   Phone,
   LayoutGrid,
+  HelpCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -74,10 +75,13 @@ export function Navbar() {
     { name: "Ecosystem", href: pathname === "/" ? "#ecosystem" : "/#ecosystem", icon: LayoutGrid },
     { name: "About Us", href: pathname === "/" ? "#about" : "/#about", icon: Info },
     { name: "Pricing", href: pathname === "/" ? "#pricing" : "/#pricing", icon: CreditCard },
+    { name: "FAQ", href: "/faq", icon: HelpCircle },
   ];
 
   const getIsActive = (item: any) => {
     if (!mounted || !pathname) return false;
+
+    if (item.name === "FAQ") return pathname === "/faq";
 
     if (pathname === "/") {
       if (item.name === "Home") return activeSection === "home";
