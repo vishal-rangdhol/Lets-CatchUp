@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const FOOTER_LINKS = {
   navigation: [
@@ -58,6 +60,7 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const [currentYear, setCurrentYear] = useState<number | string>(2025);
+  const isoLogo = PlaceHolderImages.find(img => img.id === "iso-logo");
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
@@ -172,12 +175,22 @@ export function Footer() {
               © {currentYear} Let’s catch up. All rights reserved.
             </p>
             
-            {/* ISO Certification Badge */}
-            <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/5 border border-white/10 group/iso hover:border-accent/30 transition-all duration-300">
-              <ShieldCheck className="w-4 h-4 text-accent group-hover/iso:scale-110 transition-transform glow-icon" />
+            {/* ISO Certification Logo & Badge */}
+            <div className="flex items-center gap-4 px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10 group/iso hover:border-accent/30 transition-all duration-500">
+              <div className="relative w-8 h-8 shrink-0 overflow-hidden rounded-full border border-white/10 group-hover/iso:scale-110 transition-transform">
+                {isoLogo && (
+                  <Image 
+                    src={isoLogo.imageUrl} 
+                    alt={isoLogo.description} 
+                    fill 
+                    className="object-cover" 
+                    data-ai-hint={isoLogo.imageHint}
+                  />
+                )}
+              </div>
               <div className="flex flex-col">
-                <span className="text-[9px] font-black uppercase tracking-widest text-white leading-none">ISO Certified</span>
-                <span className="text-[7px] font-bold text-gray-500 uppercase tracking-tighter leading-tight mt-0.5">Secure Environment</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-white leading-none">ISO Certified</span>
+                <span className="text-[7px] font-bold text-gray-500 uppercase tracking-tighter leading-tight mt-1">High Trust Institutional Environment</span>
               </div>
             </div>
           </div>

@@ -71,6 +71,12 @@
       "description": "Beautiful natural forest landscape",
       "imageUrl": "https://picsum.photos/seed/nature/200/200",
       "imageHint": "nature forest"
+    },
+    {
+      "id": "iso-logo",
+      "description": "ISO Certified Company Logo",
+      "imageUrl": "https://picsum.photos/seed/iso-logo/200/200",
+      "imageHint": "iso certification"
     }
   ]
 }
