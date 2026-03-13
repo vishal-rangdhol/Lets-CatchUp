@@ -162,7 +162,7 @@ export function Navbar() {
         <div className="flex items-center gap-4 relative z-10">
           {/* Desktop Only Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link href="https://app.letsccatchup-kcs.com/">
+            <Link href="https://app.letscatchup-kcs.com/">
               <Button variant="ghost" className="text-white hover:text-accent hover:bg-white/5 border border-white/10 hover:border-accent/40 text-sm font-bold rounded-full px-6 transition-all h-12">
                 Sign In
               </Button>
