@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -56,7 +57,7 @@ export function FeatureCard({
         </div>
 
         {/* Content layer */}
-        <div className="relative px-8 pt-16 pb-10 flex flex-col items-center text-center h-full">
+        <div className="relative px-8 pt-16 pb-12 flex flex-col items-center text-center h-full">
           
           {/* Circle Icon - Elevated and Pop out */}
           <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[100px] h-[100px] rounded-full bg-gradient-to-b from-[#2d3d6b] to-[#141d3d] flex items-center justify-center border border-white/20 shadow-[0_15px_35px_rgba(0,0,0,0.5)] z-50 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6">
@@ -80,12 +81,6 @@ export function FeatureCard({
           <p className="text-[#cfd6ec] text-sm leading-relaxed mt-5 flex-1 z-20 relative font-medium">
             {description}
           </p>
-
-          {/* CTA with refined interaction */}
-          <button className="text-teal-300 text-xs mt-8 tracking-[0.2em] font-black hover:text-white transition-all uppercase flex items-center gap-2 group/btn z-20 relative">
-            <span>LEARN MORE</span>
-            <div className="w-5 h-[1px] bg-teal-300 transition-all group-hover/btn:w-8 group-hover/btn:bg-white"></div>
-          </button>
         </div>
       </div>
     </div>

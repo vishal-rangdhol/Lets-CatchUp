@@ -1,7 +1,8 @@
+
 "use client";
 
 import React from "react";
-import { Users, Zap, ArrowRight } from "lucide-react";
+import { Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -9,7 +10,7 @@ export function UnifiedSpace() {
   const sections = [
     {
       title: "Seamless collaboration",
-      description: "Break down silos with tools designed for real-time teamwork and project management.",
+      description: "Break down silos with tools designed for real-time teamwork and project management across your entire organization.",
       icon: Zap,
       color: "accent",
       gradient: "from-teal-400 to-cyan-300",
@@ -17,7 +18,7 @@ export function UnifiedSpace() {
     },
     {
       title: "Community engagement",
-      description: "Build vibrant communities where members can interact and share knowledge together.",
+      description: "Build vibrant, secure communities where members can interact, share deep knowledge, and grow together.",
       icon: Users,
       color: "primary",
       gradient: "from-primary to-indigo-400",
@@ -40,7 +41,7 @@ export function UnifiedSpace() {
             A unified space for <span className="text-gradient">every community</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-medium">
-            Everything you need to manage your organization in one cohesive interface.
+            Everything you need to manage your organization in one cohesive and professional interface.
           </p>
         </motion.div>
 
@@ -59,7 +60,7 @@ export function UnifiedSpace() {
                 section.gradient
               )} />
 
-              <div className="relative h-full bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] p-8 md:p-10 shadow-2xl overflow-hidden flex flex-col md:flex-row gap-6 items-center md:items-start group-hover:border-white/20 transition-all duration-500">
+              <div className="relative h-full bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl overflow-hidden flex flex-col md:flex-row gap-8 items-center md:items-start group-hover:border-white/20 transition-all duration-500">
                 <div className="relative shrink-0">
                   <div className={cn(
                     "w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-xl"
@@ -72,22 +73,12 @@ export function UnifiedSpace() {
                 </div>
 
                 <div className="space-y-4 flex-1 text-center md:text-left">
-                  <div className="space-y-2">
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
-                      {section.title}
-                    </h3>
-                    <p className="text-gray-400 text-base md:text-lg leading-relaxed font-medium">
-                      {section.description}
-                    </p>
-                  </div>
-
-                  <button className={cn(
-                    "flex items-center gap-2 font-bold uppercase tracking-widest text-[10px] transition-all group/btn mx-auto md:mx-0",
-                    section.color === "accent" ? "text-accent" : "text-primary"
-                  )}>
-                    <span>Explore features</span>
-                    <ArrowRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                    {section.title}
+                  </h3>
+                  <p className="text-gray-400 text-base md:text-lg leading-relaxed font-medium">
+                    {section.description}
+                  </p>
                 </div>
               </div>
             </motion.div>

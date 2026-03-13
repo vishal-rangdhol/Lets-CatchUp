@@ -3,7 +3,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, BarChart3 } from "lucide-react";
+import { ArrowRight, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
 import { motion } from "framer-motion";
@@ -83,17 +83,6 @@ export function Hero() {
                 Contact Us
               </Button>
             </Link>
-          </div>
-
-          <div className="flex items-center justify-center lg:justify-start gap-8 pt-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <CheckCircle2 className="w-5 h-5 text-accent" />
-              <span>Free tier</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <CheckCircle2 className="w-5 h-5 text-accent" />
-              <span>No credit card</span>
-            </div>
           </div>
         </motion.div>
 

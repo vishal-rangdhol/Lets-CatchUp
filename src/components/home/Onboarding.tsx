@@ -1,15 +1,16 @@
+
 "use client";
 
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { UserPlus, Target, Users, ArrowRight } from "lucide-react";
+import { UserPlus, Target, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Onboarding() {
   const steps = [
     {
       title: "Sign up for free",
-      description: "Get started instantly with our easy registration process. No credit card required.",
+      description: "Get started instantly with our easy registration process. Access all our core features immediately.",
       icon: UserPlus,
       color: "from-teal-400 to-cyan-300",
       glow: "shadow-teal-500/20",
@@ -17,7 +18,7 @@ export function Onboarding() {
     },
     {
       title: "Set your goals",
-      description: "Tell us what you want to achieve. Our AI tailors your dashboard to your path.",
+      description: "Tell us what you want to achieve. Our platform tailors your dashboard to your specific academic or professional path.",
       icon: Target,
       color: "from-indigo-500 to-purple-500",
       glow: "shadow-indigo-500/20",
@@ -25,7 +26,7 @@ export function Onboarding() {
     },
     {
       title: "Connect & Grow",
-      description: "Join communities and start your journey towards technical mastery.",
+      description: "Join vibrant communities and start your journey towards technical mastery alongside peers and mentors.",
       icon: Users,
       color: "from-pink-500 to-rose-500",
       glow: "shadow-pink-500/20",
@@ -75,7 +76,7 @@ export function Onboarding() {
                   <div className={`absolute inset-0 rounded-full animate-ping bg-gradient-to-r ${step.color}`} />
                 </div>
 
-                <div className={`relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[40px] h-full flex flex-col items-center text-center space-y-6 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl ${step.glow}`}>
+                <div className={`relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-[40px] h-full flex flex-col items-center text-center space-y-6 transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 shadow-2xl ${step.glow}`}>
                   <div className={`w-14 h-14 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-xl font-black shadow-lg rotate-3 group-hover:rotate-6 transition-transform`}>
                     0{idx + 1}
                   </div>
@@ -94,13 +95,6 @@ export function Onboarding() {
                     <p className="text-gray-400 text-sm leading-relaxed font-medium">
                       {step.description}
                     </p>
-                  </div>
-
-                  <div className="pt-2 mt-auto">
-                    <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-all text-white">
-                      <span>Learn how</span>
-                      <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-                    </button>
                   </div>
                 </div>
               </motion.div>

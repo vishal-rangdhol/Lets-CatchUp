@@ -5,7 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Star, Users, ArrowRight } from "lucide-react";
+import { Clock, Star, Users } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { motion } from "framer-motion";
 
@@ -120,10 +120,6 @@ export function CourseGrid() {
 
                   <div className="flex justify-between items-center border-t border-white/5 pt-6 mt-auto">
                     <span className="text-3xl font-bold text-white">{course.price}</span>
-                    <button className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-white opacity-60 group-hover:opacity-100 transition-all">
-                      <span>Enroll Now</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                    </button>
                   </div>
                 </div>
 
