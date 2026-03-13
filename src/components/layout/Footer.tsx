@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const FOOTER_LINKS = {
@@ -167,9 +167,21 @@ export function Footer() {
         </div>
 
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-            © {currentYear} Let’s catch up. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
+              © {currentYear} Let’s catch up. All rights reserved.
+            </p>
+            
+            {/* ISO Certification Badge */}
+            <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/5 border border-white/10 group/iso hover:border-accent/30 transition-all duration-300">
+              <ShieldCheck className="w-4 h-4 text-accent group-hover/iso:scale-110 transition-transform glow-icon" />
+              <div className="flex flex-col">
+                <span className="text-[9px] font-black uppercase tracking-widest text-white leading-none">ISO Certified</span>
+                <span className="text-[7px] font-bold text-gray-500 uppercase tracking-tighter leading-tight mt-0.5">Secure Environment</span>
+              </div>
+            </div>
+          </div>
+
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-black text-gray-500">
             <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Security</Link>
