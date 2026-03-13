@@ -30,6 +30,7 @@ export function Footer() {
       { name: "Privacy Policy", href: "#" },
       { name: "Terms of Service", href: "#" },
       { name: "Refund Policy", href: "#" },
+      { name: "Security", href: "#" },
     ]
   };
 
