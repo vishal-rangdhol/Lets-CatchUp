@@ -70,7 +70,10 @@ export function FeatureCard({
               borderColorClass
             )}></div>
             <Icon
-              className={cn("relative z-10 w-6 h-6 md:w-10 md:h-10", iconColorClass)}
+              className={cn(
+                "relative z-10 w-6 h-6 md:w-10 md:h-10 text-white transition-colors duration-500",
+                `group-hover:${iconColorClass}`
+              )}
               strokeWidth={1.5}
             />
           </div>
@@ -101,9 +104,8 @@ export function FeatureCard({
                   <div className="relative flex items-center justify-center gap-2 md:gap-3 bg-[#0f172a] hover:bg-transparent rounded-[11px] md:rounded-[15px] px-4 md:px-6 py-2.5 md:py-4 transition-all duration-500">
                     <span className="text-white transition-colors group-hover/btn:text-white">Learn More</span>
                     <ArrowRight className={cn(
-                      "w-3.5 h-3.5 md:w-4 md:h-4 transition-all duration-500 group-hover/btn:translate-x-2",
-                      iconColorClass,
-                      "group-hover/btn:text-white"
+                      "w-3.5 h-3.5 md:w-4 md:h-4 transition-all duration-500 group-hover/btn:translate-x-2 text-white",
+                      `group-hover/btn:${iconColorClass}`
                     )} />
                   </div>
                 </button>

@@ -78,7 +78,7 @@ export function Features() {
             <div className="glass-card p-6 md:p-8 border-white/5 text-left flex gap-6 items-start group hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
                <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-20 group-hover:opacity-100 transition-opacity" />
                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors shadow-xl">
-                <Target className="w-6 h-6 text-accent glow-icon" />
+                <Target className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-accent glow-icon" />
               </div>
               <div className="space-y-2">
                 <p className="text-[10px] font-black uppercase tracking-widest text-accent/60">Our Philosophy</p>
@@ -92,7 +92,7 @@ export function Features() {
             <div className="glass-card p-6 md:p-8 border-white/5 text-left flex gap-6 items-start group hover:border-primary/30 transition-all duration-500 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-20 group-hover:opacity-100 transition-opacity" />
               <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors shadow-xl">
-                <Network className="w-6 h-6 text-primary glow-icon" />
+                <Network className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-primary glow-icon" />
               </div>
               <div className="space-y-2">
                 <p className="text-[10px] font-black uppercase tracking-widest text-primary/60">The Infrastructure</p>
