@@ -10,7 +10,7 @@ import {
   Layers, 
   CreditCard, 
   MessageCircle,
-  User
+  MessageSquare
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -27,7 +27,7 @@ export function Navbar() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => handleScroll();
   }, []);
 
   // Intersection Observer for ScrollSpy
@@ -50,7 +50,7 @@ export function Navbar() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    const sections = ["home", "about", "pricing", "contact"];
+    const sections = ["home", "about", "testimonials", "pricing", "contact"];
     sections.forEach(id => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -61,10 +61,10 @@ export function Navbar() {
 
   const navItems = [
     { name: "Home", href: pathname === "/" ? "#home" : "/#home", icon: Home },
-    { name: "About", href: pathname === "/" ? "#about" : "/#about", icon: Info },
+    { name: "About Us", href: pathname === "/" ? "#about" : "/#about", icon: Info },
     { name: "Services", href: "/services", icon: Layers },
+    { name: "Testimonials", href: pathname === "/" ? "#testimonials" : "/#testimonials", icon: MessageSquare },
     { name: "Pricing", href: pathname === "/" ? "#pricing" : "/#pricing", icon: CreditCard },
-    { name: "Contact", href: pathname === "/" ? "#contact" : "/#contact", icon: MessageCircle },
   ];
 
   const getIsActive = (item: any) => {
@@ -76,9 +76,9 @@ export function Navbar() {
 
     if (pathname === "/") {
       if (item.name === "Home") return activeSection === "home";
-      if (item.name === "About") return activeSection === "about";
+      if (item.name === "About Us") return activeSection === "about";
+      if (item.name === "Testimonials") return activeSection === "testimonials";
       if (item.name === "Pricing") return activeSection === "pricing";
-      if (item.name === "Contact") return activeSection === "contact";
     }
 
     return false;
@@ -96,8 +96,8 @@ export function Navbar() {
             left: "0%",
             backgroundColor: "rgba(11, 15, 47, 0)",
             backdropFilter: "blur(0px)",
-            paddingTop: "1.5rem",
-            paddingBottom: "1.5rem",
+            paddingTop: "2rem",
+            paddingBottom: "1rem",
             borderBottomColor: "rgba(255, 255, 255, 0)",
           },
           scrolled: {
@@ -117,11 +117,11 @@ export function Navbar() {
         className="fixed top-0 z-50 px-6 border-b transition-colors duration-500"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between relative h-full">
-          <Link href="/#home" className="flex items-center gap-2 shrink-0 relative z-10">
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-accent-gradient w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg flex items-center justify-center overflow-hidden">
-              <span className="text-white font-black text-sm sm:text-base leading-none tracking-tighter">LC</span>
+          <Link href="/#home" className="flex items-center gap-3 shrink-0 relative z-10">
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-accent-gradient w-12 h-12 rounded-xl shadow-lg flex items-center justify-center overflow-hidden">
+              <span className="text-white font-black text-lg leading-none tracking-tighter">LC</span>
             </motion.div>
-            <span className="font-headline font-bold text-lg sm:text-xl tracking-tight text-white block">Let's Catch Up</span>
+            <span className="font-headline font-bold text-xl tracking-tight text-white block">Let's Catch Up</span>
           </Link>
 
           <div className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 h-full">
@@ -129,11 +129,11 @@ export function Navbar() {
               {navItems.map((item) => {
                 const isActive = getIsActive(item);
                 return (
-                  <div key={item.name} className="relative group py-4">
+                  <div key={item.name} className="relative group">
                     <Link href={item.href}>
                       <motion.span className={cn(
-                        "inline-block text-[13px] font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
-                        isActive ? "text-[#2dd4bf]" : "text-gray-300 hover:text-[#2dd4bf]"
+                        "inline-block text-sm font-bold transition-all cursor-pointer whitespace-nowrap px-5 py-2.5 rounded-full relative",
+                        isActive ? "text-accent bg-white/5" : "text-gray-300 hover:text-white"
                       )}>
                         {item.name}
                         {isActive && mounted && (
@@ -151,15 +151,14 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 relative z-10">
+          <div className="flex items-center gap-6 relative z-10">
             <Link href="https://app.letscatchup-kcs.com/">
-              <Button variant="ghost" className="text-gray-300 hover:text-[#2dd4bf] hover:bg-white/5 text-xs sm:text-sm font-bold rounded-full px-4 sm:px-6 h-10 sm:h-11 transition-all">
-                <span className="lg:hidden"><User className="w-4 h-4" /></span>
-                <span className="hidden lg:inline">Sign In</span>
+              <Button variant="ghost" className="text-white hover:text-accent text-sm font-bold rounded-full px-6 transition-all">
+                Sign In
               </Button>
             </Link>
             <Link href="/#contact" className="hidden lg:block">
-              <Button className="bg-accent-gradient hover:opacity-90 text-white text-sm font-extrabold rounded-full px-8 shadow-lg border-none h-11 transition-all active:scale-95">Contact Us</Button>
+              <Button className="bg-accent-gradient hover:opacity-90 text-white text-sm font-black rounded-full px-10 shadow-xl border-none h-12 transition-all active:scale-95">Contact Us</Button>
             </Link>
           </div>
         </div>
@@ -167,9 +166,9 @@ export function Navbar() {
 
       {/* Mobile Bottom Navbar (YouTube Style) */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4">
-        <div className="glass h-20 rounded-[2rem] flex items-center justify-around px-2 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-white/10">
-          {navItems.map((item) => {
-            const isActive = getIsActive(item);
+        <div className="glass h-20 rounded-[2.5rem] flex items-center justify-around px-2 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-white/10">
+          {[...navItems, { name: "Contact", href: "/#contact", icon: MessageCircle }].map((item) => {
+            const isActive = getIsActive(item) || (item.name === "Contact" && activeSection === "contact");
             return (
               <Link key={item.name} href={item.href} className="flex flex-col items-center justify-center flex-1 h-full gap-1">
                 <div className={cn(
@@ -182,7 +181,7 @@ export function Navbar() {
                   "text-[10px] font-black uppercase tracking-widest transition-colors duration-300",
                   isActive ? "text-accent" : "text-gray-500"
                 )}>
-                  {item.name}
+                  {item.name.split(' ')[0]}
                 </span>
               </Link>
             );
