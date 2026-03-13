@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BookOpen, Trophy, GraduationCap } from 'lucide-react';
+import { ArrowRight, Settings, Users, GraduationCap } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -99,28 +99,28 @@ export function Hero() {
             </div>
 
             {/* Floating Objects */}
-            {/* Trophy Badge */}
+            {/* Collaboration Badge */}
             <motion.div 
               animate={{ y: [0, -15, 0], rotate: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute top-1/4 -left-10 w-28 h-28 glass rounded-[32px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
+              className="absolute top-1/4 -left-10 w-32 h-32 glass rounded-[32px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
             >
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                <Trophy className="text-accent w-6 h-6" />
+                <Users className="text-accent w-6 h-6" />
               </div>
-              <span className="text-[8px] font-black uppercase tracking-widest text-white">Mastery</span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-white text-center px-2">Collaboration</span>
             </motion.div>
 
-            {/* Resource Hub */}
+            {/* Management Hub */}
             <motion.div 
               animate={{ y: [0, 20, 0], rotate: [0, 8, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute bottom-1/4 -right-10 w-32 h-32 glass rounded-[40px] border-white/20 flex flex-col items-center justify-center shadow-2xl z-10"
             >
               <div className="w-14 h-14 rounded-full bg-accent-gradient flex items-center justify-center mb-2 shadow-lg">
-                <BookOpen className="text-white w-7 h-7" />
+                <Settings className="text-white w-7 h-7" />
               </div>
-              <span className="text-[8px] font-black uppercase tracking-widest text-white">Resources</span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-white text-center px-2">Management</span>
             </motion.div>
 
             {/* Background Glow Rings */}
