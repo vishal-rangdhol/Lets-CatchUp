@@ -81,76 +81,84 @@ export function Invitation() {
         {/* Vertical Accordion Column Layout */}
         <div className="max-w-4xl mx-auto">
           <Accordion type="single" collapsible className="space-y-8">
-            {invitations.map((inv, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <AccordionItem 
-                  value={`invitation-${i}`}
-                  className="border-none group"
+            {invitations.map((inv, i) => {
+              const Icon = inv.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  <div className="relative">
-                    {/* Layered architectural background panel */}
-                    <div className={cn(
-                      "absolute -bottom-2 -right-2 w-full h-full rounded-[32px] bg-white/5 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 group-data-[state=open]:-bottom-4 group-data-[state=open]:-right-4 group-data-[state=open]:bg-accent/10"
-                    )} />
+                  <AccordionItem 
+                    value={`invitation-${i}`}
+                    className="border-none group"
+                  >
+                    <div className="relative">
+                      {/* Layered architectural background panel */}
+                      <div className={cn(
+                        "absolute -bottom-2 -right-2 w-full h-full rounded-[32px] bg-white/5 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 group-data-[state=open]:-bottom-4 group-data-[state=open]:-right-4 group-data-[state=open]:bg-accent/10"
+                      )} />
 
-                    <div className={cn(
-                      "relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] transition-all duration-500 overflow-hidden shadow-2xl group-hover:border-white/20 group-data-[state=open]:border-accent/30",
-                    )}>
-                      {/* Subtle internal gradient highlight */}
-                      <div className={cn("absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none", inv.bgGradient)} />
+                      <div className={cn(
+                        "relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] transition-all duration-500 overflow-hidden shadow-2xl group-hover:border-white/20 group-data-[state=open]:border-accent/30",
+                      )}>
+                        {/* Subtle internal gradient highlight */}
+                        <div className={cn("absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none", inv.bgGradient)} />
 
-                      <AccordionTrigger className="hover:no-underline py-8 px-8 md:px-12 [&>svg]:hidden">
-                        <div className="flex items-center gap-6 text-left w-full">
-                          <div className={cn(
-                            "w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shadow-xl shrink-0 transition-all duration-500",
-                            inv.glowColor
-                          )}>
-                            <inv.icon className={cn("w-7 h-7 text-gray-400 transition-colors duration-500", inv.hoverText)} />
-                          </div>
-                          <div className="space-y-1.5 flex-1">
-                            <div className="flex items-center gap-3">
-                              <Badge variant="outline" className="border-white/10 text-[8px] font-black uppercase tracking-[0.2em] text-gray-500">
-                                {inv.label}
-                              </Badge>
-                            </div>
-                            <h3 className={cn(
-                              "text-xl md:text-3xl font-headline font-bold text-white transition-colors duration-500 tracking-tight",
-                              inv.hoverText
+                        <AccordionTrigger className="hover:no-underline py-8 px-8 md:px-12 [&>svg]:hidden">
+                          <div className="flex items-center gap-6 text-left w-full">
+                            <div className={cn(
+                              "w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shadow-xl shrink-0 transition-all duration-500",
+                              inv.glowColor
                             )}>
-                              {inv.title}
-                            </h3>
+                              <Icon className={cn("w-7 h-7 text-gray-400 transition-colors duration-500", inv.hoverText)} />
+                            </div>
+                            <div className="space-y-1.5 flex-1">
+                              <div className="flex items-center gap-3">
+                                <Badge variant="outline" className="border-white/10 text-[8px] font-black uppercase tracking-[0.2em] text-gray-500">
+                                  {inv.label}
+                                </Badge>
+                              </div>
+                              <h3 className={cn(
+                                "text-xl md:text-3xl font-headline font-bold text-white transition-colors duration-500 tracking-tight",
+                                inv.hoverText
+                              )}>
+                                {inv.title}
+                              </h3>
+                            </div>
+                            
+                            {/* Custom Indicator */}
+                            <div className="hidden md:flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-90">
+                              <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-accent transition-all" />
+                            </div>
                           </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-12 pt-0 px-8 md:px-12">
+                          <div className="h-[1px] w-full bg-white/5 mb-8" />
                           
-                          {/* Custom Indicator */}
-                          <div className="hidden md:flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 transition-all duration-300 group-hover:border-accent/40 group-data-[state=open]:rotate-90">
-                            <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-accent transition-all" />
+                          {/* Designed Box for Description */}
+                          <div className={cn(
+                            "relative bg-white/[0.03] border border-white/5 border-l-2 p-6 md:p-10 rounded-2xl md:rounded-[2rem] shadow-inner backdrop-blur-sm transition-all duration-500 group-data-[state=open]:translate-y-0 translate-y-4 opacity-0 group-data-[state=open]:opacity-100 overflow-hidden",
+                            inv.accentBorder
+                          )}>
+                            {/* Stylized Background Icon */}
+                            <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none -z-10 group-data-[state=open]:animate-float">
+                                <Icon size={240} strokeWidth={0.5} className={inv.hoverText} />
+                            </div>
+
+                            <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium relative z-10">
+                              {inv.desc}
+                            </p>
                           </div>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-12 pt-0 px-8 md:px-12">
-                        <div className="h-[1px] w-full bg-white/5 mb-8" />
-                        
-                        {/* Designed Box for Description */}
-                        <div className={cn(
-                          "bg-white/[0.03] border border-white/5 border-l-2 p-6 md:p-10 rounded-2xl md:rounded-[2rem] shadow-inner backdrop-blur-sm transition-all duration-500 group-data-[state=open]:translate-y-0 translate-y-4 opacity-0 group-data-[state=open]:opacity-100",
-                          inv.accentBorder
-                        )}>
-                          <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium">
-                            {inv.desc}
-                          </p>
-                        </div>
-                      </AccordionContent>
+                        </AccordionContent>
+                      </div>
                     </div>
-                  </div>
-                </AccordionItem>
-              </motion.div>
-            ))}
+                  </AccordionItem>
+                </motion.div>
+              );
+            })}
           </Accordion>
         </div>
 
