@@ -56,7 +56,7 @@ export function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-white/5 border-white/10 text-white font-bold rounded-full px-10 h-16 text-lg transition-all hover:bg-white/10"
+                  className="bg-white/5 border-white/10 text-white font-bold rounded-full px-10 h-16 text-lg transition-all hover:bg-white/10 hover:text-accent hover:border-accent/40"
                 >
                   Get in touch
                 </Button>

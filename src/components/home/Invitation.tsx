@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -121,9 +122,11 @@ export function Invitation() {
           whileInView={{ opacity: 1 }}
           className="flex justify-center pt-8"
         >
-          <button className="bg-accent-gradient hover:opacity-90 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest text-xs shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
-            Start Your Journey <ArrowRight className="w-4 h-4" />
-          </button>
+          <Link href="/#contact">
+            <button className="bg-accent-gradient hover:opacity-90 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest text-xs shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
+              Start Your Journey <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -238,7 +238,7 @@ export function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="w-full"
                     >
-                      <Button variant="outline" className="w-full h-14 rounded-2xl border-white/10 bg-white/5 text-white font-bold gap-3 hover:bg-white/10 transition-all">
+                      <Button variant="outline" className="w-full h-14 rounded-2xl border-white/10 bg-white/5 text-white font-bold gap-3 hover:bg-white/10 hover:text-accent hover:border-accent/40 transition-all">
                         <Phone className="w-5 h-5 text-accent" />
                         Get in touch
                       </Button>
