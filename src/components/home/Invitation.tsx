@@ -106,10 +106,7 @@ export function Invitation() {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-10 pt-2 px-2 md:px-20">
-                    <p className={cn(
-                      "text-lg md:text-xl text-gray-400 leading-relaxed font-medium transition-colors duration-500",
-                      inv.hoverText
-                    )}>
+                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium">
                       {inv.desc}
                     </p>
                   </AccordionContent>
