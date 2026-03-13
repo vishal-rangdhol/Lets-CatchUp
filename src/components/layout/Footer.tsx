@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, MapPin, Mail, ArrowRight, Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -9,61 +9,65 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
+const FOOTER_LINKS = {
+  navigation: [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "FAQ", href: "/faq" },
+  ],
+  services: [
+    { name: "Institutions", href: "/services/educational-institutions" },
+    { name: "Startups", href: "/services/startups-organizations" },
+  ],
+  legal: [
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+    { name: "Refund Policy", href: "#" },
+    { name: "Security", href: "#" },
+  ]
+};
+
+const SOCIAL_LINKS = [
+  { 
+    Icon: Facebook, 
+    href: "https://www.facebook.com/people/Kandhugule-Consultancy-Services/61563863545091/#",
+    label: "Facebook",
+    hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]"
+  },
+  { 
+    Icon: Instagram, 
+    href: "https://www.instagram.com/kandhuguleconsultancyservices/",
+    label: "Instagram",
+    hoverClass: "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:shadow-[0_0_20px_rgba(228,64,95,0.5)]"
+  },
+  { 
+    Icon: Linkedin, 
+    href: "https://www.linkedin.com/company/kandhuguleconsultancyservicespvtltd/posts/?feedView=all",
+    label: "LinkedIn",
+    hoverClass: "hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:shadow-[0_0_20px_rgba(10,102,194,0.5)]"
+  },
+  { 
+    Icon: (props: any) => (
+      <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+      </svg>
+    ),
+    href: "https://x.com/Kandhugule_KCS",
+    label: "X",
+    hoverClass: "hover:text-white hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]"
+  },
+];
+
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | string>(2025);
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const footerLinks = {
-    navigation: [
-      { name: "Home", href: "/" },
-      { name: "About Us", href: "/about" },
-      { name: "Pricing", href: "/pricing" },
-      { name: "FAQ", href: "/faq" },
-    ],
-    services: [
-      { name: "Institutions", href: "/services/educational-institutions" },
-      { name: "Startups", href: "/services/startups-organizations" },
-    ],
-    legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Refund Policy", href: "#" },
-      { name: "Security", href: "#" },
-    ]
-  };
-
-  const socialLinks = [
-    { 
-      Icon: Facebook, 
-      href: "https://www.facebook.com/people/Kandhugule-Consultancy-Services/61563863545091/#",
-      label: "Facebook",
-      hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]"
-    },
-    { 
-      Icon: Instagram, 
-      href: "https://www.instagram.com/kandhuguleconsultancyservices/",
-      label: "Instagram",
-      hoverClass: "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:shadow-[0_0_20px_rgba(228,64,95,0.5)]"
-    },
-    { 
-      Icon: Linkedin, 
-      href: "https://www.linkedin.com/company/kandhuguleconsultancyservicespvtltd/posts/?feedView=all",
-      label: "LinkedIn",
-      hoverClass: "hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:shadow-[0_0_20px_rgba(10,102,194,0.5)]"
-    },
-    { 
-      Icon: (props: any) => (
-        <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-        </svg>
-      ),
-      href: "https://x.com/Kandhugule_KCS",
-      label: "X",
-      hoverClass: "hover:text-white hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]"
-    },
-  ];
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -155,12 +159,12 @@ export function Footer() {
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
                   <MapPin className="w-5 h-5 text-accent" />
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <div className="text-gray-400 text-sm leading-relaxed">
                   Building No.: 3-37, Old RC Puram,<br />
                   Back Side ZPHS School, Mumbai Highway,<br />
                   Ramachandrapuram, Sangareddy<br />
                   Telangana – 502032
-                </p>
+                </div>
               </div>
               <div className="flex gap-4 items-center group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
@@ -171,7 +175,7 @@ export function Footer() {
             </div>
 
             <div className="flex gap-3">
-              {socialLinks.map(({ Icon, href, label, hoverClass }, i) => (
+              {SOCIAL_LINKS.map(({ Icon, href, label, hoverClass }, i) => (
                 <motion.a 
                   key={i}
                   whileHover={{ scale: 1.15, y: -5 }}
@@ -190,7 +194,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <h5 className="text-white font-bold tracking-widest text-xs uppercase opacity-50">Platform</h5>
             <ul className="space-y-4">
-              {footerLinks.navigation.map((link) => (
+              {FOOTER_LINKS.navigation.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
                     <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
@@ -206,7 +210,7 @@ export function Footer() {
           <div className="lg:col-span-3 space-y-6">
             <h5 className="text-white font-bold tracking-widest text-xs uppercase opacity-50">Services</h5>
             <ul className="space-y-4">
-              {footerLinks.services.map((link) => (
+              {FOOTER_LINKS.services.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
                     <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
@@ -222,7 +226,7 @@ export function Footer() {
           <div className="lg:col-span-3 space-y-6">
             <h5 className="text-white font-bold tracking-widest text-xs uppercase opacity-50">Support</h5>
             <ul className="space-y-4">
-              {footerLinks.legal.map((link) => (
+              {FOOTER_LINKS.legal.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
                     <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
@@ -241,8 +245,8 @@ export function Footer() {
             © {currentYear} Let’s catch up. All rights reserved.
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-widest font-black text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Security</a>
+            <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Security</Link>
           </div>
         </div>
       </div>
