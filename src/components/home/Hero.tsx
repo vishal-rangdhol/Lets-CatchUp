@@ -103,7 +103,7 @@ export function Hero() {
                 className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] flex items-center justify-center"
               >
                 <Image
-                  src="/image.png"
+                  src="/logo-3D.png"
                   alt="Let's Catch Up Brand Logo"
                   fill
                   className="object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)]"
