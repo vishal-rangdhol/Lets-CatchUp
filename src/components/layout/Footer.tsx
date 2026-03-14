@@ -74,7 +74,7 @@ export function Footer() {
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden shadow-xl">
-                <Image src="/favicon-v2.ico" alt="Let's Catch Up Logo" fill className="object-contain" />
+                <Image src="/image.png" alt="Let's Catch Up Logo" fill className="object-contain" />
               </div>
               <span className="font-headline font-bold text-xl md:text-2xl tracking-tight text-white">
                 Let’s catch up

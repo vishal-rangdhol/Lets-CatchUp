@@ -55,7 +55,7 @@ export default function FAQPage() {
           <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
             Frequently Asked <br /><span className="text-gradient">Questions</span>
           </h1>
-          <p className="text-xl text-gray-400 font-medium max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
             Everything you need to know about the Let’s Catch Up platform and how it empowers your community.
           </p>
         </motion.div>

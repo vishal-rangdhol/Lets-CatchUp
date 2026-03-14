@@ -64,7 +64,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Brand Image (image.png) with Animation */}
+          {/* Right Column: Brand Image (image.png) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

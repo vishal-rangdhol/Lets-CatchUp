@@ -124,7 +124,7 @@ export function Navbar() {
           <Link href="/#home" className="flex items-center gap-2 md:gap-3">
             <motion.div whileHover={{ scale: 1.05 }} className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden">
               <Image 
-                src="/favicon-v2.ico" 
+                src="/image.png" 
                 alt="Let's Catch Up Logo" 
                 fill 
                 className="object-contain"
@@ -188,10 +188,9 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="bg-[rgb(15,21,61)] border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
-                {/* Accessibility Headers */}
                 <SheetHeader className="sr-only">
                   <SheetTitle>Navigation Menu</SheetTitle>
-                  <SheetDescription>Main navigation links for the Let's Catch Up platform.</SheetDescription>
+                  <SheetDescription>Main navigation for Let's Catch Up platform.</SheetDescription>
                 </SheetHeader>
                 
                 <div className="flex flex-col h-full p-0 relative overflow-hidden">
@@ -201,7 +200,7 @@ export function Navbar() {
                   <div className="text-left mb-2 relative z-10 px-6 pt-8 pb-2">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="relative w-10 h-10 overflow-hidden">
-                        <Image src="/favicon-v2.ico" alt="Logo" fill className="object-contain" />
+                        <Image src="/image.png" alt="Logo" fill className="object-contain" />
                       </div>
                       <span className="text-white font-headline font-bold text-xl tracking-tight">Let's Catch Up</span>
                     </div>
