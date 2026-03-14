@@ -122,9 +122,9 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between relative h-full">
         <div className="flex items-center gap-2 shrink-0 relative z-10">
           <Link href="/#home" className="flex items-center gap-2 md:gap-3">
-            <motion.div whileHover={{ scale: 1.05 }} className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden">
+            <motion.div whileHover={{ scale: 1.05 }} className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden shadow-2xl">
               <Image 
-                src="/image.png" 
+                src="/favicon-v2.ico" 
                 alt="Let's Catch Up Logo" 
                 fill 
                 className="object-contain"
@@ -193,14 +193,14 @@ export function Navbar() {
                   <SheetDescription>Main navigation for Let's Catch Up platform.</SheetDescription>
                 </SheetHeader>
                 
-                <div className="flex flex-col h-full p-0 relative overflow-hidden">
+                <div className="flex flex-col h-full p-0 relative overflow-hidden bg-[rgb(15,21,61)]">
                   <div className="absolute top-[-100px] left-[-100px] w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
                   <div className="absolute bottom-[-100px] right-[-100px] w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
                   <div className="text-left mb-2 relative z-10 px-6 pt-8 pb-2">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="relative w-10 h-10 overflow-hidden">
-                        <Image src="/image.png" alt="Logo" fill className="object-contain" />
+                      <div className="relative w-10 h-10 overflow-hidden shadow-xl">
+                        <Image src="/favicon-v2.ico" alt="Logo" fill className="object-contain" />
                       </div>
                       <span className="text-white font-headline font-bold text-xl tracking-tight">Let's Catch Up</span>
                     </div>
