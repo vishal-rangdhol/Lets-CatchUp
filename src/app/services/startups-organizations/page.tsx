@@ -31,7 +31,7 @@ export default function StartupsOrganizationsPage() {
           <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
             Scale Your <br /><span className="text-gradient">Team's Potential</span>
           </h1>
-          <p className="text-sm md:text-xl text-gray-400 leading-relaxed font-medium">
+          <p className="text-[10px] md:text-xl text-gray-400 leading-relaxed font-medium">
             Move faster with a unified workspace that combines project management, team learning, and professional collaboration.
           </p>
         </motion.div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Quote, Star } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -63,7 +64,7 @@ export function TestimonialCard({
             ))}
           </div>
 
-          <p className="text-xs md:text-2xl text-gray-200 italic leading-relaxed font-medium tracking-tight">
+          <p className="text-[10px] md:text-2xl text-gray-200 italic leading-relaxed font-medium tracking-tight">
             "{quote}"
           </p>
         </div>

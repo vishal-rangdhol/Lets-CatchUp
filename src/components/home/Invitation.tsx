@@ -52,7 +52,7 @@ export function Invitation() {
   ];
 
   return (
-    <section className="py-24 md:py-32 px-6 relative overflow-hidden">
+    <section id="invitation" className="py-24 md:py-32 px-6 relative overflow-hidden">
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[400px] md:h-[600px] bg-primary/5 rounded-full blur-[100px] md:blur-[160px] -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-16 md:space-y-20">
@@ -69,7 +69,7 @@ export function Invitation() {
             <h2 className="text-4xl md:text-7xl font-headline font-bold leading-tight tracking-tight text-white">
               Join the <span className="text-gradient">Movement</span>
             </h2>
-            <p className="text-xs md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-[10px] md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium">
               We are building the architecture of the next decade. Be part of a transition that prioritizes utility, safety, and human growth.
             </p>
           </motion.div>
@@ -137,8 +137,9 @@ export function Invitation() {
                       </div>
                     </div>
                   </AccordionItem>
-                );
-              })}
+                </motion.div>
+              );
+            })}
           </Accordion>
         </div>
 

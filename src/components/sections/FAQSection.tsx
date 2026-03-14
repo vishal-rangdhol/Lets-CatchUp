@@ -57,7 +57,7 @@ export function FAQSection() {
           <h2 className="text-4xl md:text-6xl font-headline font-bold leading-tight">
             Frequently Asked <br /><span className="text-gradient">Questions</span>
           </h2>
-          <p className="text-sm md:text-xl text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[10px] md:text-xl text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
             Everything you need to know about the Let’s Catch Up platform and how it empowers your community.
           </p>
         </motion.div>
