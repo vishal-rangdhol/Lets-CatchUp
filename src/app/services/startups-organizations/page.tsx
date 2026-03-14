@@ -24,7 +24,9 @@ export default function StartupsOrganizationsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center space-y-6 max-w-4xl mx-auto"
         >
-          <Badge className="glass text-primary border-white/10 px-4 py-1">For startups and organisations</Badge>
+          <Badge className="glass text-primary border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">
+            For startups and organisations
+          </Badge>
           <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
             Scale Your <br /><span className="text-gradient">Team's Potential</span>
           </h1>

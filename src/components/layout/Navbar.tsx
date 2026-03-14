@@ -13,7 +13,6 @@ import {
   LogIn,
   Phone,
   LayoutGrid,
-  HelpCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -75,12 +74,10 @@ export function Navbar() {
     { name: "Ecosystem", href: pathname === "/" ? "#ecosystem" : "/#ecosystem", icon: LayoutGrid },
     { name: "About Us", href: pathname === "/" ? "#about" : "/#about", icon: Info },
     { name: "Pricing", href: pathname === "/" ? "#pricing" : "/#pricing", icon: CreditCard },
-    { name: "FAQ", href: "/faq", icon: HelpCircle },
   ];
 
   const getIsActive = (item: any) => {
     if (!mounted || !pathname) return false;
-    if (item.name === "FAQ") return pathname === "/faq";
     if (pathname === "/") {
       if (item.name === "Home") return activeSection === "home";
       if (item.name === "Ecosystem") return activeSection === "ecosystem";
@@ -168,7 +165,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link href="https://app.letscatchup-kcs.com/">
               <Button variant="ghost" className="text-white hover:text-accent hover:bg-white/5 border border-white/10 hover:border-accent/40 text-sm font-bold rounded-full px-6 transition-all h-10">
-                Sign In
+                Get started
               </Button>
             </Link>
             <Link href="/#contact">
@@ -189,7 +186,7 @@ export function Navbar() {
                   <MenuIcon className="w-5 h-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="bg-[rgb(15,21,61)]/98 border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
+              <SheetContent side="left" className="bg-[rgb(15,21,61)] border-white/10 backdrop-blur-2xl w-[85%] sm:w-[400px] p-0">
                 <SheetHeader className="sr-only">
                   <SheetTitle>Navigation Menu</SheetTitle>
                   <SheetDescription>Main navigation links for the Let's Catch Up platform.</SheetDescription>
@@ -242,7 +239,7 @@ export function Navbar() {
                   <div className="mt-auto p-6 border-t border-white/20 flex flex-col gap-3 relative z-10 bg-black/20">
                     <Link href="https://app.letscatchup-kcs.com/" onClick={() => setIsOpen(false)} className="w-full">
                       <Button className="w-full h-12 rounded-2xl bg-accent-gradient text-white font-black uppercase tracking-widest text-[10px] gap-3 shadow-xl border-none">
-                        <LogIn className="w-4 h-4" /> Sign In
+                        <LogIn className="w-4 h-4" /> Get started
                       </Button>
                     </Link>
                     <Link href="/#contact" onClick={() => setIsOpen(false)} className="w-full">

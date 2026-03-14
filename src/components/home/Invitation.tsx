@@ -100,17 +100,17 @@ export function Invitation() {
                         <AccordionTrigger className="hover:no-underline py-6 md:py-8 px-6 md:px-12 [&>svg]:hidden">
                           <div className="flex items-center gap-4 md:gap-6 text-left w-full">
                             <div className={cn(
-                              "w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shadow-xl shrink-0 transition-all duration-500",
+                              "w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shadow-xl shrink-0 transition-all duration-500",
                               inv.glowColor
                             )}>
-                              <Icon className={cn("w-6 h-6 md:w-7 md:h-7 text-gray-400 transition-colors duration-500", inv.hoverText)} />
+                              <Icon className={cn("w-5 h-5 md:w-7 md:h-7 text-gray-400 transition-colors duration-500", inv.hoverText)} />
                             </div>
                             <div className="space-y-1 flex-1">
                               <Badge variant="outline" className="border-white/10 text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-gray-500">
                                 {inv.label}
                               </Badge>
                               <h3 className={cn(
-                                "text-lg md:text-3xl font-headline font-bold text-white transition-colors duration-500 tracking-tight",
+                                "text-base md:text-3xl font-headline font-bold text-white transition-colors duration-500 tracking-tight",
                                 inv.hoverText
                               )}>
                                 {inv.title}

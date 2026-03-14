@@ -12,7 +12,6 @@ const FOOTER_LINKS = {
     { name: "Ecosystem", href: "/#ecosystem" },
     { name: "About Us", href: "/#about" },
     { name: "Pricing", href: "/#pricing" },
-    { name: "FAQ", href: "/faq" },
   ],
   services: [
     { name: "Academic Operations", href: "/services/educational-institutions" },

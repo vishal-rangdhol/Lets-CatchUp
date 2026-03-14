@@ -26,7 +26,7 @@ export function UnifiedSpace() {
   ];
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section id="unified-space" className="py-24 px-6 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-accent/5 rounded-full blur-[120px] -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
@@ -39,7 +39,7 @@ export function UnifiedSpace() {
           <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight">
             A unified space for <span className="text-gradient">every community</span>
           </h2>
-          <p className="text-muted-foreground text-xs md:text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-muted-foreground text-[10px] md:text-lg max-w-2xl mx-auto font-medium">
             Everything you need to manage your organization in one cohesive and professional interface.
           </p>
         </motion.div>
