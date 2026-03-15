@@ -20,8 +20,8 @@ export default function Home() {
       <AboutSection />
       <PricingSection />
       <Invitation />
-      <AppShowcase />
       <FAQSection />
+      <AppShowcase />
       <ContactSection />
     </div>
   );
