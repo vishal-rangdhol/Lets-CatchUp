@@ -63,20 +63,20 @@ Request body:
 
 ```json
 {
-  "fullName": "Jane Williams",
+  "name": "Jane Williams",
   "email": "jane@company.com",
   "phone": "+91 9876543210",
-  "organization": "Acme Learning",
+  "company_name": "Acme Learning",
+  "designation": "Parent",
   "subject": "Partnership",
   "message": "We want to explore a pilot.",
-  "source": "contact-us-page",
-  "page": "/contact-us"
+  "source": "website"
 }
 ```
 
 Optional environment variables:
 
-- `NEXT_PUBLIC_CONTACT_API_URL`: Full public endpoint used by browser forms (recommended for static export), for example `https://api.yourdomain.com/api/contact`.
+- `NEXT_PUBLIC_CONTACT_API_URL`: Full public endpoint used by browser forms (recommended for static export), for example `https://api.yourdomain.com/api/public/contact`.
 - `NEXT_PUBLIC_API_URL`: Base API URL fallback used when `NEXT_PUBLIC_CONTACT_API_URL` is not set.
 - `CONTACT_WEBHOOK_URL`: Forward validated submissions to your backend/email automation endpoint.
 - `CONTACT_WEBHOOK_TOKEN`: Included as `x-contact-webhook-token` header when forwarding.
@@ -86,7 +86,7 @@ If `CONTACT_WEBHOOK_URL` is not set, the endpoint accepts requests and logs subm
 Browser form submission behavior:
 
 1. Uses `NEXT_PUBLIC_CONTACT_API_URL` when provided.
-2. Otherwise derives `${NEXT_PUBLIC_API_URL}/api/contact`.
+2. Otherwise derives `${NEXT_PUBLIC_API_URL}/api/public/contact`.
 3. Falls back to `/api/contact` for local/full-stack runtime.
 
 ## Cloudflare Pages Deployment (Static Export)

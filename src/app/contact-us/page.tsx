@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import {
   getContactSubmissionConfig,
   getContactSubmissionUrl,
+  sanitizeContactPayload,
 } from "@/lib/contact-api";
 import {
   AlertTriangle,
@@ -68,27 +69,44 @@ export default function ContactUsPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...form,
-          source: "contact-us-page",
-          page: "/contact-us",
-        }),
+        body: JSON.stringify(
+          sanitizeContactPayload({
+            name: form.fullName,
+            email: form.email,
+            phone: form.phone,
+            company_name: form.organization,
+            designation: "",
+            subject: form.subject,
+            message: form.message,
+            source: "website",
+          }),
+        ),
       });
 
-      const result = (await response.json()) as {
-        ok?: boolean;
-        message?: string;
-      };
+      const contentType = response.headers.get("content-type") || "";
+      const result = contentType.includes("application/json")
+        ? ((await response.json()) as {
+            ok?: boolean;
+            message?: string;
+            detail?: string;
+            error?: string;
+          })
+        : null;
 
-      if (!response.ok || !result.ok) {
-        throw new Error(result.message || "Unable to submit the form.");
+      if (!response.ok) {
+        throw new Error(
+          result?.message ||
+            result?.detail ||
+            result?.error ||
+            "Unable to submit the form.",
+        );
       }
 
       setForm(INITIAL_FORM);
       toast({
         title: "Message sent",
         description:
-          result.message ||
+          result?.message ||
           "Thanks for reaching out. Our team will get back to you shortly via email.",
       });
     } catch (error) {

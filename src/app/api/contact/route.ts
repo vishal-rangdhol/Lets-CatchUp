@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
-const ContactSubmissionSchema = z.object({
+const LegacyContactSubmissionSchema = z.object({
   fullName: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(120),
   phone: z.string().trim().max(40).optional().or(z.literal("")),
@@ -12,7 +12,34 @@ const ContactSubmissionSchema = z.object({
   page: z.string().trim().max(200).optional(),
 });
 
+const ExternalContactSubmissionSchema = z.object({
+  name: z.string().trim().min(2).max(100),
+  email: z.string().trim().email().max(120),
+  phone: z.string().trim().max(40).optional().or(z.literal("")),
+  company_name: z.string().trim().max(120).optional().or(z.literal("")),
+  designation: z.string().trim().max(80).optional().or(z.literal("")),
+  subject: z.string().trim().min(3).max(140),
+  message: z.string().trim().min(10).max(2000),
+  source: z.string().trim().max(80).optional(),
+});
+
+const ContactSubmissionSchema = z.union([
+  LegacyContactSubmissionSchema,
+  ExternalContactSubmissionSchema,
+]);
+
 type ContactSubmission = z.infer<typeof ContactSubmissionSchema>;
+
+type NormalizedContactSubmission = {
+  fullName: string;
+  email: string;
+  phone: string;
+  organization: string;
+  subject: string;
+  message: string;
+  source: string;
+  page: string;
+};
 
 type RateLimitBucket = {
   count: number;
@@ -49,7 +76,22 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-function normalizePayload(payload: ContactSubmission): ContactSubmission {
+function normalizePayload(
+  payload: ContactSubmission,
+): NormalizedContactSubmission {
+  if ("name" in payload) {
+    return {
+      fullName: payload.name,
+      email: payload.email,
+      phone: payload.phone?.trim() || "",
+      organization: payload.company_name?.trim() || "",
+      subject: payload.subject,
+      message: payload.message,
+      source: payload.source?.trim() || "website",
+      page: "",
+    };
+  }
+
   return {
     ...payload,
     phone: payload.phone?.trim() || "",
@@ -59,7 +101,9 @@ function normalizePayload(payload: ContactSubmission): ContactSubmission {
   };
 }
 
-async function forwardToWebhook(payload: ContactSubmission): Promise<void> {
+async function forwardToWebhook(
+  payload: NormalizedContactSubmission,
+): Promise<void> {
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
   if (!webhookUrl) {
     console.info("[contact-api] Contact submission received", {
