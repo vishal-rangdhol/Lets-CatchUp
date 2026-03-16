@@ -54,7 +54,7 @@ export function PricingSection() {
       cta: "Contact Sales",
       popular: true,
       color: "from-indigo-500 to-purple-500",
-      href: "/#contact"
+      href: "/contact-us"
     },
     {
       name: "International School",
@@ -73,7 +73,7 @@ export function PricingSection() {
       cta: "Talk to Expert",
       popular: false,
       color: "from-pink-500 to-rose-500",
-      href: "/#contact"
+      href: "/contact-us"
     },
   ];
 

@@ -52,7 +52,7 @@ export function Hero() {
                   Get Started <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link href="/#contact">
+              <Link href="/contact-us">
                 <Button
                   variant="outline"
                   size="lg"

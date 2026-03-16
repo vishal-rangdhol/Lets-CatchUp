@@ -1,14 +1,13 @@
-
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ContactPage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/#contact");
+    router.replace("/contact-us");
   }, [router]);
 
   return (

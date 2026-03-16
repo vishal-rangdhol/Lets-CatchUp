@@ -151,7 +151,7 @@ export function Invitation() {
           className="flex flex-col items-center gap-4 md:gap-6 pt-8 md:pt-12"
         >
           <p className="text-[10px] md:text-sm font-bold text-gray-500 uppercase tracking-[0.3em]">Become a Strategic Partner</p>
-          <Link href="/#contact">
+          <Link href="/contact-us">
             <button className="group relative bg-accent-gradient hover:opacity-90 text-white px-10 md:px-16 py-4 md:py-6 rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs shadow-[0_15px_40px_rgba(45,212,191,0.2)] transition-all hover:scale-105 active:scale-95 flex items-center gap-2 md:gap-3">
               <span className="relative z-10">Start Your Journey</span>
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 relative z-10 transition-transform group-hover:translate-x-1" />

@@ -55,6 +55,40 @@ To run the project locally:
 
 Visit [http://localhost:9002](http://localhost:9002) to see the app.
 
+## Contact Submission API
+
+This project now includes a contact submission endpoint at `/api/contact`.
+
+Request body:
+
+```json
+{
+  "fullName": "Jane Williams",
+  "email": "jane@company.com",
+  "phone": "+91 9876543210",
+  "organization": "Acme Learning",
+  "subject": "Partnership",
+  "message": "We want to explore a pilot.",
+  "source": "contact-us-page",
+  "page": "/contact-us"
+}
+```
+
+Optional environment variables:
+
+- `NEXT_PUBLIC_CONTACT_API_URL`: Full public endpoint used by browser forms (recommended for static export), for example `https://api.yourdomain.com/api/contact`.
+- `NEXT_PUBLIC_API_URL`: Base API URL fallback used when `NEXT_PUBLIC_CONTACT_API_URL` is not set.
+- `CONTACT_WEBHOOK_URL`: Forward validated submissions to your backend/email automation endpoint.
+- `CONTACT_WEBHOOK_TOKEN`: Included as `x-contact-webhook-token` header when forwarding.
+
+If `CONTACT_WEBHOOK_URL` is not set, the endpoint accepts requests and logs submission metadata to the server console.
+
+Browser form submission behavior:
+
+1. Uses `NEXT_PUBLIC_CONTACT_API_URL` when provided.
+2. Otherwise derives `${NEXT_PUBLIC_API_URL}/api/contact`.
+3. Falls back to `/api/contact` for local/full-stack runtime.
+
 ## Cloudflare Pages Deployment (Static Export)
 
 This project is configured for static export (`next.config.ts` uses `output: 'export'`).
@@ -76,3 +110,7 @@ Important:
 
 - Do not configure Worker service bindings like `WORKER_SELF_REFERENCE` for this static Pages deployment.
 - If you previously configured a service binding to `nextn`, remove it from the Pages project settings to avoid error `code: 10143`.
+
+### Static export limitation
+
+`output: 'export'` does not run Next.js API routes in production. If you need `/api/contact` in production, deploy to a server/runtime that supports App Router route handlers (for example, Vercel, a Node server, or Cloudflare Workers with a compatible adapter), or move contact handling to an external API URL.
