@@ -181,7 +181,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-8 text-center lg:text-left">
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-10">
             <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5 border border-white/10 group">
               <Image 
@@ -193,18 +193,16 @@ export function Footer() {
               />
               <span className="text-[8px] font-black uppercase tracking-[0.2em] text-gray-500 group-hover:text-accent transition-colors">ISO Certified</span>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-              <p className="text-gray-500 text-[9px] uppercase tracking-widest font-medium leading-relaxed">
-                @COPYRIGHT {currentYear} | ALL RIGHTS RESERVED BY <br className="md:hidden" /> <span className="font-bold text-white">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
-              </p>
-              <Link href="#" className="text-gray-500 hover:text-accent transition-colors text-[9px] uppercase tracking-widest font-bold">
-                Cookie Policy
-              </Link>
-            </div>
+            <p className="text-gray-500 text-[9px] uppercase tracking-widest font-medium leading-relaxed">
+              @COPYRIGHT {currentYear} | ALL RIGHTS RESERVED BY <span className="font-bold text-white">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
+            </p>
           </div>
+          
+          <Link href="#" className="text-gray-500 hover:text-accent transition-colors text-[9px] uppercase tracking-widest font-bold whitespace-nowrap">
+            Cookie Policy
+          </Link>
         </div>
       </div>
     </footer>
   );
 }
-
