@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -91,6 +92,7 @@ export function Hero() {
                   src="/image.png"
                   alt="Let's Catch Up Brand Logo"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)]"
                   priority
                 />

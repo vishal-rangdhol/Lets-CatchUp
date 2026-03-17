@@ -76,7 +76,7 @@ export function Footer() {
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden shadow-2xl">
-                <Image src="/favicon-v2.ico" alt="Let's Catch Up Logo" fill className="object-contain" />
+                <Image src="/favicon-v2.ico" alt="Let's Catch Up Logo" fill sizes="48px" className="object-contain" />
               </div>
               <span className="font-headline font-bold text-xl md:text-2xl tracking-tight text-white">
                 Let’s catch up
@@ -122,11 +122,11 @@ export function Footer() {
               <div className="flex flex-wrap gap-3">
                 <Link href="https://play.google.com/store/apps/details?id=com.kcs.letscatchup&pcampaignid=web_share" target="_blank" className="transition-transform hover:scale-105 shrink-0 group relative">
                   <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <Image src="/googleplay.png" alt="Google Play Store" width={120} height={36} className="relative object-contain" />
+                  <Image src="/googleplay.png" alt="Google Play Store" width={120} height={36} style={{ height: 'auto' }} className="relative object-contain" />
                 </Link>
                 <Link href="https://apps.apple.com/in/app/lets-catch-up-kcs/id6749822557" target="_blank" className="transition-transform hover:scale-105 shrink-0 group relative">
                   <div className="absolute -inset-1 bg-primary/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <Image src="/appstore.jpg" alt="Apple App Store" width={120} height={36} className="relative object-contain rounded-lg shadow-xl" />
+                  <Image src="/appstore.jpg" alt="Apple App Store" width={120} height={36} style={{ height: 'auto' }} className="relative object-contain rounded-lg shadow-xl" />
                 </Link>
               </div>
             </div>
@@ -189,6 +189,7 @@ export function Footer() {
                 alt="ISO Certified Logo" 
                 width={36} 
                 height={36} 
+                style={{ height: 'auto' }}
                 className="object-contain"
               />
               <span className="text-[8px] font-black uppercase tracking-[0.2em] text-gray-500 group-hover:text-accent transition-colors">ISO Certified</span>

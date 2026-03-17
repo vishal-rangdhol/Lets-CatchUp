@@ -98,6 +98,7 @@ export function AppShowcase() {
                     alt="Google Play Store" 
                     width={140} 
                     height={42} 
+                    style={{ height: 'auto' }}
                     className="relative object-contain" 
                   />
                 </Link>
@@ -112,6 +113,7 @@ export function AppShowcase() {
                     alt="Apple App Store" 
                     width={140} 
                     height={42} 
+                    style={{ height: 'auto' }}
                     className="relative object-contain rounded-lg shadow-xl" 
                   />
                 </Link>

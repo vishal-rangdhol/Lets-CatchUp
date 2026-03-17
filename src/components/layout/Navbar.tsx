@@ -255,10 +255,10 @@ export function Navbar() {
 
                     <div className="flex gap-4 pt-2 justify-center">
                       <Link href="https://play.google.com/store/apps/details?id=com.kcs.letscatchup&pcampaignid=web_share" target="_blank" className="transition-transform hover:scale-105 shrink-0">
-                        <Image src="/googleplay.png" alt="Google Play Store" width={120} height={36} className="object-contain" />
+                        <Image src="/googleplay.png" alt="Google Play Store" width={120} height={36} style={{ height: 'auto' }} className="object-contain" />
                       </Link>
                       <Link href="https://apps.apple.com/in/app/lets-catch-up-kcs/id6749822557" target="_blank" className="transition-transform hover:scale-105 shrink-0">
-                        <Image src="/appstore.jpg" alt="Apple App Store" width={120} height={36} className="object-contain rounded-lg" />
+                        <Image src="/appstore.jpg" alt="Apple App Store" width={120} height={36} style={{ height: 'auto' }} className="object-contain rounded-lg" />
                       </Link>
                     </div>
                   </div>
