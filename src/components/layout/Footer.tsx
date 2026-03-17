@@ -22,10 +22,8 @@ const FOOTER_LINKS = {
   legal: [
     { name: "Privacy Policy", href: "#" },
     { name: "Terms and Conditions", href: "#" },
-    { name: "Community Guidelines", href: "#" },
     { name: "Grievance Policy", href: "#" },
     { name: "Refund Policy", href: "#" },
-    { name: "Cookie Policy", href: "#" },
   ]
 };
 
@@ -195,11 +193,6 @@ export function Footer() {
             <p className="text-gray-500 text-[9px] uppercase tracking-widest font-medium leading-relaxed">
               @COPYRIGHT {currentYear} | ALL RIGHTS RESERVED BY <br className="md:hidden" /> <span className="font-bold text-white">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
             </p>
-          </div>
-
-          <div className="flex gap-6 md:gap-8 text-[9px] uppercase tracking-widest font-black text-gray-500">
-            <Link href="#" className="hover:text-white transition-colors">Cookie Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Community Guidelines</Link>
           </div>
         </div>
       </div>
