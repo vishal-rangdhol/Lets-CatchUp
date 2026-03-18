@@ -129,7 +129,7 @@ export function AppShowcase() {
             })}
           </div>
 
-          {/* High-Fidelity Mobile Mockup */}
+          {/* High-Fidelity Mobile Mockup - Stationary */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
