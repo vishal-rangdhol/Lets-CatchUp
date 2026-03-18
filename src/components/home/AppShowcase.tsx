@@ -6,33 +6,49 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   Smartphone, 
-  MessageSquare, 
-  CreditCard, 
-  Layout
+  Download, 
+  Bell, 
+  TrendingUp, 
+  ClipboardCheck, 
+  Library
 } from "lucide-react";
 
 export function AppShowcase() {
   const floatingFeatures = [
     {
-      title: "Real-time Chat",
-      icon: MessageSquare,
-      pos: "top-10 -left-16",
-      delay: 0.5,
+      title: "Offline Learning",
+      icon: Download,
+      pos: "top-10 -left-20",
+      delay: 0.4,
       color: "text-accent"
     },
     {
-      title: "Secure Payments",
-      icon: CreditCard,
-      pos: "bottom-20 -right-16",
-      delay: 0.8,
+      title: "Instant Alerts",
+      icon: Bell,
+      pos: "top-1/2 -left-28 -translate-y-1/2",
+      delay: 0.6,
       color: "text-primary"
     },
     {
-      title: "Smart Feed",
-      icon: Layout,
-      pos: "top-1/2 -right-20",
-      delay: 1.1,
+      title: "Progress Sync",
+      icon: TrendingUp,
+      pos: "bottom-10 -left-16",
+      delay: 0.8,
       color: "text-emerald-400"
+    },
+    {
+      title: "Smart Attendance",
+      icon: ClipboardCheck,
+      pos: "top-20 -right-24",
+      delay: 1.0,
+      color: "text-amber-400"
+    },
+    {
+      title: "Digital Library",
+      icon: Library,
+      pos: "bottom-20 -right-28",
+      delay: 1.2,
+      color: "text-rose-400"
     }
   ];
 
@@ -69,7 +85,7 @@ export function AppShowcase() {
         </motion.div>
 
         {/* Mockup Section with Floating Elements */}
-        <div className="relative w-full max-w-lg mx-auto">
+        <div className="relative w-full max-w-2xl mx-auto">
           {/* Floating Feature Cards (Desktop Only) */}
           <div className="hidden lg:block">
             {floatingFeatures.map((f, i) => (
@@ -101,7 +117,8 @@ export function AppShowcase() {
             <div className="absolute inset-0 bg-accent/20 blur-[80px] md:blur-[120px] rounded-full -z-10" />
             
             {/* Orbiting Ring Decoration */}
-            <div className="absolute inset-[-40px] border border-white/5 rounded-full -z-10 animate-[spin_20s_linear_infinite] opacity-50" />
+            <div className="absolute inset-[-60px] border border-white/5 rounded-full -z-10 animate-[spin_20s_linear_infinite] opacity-30" />
+            <div className="absolute inset-[-100px] border border-white/5 rounded-full -z-10 animate-[spin_30s_linear_infinite_reverse] opacity-20" />
             
             <motion.div
               animate={{ 
@@ -148,13 +165,13 @@ export function AppShowcase() {
           </motion.div>
         </div>
 
-        {/* Action & Trust Area */}
+        {/* Action Area */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="flex flex-col items-center gap-12 w-full"
+          className="flex flex-col items-center gap-12 w-full pt-8"
         >
           {/* Download Buttons */}
           <div className="flex flex-col items-center gap-6">
