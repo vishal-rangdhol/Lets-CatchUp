@@ -5,8 +5,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { MessageSquare, Bell, Star, Heart, LayoutGrid, Smartphone, CheckCircle, BookOpen } from "lucide-react";
+import { MessageSquare, Bell, Heart, Smartphone, BookOpen, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function AppShowcase() {
@@ -24,18 +23,15 @@ export function AppShowcase() {
   };
 
   const springConfig = { stiffness: 100, damping: 30 };
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), springConfig);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), springConfig);
-  
-  // Parallax for floating elements
-  const driftX = useSpring(useTransform(mouseX, [-0.5, 0.5], [20, -20]), springConfig);
-  const driftY = useSpring(useTransform(mouseY, [-0.5, 0.5], [20, -20]), springConfig);
+  const driftX = useSpring(useTransform(mouseX, [-0.5, 0.5], [30, -30]), springConfig);
+  const driftY = useSpring(useTransform(mouseY, [-0.5, 0.5], [30, -30]), springConfig);
 
   const floatingElements = [
-    { icon: MessageSquare, color: "text-accent", delay: 0, x: -280, y: -120, label: "Hi Meera, ready to learn?", type: "bubble" },
-    { icon: BookOpen, color: "text-primary", delay: 1, x: 260, y: -180, label: "Advanced Web Arch... 85%", type: "card" },
-    { icon: Bell, color: "text-rose-400", delay: 2, x: 240, y: 150, label: "Live Event in 10m", type: "notif" },
-    { icon: Heart, color: "text-amber-400", delay: 1.5, x: -250, y: 200, label: "Reaction Received", type: "bubble" },
+    { icon: MessageSquare, color: "text-accent", delay: 0, x: -280, y: -120, label: "Hi Meera, ready to learn?" },
+    { icon: BookOpen, color: "text-primary", delay: 1, x: 260, y: -180, label: "Advanced Web Arch... 85%" },
+    { icon: Bell, color: "text-rose-400", delay: 2, x: 240, y: 150, label: "Live Event in 10m" },
+    { icon: Heart, color: "text-amber-400", delay: 1.5, x: -250, y: 200, label: "Reaction Received" },
+    { icon: Layers, color: "text-emerald-400", delay: 0.5, x: 50, y: -250, label: "New Resource Shared" },
   ];
 
   return (
@@ -44,7 +40,7 @@ export function AppShowcase() {
       onMouseMove={handleMouseMove}
       className="py-24 md:py-40 px-6 relative overflow-hidden bg-transparent"
     >
-      {/* Background Ambient Glows & Particles */}
+      {/* Background Ambient Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[160px] -z-10" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
       
@@ -121,10 +117,10 @@ export function AppShowcase() {
           </div>
         </motion.div>
 
-        {/* Visual Showcase */}
-        <div className="relative w-full max-w-5xl h-[450px] md:h-[800px] mt-12 flex items-center justify-center">
+        {/* Visual Showcase - Refined with clean high-res mockup and floating elements */}
+        <div className="relative w-full max-w-5xl h-[400px] md:h-[600px] mt-12 flex items-center justify-center">
           
-          {/* Ambient Glow behind phones */}
+          {/* Ambient Glow behind the scene */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-radial-gradient from-accent/10 via-primary/5 to-transparent blur-[120px] -z-10 pointer-events-none" />
 
           {/* Floating drifting UI elements */}
@@ -144,99 +140,71 @@ export function AppShowcase() {
                 repeat: Infinity, 
                 ease: "easeInOut" 
               }}
-              className="absolute hidden lg:flex items-center gap-3 glass p-3.5 rounded-2xl border-white/10 shadow-2xl z-30 group"
+              className="absolute hidden lg:flex items-center gap-3 glass p-4 rounded-2xl border-white/10 shadow-2xl z-30 group"
             >
-              <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shadow-inner group-hover:border-accent/40 transition-colors">
-                <el.icon className={cn("w-4 h-4", el.color)} />
+              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shadow-inner group-hover:border-accent/40 transition-colors">
+                <el.icon className={cn("w-5 h-5", el.color)} />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col text-left">
                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-300">{el.label}</span>
-                 <span className="text-[8px] text-gray-500 font-bold uppercase tracking-tight">Just Now</span>
+                 <span className="text-[8px] text-gray-500 font-bold uppercase tracking-tight">Real-time update</span>
               </div>
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-ping opacity-40" />
             </motion.div>
           ))}
 
-          {/* Phones Cluster with Parallax 3D tilt */}
+          {/* Central High-Fidelity App Mockup Visual */}
           <motion.div 
-            style={{ rotateX, rotateY }}
-            className="relative flex items-center justify-center gap-6 md:gap-20 perspective-1000"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative w-full max-w-2xl aspect-[16/9] flex items-center justify-center"
           >
-            {/* Android Phone */}
+            <div className="absolute inset-0 bg-accent-gradient opacity-10 blur-[100px] rounded-full animate-pulse" />
+            
             <motion.div
-              animate={{ y: [0, -25, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-[160px] h-[330px] md:w-[290px] md:h-[600px] group"
+              animate={{ 
+                y: [0, -20, 0],
+                rotate: [0, 1, 0]
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 w-[240px] md:w-[320px] h-[480px] md:h-[640px] rounded-[3rem] md:rounded-[4rem] border-[10px] md:border-[12px] border-[#1e294b] bg-[#0b0f2f] shadow-[0_60px_120px_rgba(0,0,0,0.8)] overflow-hidden group hover:border-accent/30 transition-all duration-500"
             >
-              <div className="absolute -inset-10 bg-accent/15 blur-[100px] rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-1000" />
-              <div className="relative w-full h-full bg-[#0b0f2f] rounded-[2.5rem] md:rounded-[4rem] border-[8px] md:border-[12px] border-[#1e294b] shadow-[0_60px_100px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-500 group-hover:border-accent/40 group-hover:shadow-[0_60px_120px_rgba(45,212,191,0.2)]">
-                <div className="relative w-full h-full bg-gradient-to-b from-[#1e294b] via-[#0b0f2f] to-[#0b0f2f] p-4 md:p-8 flex flex-col gap-6">
-                   <div className="flex items-center justify-between">
-                      <LayoutGrid className="w-5 h-5 text-accent opacity-50" />
-                      <div className="w-8 h-8 rounded-full bg-white/5" />
-                   </div>
-                   <div className="space-y-4">
-                      <div className="w-full h-20 md:h-32 rounded-2xl bg-accent-gradient opacity-10 border border-white/5" />
-                      <div className="space-y-2">
-                         <div className="w-3/4 h-3 rounded-full bg-white/10" />
-                         <div className="w-full h-2 rounded-full bg-white/5" />
-                         <div className="w-1/2 h-2 rounded-full bg-white/5" />
-                      </div>
-                   </div>
-                   <div className="mt-auto flex justify-around p-2 bg-white/5 rounded-2xl border border-white/5">
-                      <Smartphone className="w-4 h-4 text-accent" />
-                      <Bell className="w-4 h-4 text-gray-500" />
-                      <MessageSquare className="w-4 h-4 text-gray-500" />
-                   </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#1e294b] via-[#0b0f2f] to-[#0b0f2f] p-6 md:p-8 flex flex-col gap-8">
+                 <div className="flex items-center justify-between">
+                    <Smartphone className="w-5 h-5 text-accent opacity-50" />
+                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10" />
+                 </div>
+                 
+                 <div className="space-y-6 flex-1">
+                    <div className="w-full h-32 md:h-40 rounded-3xl bg-accent-gradient opacity-20 border border-white/10 shadow-inner" />
+                    <div className="space-y-3">
+                       <div className="w-3/4 h-3 rounded-full bg-white/10" />
+                       <div className="w-full h-2 rounded-full bg-white/5" />
+                       <div className="w-1/2 h-2 rounded-full bg-white/5" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 pt-4">
+                       <div className="h-20 rounded-2xl bg-white/5 border border-white/10" />
+                       <div className="h-20 rounded-2xl bg-white/5 border border-white/10" />
+                    </div>
+                 </div>
+
+                 <div className="mt-auto flex justify-around p-4 bg-white/5 rounded-3xl border border-white/10 shadow-lg">
+                    <Smartphone className="w-5 h-5 text-accent" />
+                    <Bell className="w-5 h-5 text-gray-500" />
+                    <MessageSquare className="w-5 h-5 text-gray-500" />
+                 </div>
               </div>
-              <div className="mt-8 text-center space-y-1 opacity-60 group-hover:opacity-100 transition-opacity">
-                <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-accent">Android Experience</p>
-                <p className="text-[8px] md:text-[10px] font-medium text-gray-500 uppercase tracking-widest">Optimized for Google Play</p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
             </motion.div>
 
-            {/* iPhone */}
-            <motion.div
-              animate={{ y: [-25, 0, -25] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="relative w-[160px] h-[330px] md:w-[290px] md:h-[600px] group"
-            >
-              <div className="absolute -inset-10 bg-primary/15 blur-[100px] rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-1000" />
-              <div className="relative w-full h-full bg-[#0b0f2f] rounded-[2.5rem] md:rounded-[4rem] border-[8px] md:border-[12px] border-[#1e294b] shadow-[0_60px_100px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-[0_60px_120px_rgba(99,102,241,0.2)]">
-                <div className="relative w-full h-full bg-gradient-to-b from-[#141d3d] via-[#0b0f2f] to-[#0b0f2f] p-4 md:p-8 flex flex-col gap-6">
-                   <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-white/5">
-                         <Star className="w-4 h-4 text-primary" />
-                      </div>
-                      <div className="flex-1 space-y-1">
-                         <div className="w-1/2 h-2 rounded-full bg-white/20" />
-                         <div className="w-1/3 h-1.5 rounded-full bg-white/10" />
-                      </div>
-                   </div>
-                   <div className="flex-1 rounded-2xl bg-white/5 border border-white/5 p-4 flex flex-col gap-4">
-                      <div className="flex items-center gap-2">
-                         <CheckCircle className="w-3 h-3 text-emerald-400" />
-                         <div className="w-2/3 h-2 rounded-full bg-white/10" />
-                      </div>
-                      <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
-                         <div className="w-3/4 h-full bg-primary" />
-                      </div>
-                      <div className="flex-1 flex flex-col gap-2 pt-2">
-                         <div className="w-full h-12 rounded-xl bg-white/5" />
-                         <div className="w-full h-12 rounded-xl bg-white/5" />
-                      </div>
-                   </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
-              </div>
-              <div className="mt-8 text-center space-y-1 opacity-60 group-hover:opacity-100 transition-opacity">
-                <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-primary">iOS Experience</p>
-                <p className="text-[8px] md:text-[10px] font-medium text-gray-500 uppercase tracking-widest">Designed for iPhone</p>
-              </div>
-            </motion.div>
+            {/* Subtitles */}
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+               <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-accent">Polished Mobile Interface</span>
+               <span className="text-[8px] md:text-[10px] text-gray-500 font-bold uppercase tracking-widest">Available on Android & iOS</span>
+            </div>
           </motion.div>
+
         </div>
       </div>
     </section>

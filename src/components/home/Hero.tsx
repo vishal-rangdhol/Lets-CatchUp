@@ -89,7 +89,7 @@ export function Hero() {
                 className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] flex items-center justify-center"
               >
                 <Image
-                  src="/image.png"
+                  src="/image-3D.png"
                   alt="Let's Catch Up Brand Logo"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
