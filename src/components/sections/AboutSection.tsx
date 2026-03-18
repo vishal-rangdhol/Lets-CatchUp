@@ -59,14 +59,14 @@ export function AboutSection() {
             <div className="absolute -bottom-4 -right-4 w-full h-full rounded-[32px] bg-gradient-to-br from-primary/30 to-accent/30 opacity-40 transition-all duration-500 group-hover:opacity-70 group-hover:-bottom-5 group-hover:-right-5 -z-10" />
             
             <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] p-3 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
-              {/* Increased Height Container to Prevent Bottom Cropping */}
-              <div className="relative rounded-[20px] overflow-hidden h-[400px] md:h-[600px] w-full">
+              {/* Image Container with intrinsic scaling to avoid cropping */}
+              <div className="relative rounded-[20px] overflow-hidden w-full h-auto">
                 <Image
                   src="/about-us.jpeg"
                   alt="Collaborative team at Let's Catch Up"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
                 {/* Subtle internal gloss overlay */}
