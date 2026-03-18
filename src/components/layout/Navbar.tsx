@@ -169,13 +169,8 @@ export function Navbar() {
                 Get started
               </Button>
             </Link>
-<<<<<<< HEAD
-            <Link href="/#contact">
-              <Button className="font-headline bg-accent-gradient hover:opacity-90 text-white text-sm font-bold rounded-full px-8 shadow-xl border-none h-10 transition-all active:scale-95">
-=======
             <Link href="/contact-us">
-              <Button className="bg-accent-gradient hover:opacity-90 text-white text-sm font-black rounded-full px-8 shadow-xl border-none h-10 transition-all active:scale-95">
->>>>>>> dev/main
+              <Button className="font-headline bg-accent-gradient hover:opacity-90 text-white text-sm font-bold rounded-full px-8 shadow-xl border-none h-10 transition-all active:scale-95">
                 Get in touch
               </Button>
             </Link>
@@ -250,13 +245,8 @@ export function Navbar() {
                           <LogIn className="w-4 h-4" /> Get started
                         </Button>
                       </Link>
-<<<<<<< HEAD
-                      <Link href="/#contact" onClick={() => setIsOpen(false)} className="w-full">
-                        <Button variant="outline" className="font-headline w-full h-12 rounded-2xl border-white/20 bg-white/10 text-white font-bold gap-3">
-=======
                       <Link href="/contact-us" onClick={() => setIsOpen(false)} className="w-full">
-                        <Button variant="outline" className="w-full h-12 rounded-2xl border-white/20 bg-white/10 text-white font-bold gap-3">
->>>>>>> dev/main
+                        <Button variant="outline" className="font-headline w-full h-12 rounded-2xl border-white/20 bg-white/10 text-white font-bold gap-3">
                           <Phone className="w-4 h-4 text-accent" /> Get in touch
                         </Button>
                       </Link>

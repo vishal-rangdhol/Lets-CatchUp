@@ -100,15 +100,9 @@ export function FAQSection() {
         >
           <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
             <Sparkles className="text-accent w-5 h-5" />
-<<<<<<< HEAD
             <span className="text-sm font-bold text-gray-300 font-body">Still have questions?</span>
-            <Link href="/#contact">
-              <button className="font-headline text-accent hover:text-white transition-colors text-sm font-bold uppercase tracking-widest ml-2 border-b-2 border-accent/30">
-=======
-            <span className="text-sm font-bold text-gray-300">Still have questions?</span>
             <Link href="/contact-us">
-              <button className="text-accent hover:text-white transition-colors text-sm font-black uppercase tracking-widest ml-2 border-b-2 border-accent/30">
->>>>>>> dev/main
+              <button className="font-headline text-accent hover:text-white transition-colors text-sm font-bold uppercase tracking-widest ml-2 border-b-2 border-accent/30">
                 Contact Support
               </button>
             </Link>
