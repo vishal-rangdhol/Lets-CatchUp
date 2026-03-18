@@ -46,7 +46,7 @@ export function AppShowcase() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="relative w-full max-w-[280px] md:max-w-[340px] aspect-[9/18.5] mx-auto z-20"
+          className="relative w-full max-w-[280px] md:max-w-[340px] aspect-[9/19] mx-auto z-20"
         >
           {/* Ambient Glow behind phone */}
           <div className="absolute inset-0 bg-accent/20 blur-[80px] md:blur-[120px] rounded-full -z-10" />
@@ -74,13 +74,13 @@ export function AppShowcase() {
               </div>
 
               {/* Screen Content */}
-              <div className="relative w-full h-full overflow-hidden bg-black">
+              <div className="relative w-full h-full overflow-hidden bg-black flex items-center justify-center">
                 <Image 
                   src="/mobile-view.png" 
                   alt="Let's Catch Up Mobile App View"
                   fill
                   sizes="(max-width: 768px) 280px, 340px"
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
                 {/* Screen Reflection Overlay */}
