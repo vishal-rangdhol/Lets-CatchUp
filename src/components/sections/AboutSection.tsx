@@ -3,15 +3,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function AboutSection() {
-  const aboutImg = PlaceHolderImages?.find((img) => img.id === "about-img");
-
   const values = [
     {
       title: "Empowerment & Inclusivity",
@@ -45,7 +42,7 @@ export function AboutSection() {
             <h2 className="text-4xl md:text-7xl font-headline font-bold leading-tight">
               The journey of <br /><span className="text-gradient">Lets Catch Up</span>
             </h2>
-            <p className="text-sm md:text-xl text-gray-400 leading-relaxed font-medium">
+            <p className="text-sm md:text-xl text-gray-400 leading-relaxed font-medium font-body">
               Founded with the vision to democratize technical education, Lets Catch Up started as a small project to bridge the gap between classroom learning and industry requirements. Today, we are a unified ecosystem empowering thousands of students and educators worldwide.
             </p>
           </motion.div>
@@ -60,16 +57,14 @@ export function AboutSection() {
             
             <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[32px] p-3 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
               <div className="relative rounded-[20px] overflow-hidden aspect-video">
-                {aboutImg && (
-                  <Image
-                    src={aboutImg.imageUrl}
-                    alt={aboutImg.description}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                    data-ai-hint={aboutImg.imageHint}
-                  />
-                )}
+                <Image
+                  src="/about-us.jpeg"
+                  alt="Collaborative team at Let's Catch Up"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </motion.div>
@@ -106,10 +101,10 @@ export function AboutSection() {
 
                   <div className="space-y-2 md:space-y-4 flex-1 text-center md:text-left">
                     <div className="space-y-1 md:space-y-2">
-                      <h4 className="text-lg md:text-3xl font-bold tracking-tight">
+                      <h4 className="text-lg md:text-3xl font-headline font-bold tracking-tight">
                         {v.title}
                       </h4>
-                      <p className="text-[10px] md:text-lg text-gray-400 leading-relaxed font-medium">
+                      <p className="text-[10px] md:text-lg text-gray-400 leading-relaxed font-medium font-body">
                         {v.desc}
                       </p>
                     </div>
