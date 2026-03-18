@@ -22,7 +22,7 @@ export function AppShowcase() {
       pos: "top-12 -right-8",
       delay: 0.2,
       duration: 5,
-      color: "text-amber-400"
+      color: "text-accent"
     },
     {
       title: "Real-time Chat",
