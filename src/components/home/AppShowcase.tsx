@@ -19,7 +19,7 @@ export function AppShowcase() {
     {
       title: "Smart Attendance",
       icon: ClipboardCheck,
-      pos: "top-12 -right-8",
+      pos: "top-4 -right-4 md:top-12 md:-right-8",
       delay: 0.2,
       duration: 5,
       color: "text-accent"
@@ -27,7 +27,7 @@ export function AppShowcase() {
     {
       title: "Real-time Chat",
       icon: MessageCircle,
-      pos: "top-[28%] -left-16",
+      pos: "top-[25%] -left-4 md:top-[28%] md:-left-16",
       delay: 0.4,
       duration: 6,
       color: "text-cyan-400"
@@ -35,7 +35,7 @@ export function AppShowcase() {
     {
       title: "Private Spaces",
       icon: Shield,
-      pos: "top-[42%] -right-14",
+      pos: "top-[45%] -right-6 md:top-[42%] md:-right-14",
       delay: 0.6,
       duration: 5.5,
       color: "text-indigo-400"
@@ -43,7 +43,7 @@ export function AppShowcase() {
     {
       title: "Instant Alerts",
       icon: Bell,
-      pos: "top-[58%] -left-10",
+      pos: "top-[65%] -left-6 md:top-[58%] md:-left-10",
       delay: 0.8,
       duration: 4.8,
       color: "text-primary"
@@ -51,7 +51,7 @@ export function AppShowcase() {
     {
       title: "Progress Sync",
       icon: TrendingUp,
-      pos: "bottom-[15%] -right-12",
+      pos: "bottom-4 -right-4 md:bottom-[15%] md:-right-12",
       delay: 1.0,
       duration: 6.2,
       color: "text-emerald-400"
@@ -91,89 +91,91 @@ export function AppShowcase() {
         </motion.div>
 
         {/* Mockup Section with Floating Elements */}
-        <div className="relative w-full max-w-2xl mx-auto">
-          {/* Floating Feature Cards (Desktop Only) */}
-          <div className="hidden lg:block">
-            {floatingFeatures.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  animate={{
-                    y: [0, -15, 0],
-                  }}
-                  transition={{
-                    opacity: { duration: 0.8, delay: f.delay },
-                    scale: { duration: 0.8, delay: f.delay },
-                    y: {
-                      duration: f.duration,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: f.delay,
-                    }
-                  }}
-                  viewport={{ once: true }}
-                  className={`absolute ${f.pos} glass-card p-3 flex items-center gap-3 border-white/10 z-30 shadow-2xl backdrop-blur-md`}
-                >
-                  <div className={`w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 ${f.color}`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <span className="font-headline text-[10px] font-bold text-white whitespace-nowrap uppercase tracking-widest">{f.title}</span>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* High-Fidelity Mobile Mockup - Stationary */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative w-full max-w-[250px] md:max-w-[300px] aspect-[9/19] mx-auto z-20"
-          >
-            {/* Ambient Glow behind phone */}
-            <div className="absolute inset-0 bg-accent/20 blur-[80px] md:blur-[120px] rounded-full -z-10" />
-            
-            {/* Orbiting Ring Decoration */}
-            <div className="absolute inset-[-60px] border border-white/5 rounded-full -z-10 animate-[spin_20s_linear_infinite] opacity-30" />
-            <div className="absolute inset-[-100px] border border-white/5 rounded-full -z-10 animate-[spin_30s_linear_infinite_reverse] opacity-20" />
-            
-            <div className="relative w-full h-full">
-              {/* The Phone Frame */}
-              <div className="absolute inset-0 bg-slate-900 border-[8px] border-slate-800 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden">
-                {/* Internal Bezel */}
-                <div className="absolute inset-0 border-[2px] border-white/5 rounded-[2.1rem] pointer-events-none z-30" />
-                
-                {/* Dynamic Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-800 rounded-b-2xl z-40 flex items-center justify-center gap-2">
-                  <div className="w-8 h-1 bg-slate-700 rounded-full" />
-                  <div className="w-2 h-2 bg-slate-700 rounded-full" />
-                </div>
-
-                {/* Screen Content */}
-                <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-[#0b0f2f]">
-                  <Image 
-                    src="/mobile-view.png" 
-                    alt="Let's Catch Up Mobile App View"
-                    fill
-                    sizes="(max-width: 768px) 250px, 300px"
-                    className="object-cover"
-                    priority
-                  />
-                  {/* Screen Reflection */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-20" />
-                </div>
-              </div>
-
-              {/* Hardware Buttons */}
-              <div className="absolute top-24 -left-2 w-1 h-12 bg-slate-700 rounded-l-md border-r border-black/20" />
-              <div className="absolute top-40 -left-2 w-1 h-12 bg-slate-700 rounded-l-md border-r border-black/20" />
-              <div className="absolute top-32 -right-2 w-1 h-16 bg-slate-700 rounded-r-md border-l border-black/20" />
+        <div className="relative w-full max-w-2xl mx-auto flex justify-center">
+          <div className="relative w-full max-w-[280px] md:max-w-[320px]">
+            {/* Floating Feature Cards - Constant across all screens */}
+            <div className="absolute inset-0 pointer-events-none z-30">
+              {floatingFeatures.map((f, i) => {
+                const Icon = f.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    animate={{
+                      y: [0, -12, 0],
+                    }}
+                    transition={{
+                      opacity: { duration: 0.8, delay: f.delay },
+                      scale: { duration: 0.8, delay: f.delay },
+                      y: {
+                        duration: f.duration,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: f.delay,
+                      }
+                    }}
+                    viewport={{ once: true }}
+                    className={`absolute ${f.pos} glass-card p-2 md:p-3 flex items-center gap-2 md:gap-3 border-white/10 shadow-2xl backdrop-blur-md pointer-events-auto`}
+                  >
+                    <div className={`w-6 h-6 md:w-8 md:h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 ${f.color}`}>
+                      <Icon className="w-3 h-3 md:w-4 md:h-4" />
+                    </div>
+                    <span className="font-headline text-[8px] md:text-[10px] font-bold text-white whitespace-nowrap uppercase tracking-widest">{f.title}</span>
+                  </motion.div>
+                );
+              })}
             </div>
-          </motion.div>
+
+            {/* High-Fidelity Mobile Mockup - Stationary */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="relative w-full aspect-[9/19] z-20"
+            >
+              {/* Ambient Glow behind phone */}
+              <div className="absolute inset-0 bg-accent/20 blur-[60px] md:blur-[120px] rounded-full -z-10" />
+              
+              {/* Orbiting Ring Decoration */}
+              <div className="absolute inset-[-40px] md:inset-[-60px] border border-white/5 rounded-full -z-10 animate-[spin_20s_linear_infinite] opacity-30" />
+              <div className="absolute inset-[-80px] md:inset-[-100px] border border-white/5 rounded-full -z-10 animate-[spin_30s_linear_infinite_reverse] opacity-20" />
+              
+              <div className="relative w-full h-full">
+                {/* The Phone Frame */}
+                <div className="absolute inset-0 bg-slate-900 border-[6px] md:border-[8px] border-slate-800 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden">
+                  {/* Internal Bezel */}
+                  <div className="absolute inset-0 border-[2px] border-white/5 rounded-[1.8rem] md:rounded-[2.1rem] pointer-events-none z-30" />
+                  
+                  {/* Dynamic Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 md:w-24 h-5 md:h-6 bg-slate-800 rounded-b-xl md:rounded-b-2xl z-40 flex items-center justify-center gap-1.5 md:gap-2">
+                    <div className="w-6 md:w-8 h-1 bg-slate-700 rounded-full" />
+                    <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-slate-700 rounded-full" />
+                  </div>
+
+                  {/* Screen Content */}
+                  <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-[#0b0f2f]">
+                    <Image 
+                      src="/mobile-view.png" 
+                      alt="Let's Catch Up Mobile App View"
+                      fill
+                      sizes="(max-width: 768px) 280px, 320px"
+                      className="object-cover"
+                      priority
+                    />
+                    {/* Screen Reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-20" />
+                  </div>
+                </div>
+
+                {/* Hardware Buttons */}
+                <div className="absolute top-20 md:top-24 -left-1.5 md:-left-2 w-1 h-10 md:h-12 bg-slate-700 rounded-l-md border-r border-black/20" />
+                <div className="absolute top-36 md:top-40 -left-1.5 md:-left-2 w-1 h-10 md:h-12 bg-slate-700 rounded-l-md border-r border-black/20" />
+                <div className="absolute top-28 md:top-32 -right-1.5 md:-right-2 w-1 h-14 md:h-16 bg-slate-700 rounded-r-md border-l border-black/20" />
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Action Area */}
@@ -182,7 +184,7 @@ export function AppShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="flex flex-col items-center gap-12 w-full pt-8"
+          className="flex flex-col items-center gap-10 md:gap-12 w-full pt-8"
         >
           {/* Download Buttons */}
           <div className="flex flex-col items-center gap-6">
@@ -190,7 +192,7 @@ export function AppShowcase() {
                 <Smartphone className="w-4 h-4 text-accent" />
                 Available on Android & iOS
              </span>
-             <div className="flex flex-wrap justify-center gap-6">
+             <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                 <Link 
                   href="https://play.google.com/store/apps/details?id=com.kcs.letscatchup&pcampaignid=web_share" 
                   target="_blank"
@@ -200,10 +202,10 @@ export function AppShowcase() {
                   <Image 
                     src="/googleplay.png" 
                     alt="Google Play Store" 
-                    width={140} 
-                    height={42} 
+                    width={130} 
+                    height={38} 
                     style={{ height: 'auto' }}
-                    className="relative object-contain" 
+                    className="relative object-contain md:w-[140px]" 
                   />
                 </Link>
                 <Link 
@@ -216,10 +218,10 @@ export function AppShowcase() {
                     <Image 
                       src="/appstore.jpg" 
                       alt="Apple App Store" 
-                      width={140} 
-                      height={42} 
+                      width={130} 
+                      height={38} 
                       style={{ height: 'auto' }}
-                      className="object-contain" 
+                      className="object-contain md:w-[140px]" 
                     />
                   </div>
                 </Link>
