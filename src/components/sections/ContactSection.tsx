@@ -27,7 +27,6 @@ export function ContactSection() {
     }
     try {
       setLoading(true);
-      // Simulate sending mail to info@kandhugule-kcs.com with user context
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({ 
@@ -55,13 +54,13 @@ export function ContactSection() {
             className="space-y-8 lg:sticky lg:top-32"
           >
             <div className="space-y-6">
-              <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-black">
+              <Badge className="font-headline glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[10px] font-bold">
                 Connect With Us
               </Badge>
               <h2 className="text-4xl md:text-6xl font-headline font-bold leading-tight text-white">
                 Let's <span className="text-gradient">Catch Up</span>
               </h2>
-              <p className="text-base md:text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
+              <p className="text-base md:text-xl text-gray-400 max-w-lg leading-relaxed font-medium font-body">
                 Have questions about our programs or interested in a partnership? Our team is here to help you scale your potential.
               </p>
             </div>
@@ -73,8 +72,8 @@ export function ContactSection() {
                   <MapPin className="w-5 h-5 md:w-6 md:h-6 text-accent glow-icon" />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] text-accent uppercase tracking-widest font-black">Headquarters</p>
-                  <div className="font-bold text-xs md:text-sm text-gray-200 leading-relaxed">
+                  <p className="font-headline text-[10px] text-accent uppercase tracking-widest font-bold">Headquarters</p>
+                  <div className="font-body font-bold text-xs md:text-sm text-gray-200 leading-relaxed">
                     Building: 3-37 RC Puram, behind SR chambers,<br />
                     Hyderabad, 502032,<br />
                     Telangana
@@ -87,8 +86,8 @@ export function ContactSection() {
                   <Mail className="w-5 h-5 md:w-6 md:h-6 text-accent glow-icon" />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] text-accent uppercase tracking-widest font-black">Direct Communication</p>
-                  <p className="font-bold text-base md:text-lg text-white">info@kandhugule-kcs.com</p>
+                  <p className="font-headline text-[10px] text-accent uppercase tracking-widest font-bold">Direct Communication</p>
+                  <p className="font-headline font-bold text-base md:text-lg text-white">info@kandhugule-kcs.com</p>
                 </div>
               </div>
             </div>
@@ -105,23 +104,23 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-8 relative z-10">
                 <div className="grid md:grid-cols-2 gap-4 md:gap-8">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                    <Label htmlFor="name" className="font-headline text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Full Name</Label>
+                    <Input id="name" placeholder="John Doe" value={formData.name} onChange={handleChange} className="font-body bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Email Address</Label>
-                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                    <Label htmlFor="email" className="font-headline text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Email Address</Label>
+                    <Input id="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="font-body bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Subject</Label>
-                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
+                  <Label htmlFor="subject" className="font-headline text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Subject</Label>
+                  <Input id="subject" placeholder="How can we help you?" value={formData.subject} onChange={handleChange} className="font-body bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Message</Label>
-                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="bg-white/5 border-white/10 min-h-[80px] md:min-h-[180px] rounded-xl md:rounded-2xl p-4 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
+                  <Label htmlFor="message" className="font-headline text-gray-300 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Message</Label>
+                  <Textarea id="message" placeholder="Type your message here..." value={formData.message} onChange={handleChange} className="font-body bg-white/5 border-white/10 min-h-[80px] md:min-h-[180px] rounded-xl md:rounded-2xl p-4 md:p-6 focus-visible:ring-accent text-sm md:text-base" required />
                 </div>
-                <Button type="submit" disabled={loading} className="w-full bg-accent-gradient h-11 md:h-16 rounded-full text-base md:text-xl font-black shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
+                <Button type="submit" disabled={loading} className="font-headline w-full bg-accent-gradient h-11 md:h-16 rounded-full text-base md:text-xl font-bold shadow-xl border-none transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-widest">
                   {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
@@ -151,7 +150,7 @@ export function ContactSection() {
                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-full shadow-2xl scale-90 group-hover/map:scale-100 transition-transform">
                     <ExternalLink className="w-8 h-8 text-primary" />
                   </div>
-                  <span className="mt-4 text-white font-black uppercase tracking-widest text-xs">Open in Google Maps</span>
+                  <span className="font-headline mt-4 text-white font-bold uppercase tracking-widest text-xs">Open in Google Maps</span>
                 </div>
               </a>
             </div>

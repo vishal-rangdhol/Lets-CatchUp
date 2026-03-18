@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Quote, Star } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -64,7 +63,7 @@ export function TestimonialCard({
             ))}
           </div>
 
-          <p className="text-[10px] md:text-2xl text-gray-200 italic leading-relaxed font-medium tracking-tight">
+          <p className="font-body text-[10px] md:text-2xl text-gray-200 italic leading-relaxed font-medium tracking-tight">
             "{quote}"
           </p>
         </div>
@@ -80,17 +79,17 @@ export function TestimonialCard({
                   data-ai-hint={avatarHint}
                 />
               )}
-              <AvatarFallback className="bg-accent/10 text-accent font-bold text-sm md:text-xl uppercase tracking-tighter">
+              <AvatarFallback className="font-headline bg-accent/10 text-accent font-bold text-sm md:text-xl uppercase tracking-tighter">
                 {initials}
               </AvatarFallback>
             </Avatar>
             <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 md:w-5 md:h-5 bg-emerald-500 border-2 border-[#141d3d] rounded-full shadow-md" />
           </div>
           <div>
-            <p className="font-bold text-white text-sm md:text-xl group-hover:text-accent transition-colors duration-300 tracking-tight">
+            <p className="font-headline font-bold text-white text-sm md:text-xl group-hover:text-accent transition-colors duration-300 tracking-tight">
               {name}
             </p>
-            <p className="text-[8px] md:text-sm text-muted-foreground font-bold uppercase tracking-widest opacity-80">
+            <p className="font-headline text-[8px] md:text-sm text-muted-foreground font-bold uppercase tracking-widest opacity-80">
               {role}
             </p>
           </div>

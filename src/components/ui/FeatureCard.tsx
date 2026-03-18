@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { LucideIcon, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -70,18 +69,18 @@ export function FeatureCard({
             />
           </div>
 
-          <h3 className="text-white text-base md:text-2xl font-bold tracking-tight z-20 relative drop-shadow-md group-hover:text-white transition-colors">
+          <h3 className="text-white text-base md:text-2xl font-headline font-bold tracking-tight z-20 relative drop-shadow-md group-hover:text-white transition-colors">
             {title}
           </h3>
 
-          <p className="text-[#cfd6ec] text-[10px] md:text-sm leading-relaxed mt-2 md:mt-5 flex-1 z-20 relative font-medium">
+          <p className="text-[#cfd6ec] text-[10px] md:text-sm leading-relaxed mt-2 md:mt-5 flex-1 z-20 relative font-medium font-body">
             {description}
           </p>
 
           {href && (
             <div className="mt-4 md:mt-8 pt-2 md:pt-6 w-full flex justify-center z-20 relative">
               <Link href={href} className="w-full">
-                <button className="group/btn relative w-full overflow-hidden rounded-xl md:rounded-2xl p-[1px] font-black uppercase tracking-[0.2em] text-[8px] md:text-[10px] transition-all hover:scale-[1.02] active:scale-95">
+                <button className="font-headline group/btn relative w-full overflow-hidden rounded-xl md:rounded-2xl p-[1px] font-bold uppercase tracking-[0.2em] text-[8px] md:text-[10px] transition-all hover:scale-[1.02] active:scale-95">
                   <div className={cn(
                     "absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover/btn:opacity-100",
                     gradientFrom,

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -34,7 +33,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base md:text-xl text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
+              className="text-base md:text-xl text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium font-body"
             >
               Building a unified, secure ecosystem where education meets community — without the algorithmic noise.
             </motion.p>
@@ -48,7 +47,7 @@ export function Hero() {
               <Link href="https://app.letscatchup-kcs.com/">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-accent-gradient hover:opacity-90 text-white font-black rounded-full px-10 h-14 md:h-16 text-base md:text-lg transition-all hover:scale-105 border-none shadow-2xl"
+                  className="font-headline w-full sm:w-auto bg-accent-gradient hover:opacity-90 text-white font-bold rounded-full px-10 h-14 md:h-16 text-base md:text-lg transition-all hover:scale-105 border-none shadow-2xl"
                 >
                   Get Started <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -57,7 +56,7 @@ export function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto bg-white/5 border-white/10 text-white font-bold rounded-full px-10 h-14 md:h-16 text-base md:text-lg transition-all hover:bg-white/10 hover:text-accent hover:border-accent/40"
+                  className="font-headline w-full sm:w-auto bg-white/5 border-white/10 text-white font-bold rounded-full px-10 h-14 md:h-16 text-base md:text-lg transition-all hover:bg-white/10 hover:text-accent hover:border-accent/40"
                 >
                   Get in touch
                 </Button>

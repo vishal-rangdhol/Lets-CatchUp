@@ -77,12 +77,12 @@ export function Footer() {
               <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden shadow-2xl">
                 <Image src="/favicon-v2.ico" alt="Let's Catch Up Logo" fill sizes="48px" className="object-contain" />
               </div>
-              <span className="font-bold text-xl md:text-2xl tracking-tight text-white">
+              <span className="font-headline font-bold text-xl md:text-2xl tracking-tight text-white">
                 Let’s catch up
               </span>
             </Link>
             
-            <div className="space-y-4">
+            <div className="space-y-4 font-body">
               <div className="flex gap-4 items-start group">
                 <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors">
                   <MapPin className="w-4 h-4 md:w-5 md:h-5 text-accent" />
@@ -121,11 +121,11 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 space-y-4 md:space-y-6">
-            <h5 className="text-white font-bold tracking-widest text-xs uppercase opacity-50">Platform</h5>
+            <h5 className="font-headline text-white font-bold tracking-widest text-xs uppercase opacity-50">Platform</h5>
             <ul className="space-y-3 md:space-y-4">
               {FOOTER_LINKS.navigation.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
+                  <Link href={link.href} className="font-headline text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
                     <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
@@ -137,11 +137,11 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 space-y-4 md:space-y-6">
-            <h5 className="text-white font-bold tracking-widest text-xs uppercase opacity-50">Ecosystem</h5>
+            <h5 className="font-headline text-white font-bold tracking-widest text-xs uppercase opacity-50">Ecosystem</h5>
             <ul className="space-y-3 md:space-y-4">
               {FOOTER_LINKS.services.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
+                  <Link href={link.href} className="font-headline text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
                     <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
@@ -153,11 +153,11 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3 space-y-4 md:space-y-6">
-            <h5 className="text-white font-bold tracking-widest text-xs uppercase opacity-50">Support</h5>
+            <h5 className="font-headline text-white font-bold tracking-widest text-xs uppercase opacity-50">Support</h5>
             <ul className="space-y-3 md:space-y-4">
               {FOOTER_LINKS.legal.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
+                  <Link href={link.href} className="font-headline text-gray-400 hover:text-white transition-colors text-sm flex items-center group">
                     <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 text-accent opacity-0 group-hover:opacity-100">
                       <ArrowRight className="w-3 h-3 mr-2" />
                     </span>
@@ -180,14 +180,14 @@ export function Footer() {
                 style={{ height: 'auto' }}
                 className="object-contain"
               />
-              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover:text-accent transition-colors">ISO Certified</span>
+              <span className="font-headline text-[8px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover:text-accent transition-colors">ISO Certified</span>
             </div>
-            <p className="text-gray-500 text-[9px] uppercase tracking-widest font-medium leading-relaxed">
+            <p className="text-gray-500 text-[9px] uppercase tracking-widest font-medium leading-relaxed font-body">
               @COPYRIGHT {currentYear} | ALL RIGHTS RESERVED BY <span className="font-bold text-white">KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED</span>
             </p>
           </div>
           
-          <Link href="#" className="text-gray-500 hover:text-accent transition-colors text-[9px] uppercase tracking-widest font-bold whitespace-nowrap">
+          <Link href="#" className="font-headline text-gray-500 hover:text-accent transition-colors text-[9px] uppercase tracking-widest font-bold whitespace-nowrap">
             Cookie Policy
           </Link>
         </div>

@@ -96,16 +96,16 @@ export function PricingSection() {
         <div className="flex justify-center"><Minus className="w-4 md:w-5 h-4 md:h-5 text-white/20" /></div>
       );
     }
-    return <span className="text-xs md:text-sm font-bold text-gray-300 whitespace-nowrap">{val}</span>;
+    return <span className="text-xs md:text-sm font-bold text-gray-300 whitespace-nowrap font-body">{val}</span>;
   };
 
   return (
     <section id="pricing" className="py-24 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
         <div className="text-center space-y-4 md:space-y-6 max-w-3xl mx-auto">
-          <Badge className="glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[9px] md:text-[10px] font-black">Pricing Plans</Badge>
+          <Badge className="font-headline glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[9px] md:text-[10px] font-bold">Pricing Plans</Badge>
           <h2 className="text-4xl md:text-7xl font-headline font-bold leading-tight">Choose Your <span className="text-gradient">Path</span></h2>
-          <p className="text-base md:text-xl text-gray-400 font-medium leading-relaxed">Scale your institution with flexible plans designed for growth and excellence.</p>
+          <p className="text-base md:text-xl text-gray-400 font-medium leading-relaxed font-body">Scale your institution with flexible plans designed for growth and excellence.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
@@ -126,17 +126,17 @@ export function PricingSection() {
                 plan.popular && "ring-2 ring-accent/30"
               )}>
                 <div className="mb-6 md:mb-8">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">{plan.name}</h3>
+                  <h3 className="text-xl md:text-2xl font-headline font-bold mb-2">{plan.name}</h3>
                   <div className="flex items-baseline gap-1">
-                    <span className={cn("text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br", plan.color)}>
+                    <span className={cn("font-headline text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br", plan.color)}>
                       {plan.price}
                     </span>
-                    <span className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">{plan.period}</span>
+                    <span className="font-headline text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">{plan.period}</span>
                   </div>
-                  <p className="text-[9px] md:text-[10px] text-accent mt-2 font-black uppercase tracking-widest">{plan.min}</p>
+                  <p className="font-headline text-[9px] md:text-[10px] text-accent mt-2 font-bold uppercase tracking-widest">{plan.min}</p>
                 </div>
 
-                <div className="flex-1 space-y-3 md:space-y-4 mb-10 md:mb-12">
+                <div className="flex-1 space-y-3 md:space-y-4 mb-10 md:mb-12 font-body">
                   {plan.features.map((feature, j) => (
                     <div key={j} className="flex items-center gap-3 md:gap-4 group/item">
                       <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
@@ -150,7 +150,7 @@ export function PricingSection() {
                 <div className="mt-auto">
                   <Link href={plan.href} className="w-full">
                     <Button className={cn(
-                      "w-full rounded-full h-14 md:h-16 text-base md:text-lg font-black border-none transition-all group/btn shadow-xl",
+                      "font-headline w-full rounded-full h-14 md:h-16 text-base md:text-lg font-bold border-none transition-all group/btn shadow-xl",
                       plan.popular ? 'bg-accent-gradient hover:opacity-90' : 'glass hover:bg-white/10'
                     )}>
                       {plan.cta} 
@@ -171,12 +171,12 @@ export function PricingSection() {
         >
           <div className="text-center space-y-3 md:space-y-4">
             <h3 className="text-3xl md:text-4xl font-headline font-bold">Compare <span className="text-gradient">Capabilities</span></h3>
-            <p className="text-sm md:text-base text-gray-400 font-medium">A detailed look at our institutional tools.</p>
+            <p className="text-sm md:text-base text-gray-400 font-medium font-body">A detailed look at our institutional tools.</p>
           </div>
 
           <div className="lg:hidden flex items-center justify-center gap-2 mb-4 text-accent/60 animate-pulse">
             <MoveRight className="w-4 h-4" />
-            <span className="text-[9px] font-black uppercase tracking-widest">Swipe to compare</span>
+            <span className="font-headline text-[9px] font-bold uppercase tracking-widest">Swipe to compare</span>
             <MoveRight className="w-4 h-4" />
           </div>
 
@@ -187,21 +187,21 @@ export function PricingSection() {
                 <Table>
                   <TableHeader className="bg-white/5">
                     <TableRow className="hover:bg-transparent border-white/10">
-                      <TableHead className="w-[180px] md:w-[260px] text-gray-200 font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5 px-4 md:px-6">Features</TableHead>
-                      <TableHead className="text-center text-teal-400 font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5">Small</TableHead>
-                      <TableHead className="text-center text-indigo-400 font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5 bg-white/5">Growing</TableHead>
-                      <TableHead className="text-center text-pink-400 font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5">International</TableHead>
+                      <TableHead className="font-headline w-[180px] md:w-[260px] text-gray-200 font-bold uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5 px-4 md:px-6">Features</TableHead>
+                      <TableHead className="font-headline text-center text-teal-400 font-bold uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5">Small</TableHead>
+                      <TableHead className="font-headline text-center text-indigo-400 font-bold uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5 bg-white/5">Growing</TableHead>
+                      <TableHead className="font-headline text-center text-pink-400 font-bold uppercase tracking-[0.2em] text-[9px] md:text-[10px] py-4 md:py-5">International</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {comparisonData.map((row, idx) => (
                       <TableRow key={idx} className="border-white/5 hover:bg-white/5 transition-colors group/row">
-                        <TableCell className="font-bold text-white py-3 md:py-4 px-4 md:px-6 text-sm md:text-xl group-hover/row:text-accent transition-colors">
+                        <TableCell className="font-headline font-bold text-white py-3 md:py-4 px-4 md:px-6 text-sm md:text-xl group-hover/row:text-accent transition-colors">
                           {row.feature}
                         </TableCell>
-                        <TableCell className="text-center py-3 md:py-4">{renderVal(row.small)}</TableCell>
-                        <TableCell className="text-center py-3 md:py-4 bg-white/5">{renderVal(row.growing)}</TableCell>
-                        <TableCell className="text-center py-3 md:py-4">{renderVal(row.intl)}</TableCell>
+                        <TableCell className="text-center py-3 md:py-4 font-body">{renderVal(row.small)}</TableCell>
+                        <TableCell className="text-center py-3 md:py-4 bg-white/5 font-body">{renderVal(row.growing)}</TableCell>
+                        <TableCell className="text-center py-3 md:py-4 font-body">{renderVal(row.intl)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

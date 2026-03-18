@@ -131,7 +131,7 @@ export function Navbar() {
                 priority
               />
             </motion.div>
-            <span className="font-bold text-base md:text-xl tracking-tight text-white block">Let's Catch Up</span>
+            <span className="font-headline font-bold text-base md:text-xl tracking-tight text-white block">Let's Catch Up</span>
           </Link>
         </div>
 
@@ -143,7 +143,7 @@ export function Navbar() {
                 <div key={item.name} className="relative group">
                   <Link href={item.href}>
                     <motion.span className={cn(
-                      "inline-block text-sm font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
+                      "inline-block font-headline text-sm font-bold transition-all cursor-pointer whitespace-nowrap px-4 py-2 rounded-full relative",
                       isActive ? "text-accent bg-white/5" : "text-gray-300 hover:text-white"
                     )}>
                       {item.name}
@@ -165,12 +165,12 @@ export function Navbar() {
         <div className="flex items-center gap-3 md:gap-4 relative z-10">
           <div className="hidden lg:flex items-center gap-4">
             <Link href="https://app.letscatchup-kcs.com/">
-              <Button variant="ghost" className="text-white hover:text-accent hover:bg-white/5 border border-white/10 hover:border-accent/40 text-sm font-bold rounded-full px-6 transition-all h-10">
+              <Button variant="ghost" className="font-headline text-white hover:text-accent hover:bg-white/5 border border-white/10 hover:border-accent/40 text-sm font-bold rounded-full px-6 transition-all h-10">
                 Get started
               </Button>
             </Link>
             <Link href="/#contact">
-              <Button className="bg-accent-gradient hover:opacity-90 text-white text-sm font-bold rounded-full px-8 shadow-xl border-none h-10 transition-all active:scale-95">
+              <Button className="font-headline bg-accent-gradient hover:opacity-90 text-white text-sm font-bold rounded-full px-8 shadow-xl border-none h-10 transition-all active:scale-95">
                 Get in touch
               </Button>
             </Link>
@@ -202,7 +202,7 @@ export function Navbar() {
                       <div className="relative w-10 h-10 overflow-hidden shadow-xl">
                         <Image src="/favicon-v2.ico" alt="Logo" fill className="object-contain" />
                       </div>
-                      <span className="text-white font-bold text-xl tracking-tight">Let's Catch Up</span>
+                      <span className="font-headline text-white font-bold text-xl tracking-tight">Let's Catch Up</span>
                     </div>
                     <Separator className="bg-white/10 mb-4" />
                   </div>
@@ -231,7 +231,7 @@ export function Navbar() {
                               "w-5 h-5 transition-transform duration-300 group-hover:scale-110",
                               isActive ? "text-white" : "text-white/80"
                             )} />
-                            <span className="font-bold text-base tracking-tight">{item.name}</span>
+                            <span className="font-headline font-bold text-base tracking-tight">{item.name}</span>
                           </motion.div>
                         </Link>
                       );
@@ -241,12 +241,12 @@ export function Navbar() {
                   <div className="mt-auto p-6 border-t border-white/20 flex flex-col gap-4 relative z-10 bg-black/20">
                     <div className="flex flex-col gap-3">
                       <Link href="https://app.letscatchup-kcs.com/" onClick={() => setIsOpen(false)} className="w-full">
-                        <Button className="w-full h-12 rounded-2xl bg-accent-gradient text-white font-bold uppercase tracking-widest text-[10px] gap-3 shadow-xl border-none">
+                        <Button className="font-headline w-full h-12 rounded-2xl bg-accent-gradient text-white font-bold uppercase tracking-widest text-[10px] gap-3 shadow-xl border-none">
                           <LogIn className="w-4 h-4" /> Get started
                         </Button>
                       </Link>
                       <Link href="/#contact" onClick={() => setIsOpen(false)} className="w-full">
-                        <Button variant="outline" className="w-full h-12 rounded-2xl border-white/20 bg-white/10 text-white font-bold gap-3">
+                        <Button variant="outline" className="font-headline w-full h-12 rounded-2xl border-white/20 bg-white/10 text-white font-bold gap-3">
                           <Phone className="w-4 h-4 text-accent" /> Get in touch
                         </Button>
                       </Link>

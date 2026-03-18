@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
+        headline: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

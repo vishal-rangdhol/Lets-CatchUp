@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -27,7 +26,7 @@ export function AppShowcase() {
             <motion.span 
               initial={{ opacity: 0, letterSpacing: "0.1em" }}
               whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
-              className="text-xs font-bold uppercase text-accent tracking-[0.2em] drop-shadow-[0_0_10px_rgba(45,212,191,0.5)] font-body"
+              className="font-headline text-xs font-bold uppercase text-accent tracking-[0.2em] drop-shadow-[0_0_10px_rgba(45,212,191,0.5)]"
             >
               Mobile Experience
             </motion.span>
@@ -62,9 +61,9 @@ export function AppShowcase() {
             }}
             className="relative w-full h-full"
           >
-            {/* The Phone Frame - Adjusted corners to rounded-[2.5rem] */}
+            {/* The Phone Frame */}
             <div className="absolute inset-0 bg-slate-900 border-[8px] border-slate-800 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden">
-              {/* Internal Bezel/Edge - Adjusted corners to rounded-[2.1rem] */}
+              {/* Internal Bezel/Edge */}
               <div className="absolute inset-0 border-[2px] border-white/5 rounded-[2.1rem] pointer-events-none z-30" />
               
               {/* Dynamic Notch */}
@@ -106,7 +105,7 @@ export function AppShowcase() {
           className="flex flex-col items-center gap-8"
         >
           <div className="flex flex-col items-center gap-6">
-             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 flex items-center gap-2 font-body">
+             <span className="font-headline text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 flex items-center gap-2">
                 <Smartphone className="w-4 h-4 text-accent" />
                 Available on Android & iOS
              </span>
