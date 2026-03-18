@@ -4,7 +4,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Smartphone, MessageSquare, CreditCard, Layout, Star, Users, ShieldCheck } from "lucide-react";
+import { 
+  Smartphone, 
+  MessageSquare, 
+  CreditCard, 
+  Layout, 
+  Download, 
+  Bell, 
+  TrendingUp 
+} from "lucide-react";
 
 export function AppShowcase() {
   const floatingFeatures = [
@@ -27,6 +35,27 @@ export function AppShowcase() {
       icon: Layout,
       pos: "top-1/2 -right-20",
       delay: 1.1,
+      color: "text-emerald-400"
+    }
+  ];
+
+  const bottomFeatures = [
+    {
+      title: "Offline Learning",
+      description: "Access courses without data",
+      icon: Download,
+      color: "text-accent"
+    },
+    {
+      title: "Instant Notifications",
+      description: "Stay updated in real-time",
+      icon: Bell,
+      color: "text-primary"
+    },
+    {
+      title: "Progress Tracking",
+      description: "Monitor growth on the go",
+      icon: TrendingUp,
       color: "text-emerald-400"
     }
   ];
@@ -193,27 +222,19 @@ export function AppShowcase() {
              </div>
           </div>
 
-          {/* Trust Stats Row */}
+          {/* Features Stats Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16 border-t border-white/5 pt-12 w-full max-w-4xl">
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex items-center gap-1 text-accent">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} className={`w-3 h-3 ${s === 5 ? 'fill-none' : 'fill-current'}`} />
-                ))}
+            {bottomFeatures.map((feat, i) => (
+              <div key={i} className="flex flex-col items-center gap-3">
+                <div className={`p-3 rounded-xl bg-white/5 border border-white/10 ${feat.color}`}>
+                  <feat.icon className="w-5 h-5" />
+                </div>
+                <div className="space-y-1">
+                  <span className="font-headline text-lg font-bold text-white block">{feat.title}</span>
+                  <span className="font-body text-[10px] uppercase tracking-widest text-gray-500 block">{feat.description}</span>
+                </div>
               </div>
-              <span className="font-headline text-lg font-bold text-white">4.8/5 Rating</span>
-              <span className="font-body text-[10px] uppercase tracking-widest text-gray-500">Global Satisfaction</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Users className="w-5 h-5 text-primary" />
-              <span className="font-headline text-lg font-bold text-white">10k+ Learners</span>
-              <span className="font-body text-[10px] uppercase tracking-widest text-gray-500">Active Community</span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <span className="font-headline text-lg font-bold text-white">Secure Access</span>
-              <span className="font-body text-[10px] uppercase tracking-widest text-gray-500">ISO Certified Platform</span>
-            </div>
+            ))}
           </div>
         </motion.div>
       </div>
