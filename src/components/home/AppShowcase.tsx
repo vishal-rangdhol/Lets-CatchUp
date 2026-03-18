@@ -93,7 +93,7 @@ export function AppShowcase() {
         {/* Mockup Section with Responsive Bubbles */}
         <div className="relative w-full max-w-2xl mx-auto flex flex-col items-center">
           <div className="relative w-full max-w-[280px] md:max-w-[320px]">
-            {/* Desktop & Tablet Floating Bubbles (Zigzag) */}
+            {/* Desktop & Tablet Floating Bubbles (Zigzag outside frame) */}
             <div className="absolute inset-0 pointer-events-none z-30 hidden md:block">
               {floatingFeatures.map((f, i) => {
                 const Icon = f.icon;
