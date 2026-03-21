@@ -7,36 +7,36 @@ import { cn } from "@/lib/utils";
 
 const charterItems = [
   {
-    number: "1",
+    number: "01",
     title: "User Agency",
     description: "We give control back. You decide how you interact, not an algorithm.",
     color: "border-accent/40",
-    glow: "shadow-[0_0_20px_rgba(45,212,191,0.15)]",
-    headerBg: "bg-accent/5"
+    glow: "shadow-[0_0_40px_rgba(45,212,191,0.1)]",
+    bg: "from-accent/5 to-transparent"
   },
   {
-    number: "2",
+    number: "02",
     title: "Privacy by Design",
     description: "Data is for the user, not for sale. Privacy is not a feature, it's our foundation.",
     color: "border-cyan-400/40",
-    glow: "shadow-[0_0_20px_rgba(34,211,238,0.15)]",
-    headerBg: "bg-cyan-400/5"
+    glow: "shadow-[0_0_40px_rgba(34,211,238,0.1)]",
+    bg: "from-cyan-400/5 to-transparent"
   },
   {
-    number: "3",
+    number: "03",
     title: "Purposeful Tech",
     description: "Every feature must answer: \"Does this help the user learn, grow, or connect?\"",
     color: "border-primary/40",
-    glow: "shadow-[0_0_20px_rgba(99,102,241,0.15)]",
-    headerBg: "bg-primary/5"
+    glow: "shadow-[0_0_40px_rgba(99,102,241,0.1)]",
+    bg: "from-primary/5 to-transparent"
   },
   {
-    number: "4",
+    number: "04",
     title: "Inclusivity",
     description: "A space designed for all ages, bridging the generational divide through shared interest.",
     color: "border-purple-400/40",
-    glow: "shadow-[0_0_20px_rgba(192,132,252,0.15)]",
-    headerBg: "bg-purple-400/5"
+    glow: "shadow-[0_0_40px_rgba(192,132,252,0.1)]",
+    bg: "from-purple-400/5 to-transparent"
   }
 ];
 
@@ -56,12 +56,12 @@ export function CharterSection() {
               The Foundation
             </Badge>
           </div>
-          <h2 className="text-4xl md:text-7xl font-headline font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-8xl font-headline font-bold text-white tracking-tight leading-none">
             Our Charter for <br /><span className="text-gradient">Human-Centric Tech</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {charterItems.map((item, i) => (
             <motion.div
               key={i}
@@ -76,28 +76,31 @@ export function CharterSection() {
                 item.color,
                 item.glow
               )}>
-                {/* Number Header */}
-                <div className={cn(
-                  "py-6 border-b border-white/10 flex items-center justify-center font-headline text-3xl font-black text-white/80 transition-colors group-hover:text-white",
-                  item.headerBg
-                )}>
+                {/* Visual Number Backdrop */}
+                <div className="absolute top-10 right-10 text-[120px] md:text-[180px] font-headline font-black text-white/5 pointer-events-none group-hover:text-white/10 transition-colors leading-none">
                   {item.number}
                 </div>
 
-                {/* Content Area */}
-                <div className="p-10 md:p-14 space-y-6 flex-1">
-                  <h3 className="text-2xl md:text-4xl font-headline font-bold text-white tracking-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium font-body">
+                <div className="p-10 md:p-16 space-y-8 flex-1 relative z-10">
+                  <div className="space-y-2">
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent/60 group-hover:text-accent transition-colors">Section {item.number}</p>
+                    <h3 className="text-3xl md:text-5xl font-headline font-bold text-white tracking-tight group-hover:text-gradient transition-all">
+                      {item.title}
+                    </h3>
+                  </div>
+                  
+                  <p className="text-lg md:text-2xl text-gray-400 leading-relaxed font-medium font-body">
                     {item.description.split('"').map((part, index) => 
                       index === 1 ? <span key={index} className="text-white font-bold">"{part}"</span> : part
                     )}
                   </p>
                 </div>
 
+                {/* Bottom Architectural Bar */}
+                <div className={cn("h-2 w-full bg-gradient-to-r", item.bg)} />
+
                 {/* Internal Gloss */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
               </div>
             </motion.div>
           ))}
