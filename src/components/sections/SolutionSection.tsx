@@ -1,10 +1,10 @@
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 const solutions = [
   {
@@ -36,6 +36,9 @@ const solutions = [
 export function SolutionSection() {
   return (
     <section className="py-24 px-6 relative overflow-hidden">
+      {/* Background Glow representing "The Solution" */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.05)_0%,transparent_70%)] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,13 +46,19 @@ export function SolutionSection() {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <h2 className="text-4xl md:text-6xl font-headline font-bold text-white tracking-tight">
+          <div className="flex items-center gap-4">
+            <span className="font-headline text-accent font-black tracking-widest text-sm">03</span>
+            <Badge variant="outline" className="border-accent/30 text-accent px-4 py-1 uppercase tracking-widest text-[9px] md:text-[10px] font-black bg-accent/5 backdrop-blur-sm">
+              The Architecture
+            </Badge>
+          </div>
+          <h2 className="text-4xl md:text-7xl font-headline font-bold text-white tracking-tight">
             The Solution: The <span className="text-gradient">"All-in-One"</span> Mindful Hub
           </h2>
           
-          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 max-w-2xl">
-            <p className="text-sm md:text-lg font-body text-gray-300 leading-relaxed">
-              <span className="text-white font-bold">Our Philosophy:</span> We are moving from <span className="italic">Engagement</span> (grabbing attention) to <span className="text-accent font-bold">Utility</span> (providing value).
+          <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 max-w-3xl backdrop-blur-xl">
+            <p className="text-lg md:text-2xl font-body text-gray-300 leading-relaxed font-medium">
+              <span className="text-white font-bold">Our Philosophy:</span> We are shifting the paradigm from <span className="italic text-gray-500">Engagement</span> (grabbing attention) to <span className="text-accent font-bold">Utility</span> (providing intentional value).
             </p>
           </div>
         </motion.div>
@@ -63,12 +72,12 @@ export function SolutionSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className={cn(
-                "relative group p-8 rounded-[32px] bg-[#141d3d] border transition-all duration-500 hover:bg-[#1e294b]",
+                "relative group p-10 rounded-[40px] bg-[#141d3d] border transition-all duration-500 hover:bg-[#1e294b] flex flex-col items-center text-center",
                 sol.border
               )}
             >
-              <div className={cn("w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-xl", sol.glow)}>
-                <sol.icon className={cn("w-6 h-6", sol.color)} />
+              <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-500")}>
+                <sol.icon className={cn("w-8 h-8", sol.color)} />
               </div>
               <h3 className="text-xl md:text-2xl font-headline font-bold text-white mb-4">
                 {sol.title}
@@ -79,17 +88,6 @@ export function SolutionSection() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="pt-8"
-        >
-          <p className="text-sm md:text-xl font-headline font-bold text-gray-400">
-            <span className="text-white">Three Integrated Pillars</span> working together in one unified, secure ecosystem.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

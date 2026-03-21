@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -44,24 +43,25 @@ const charterItems = [
 export function CharterSection() {
   return (
     <section className="py-24 px-6 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto space-y-12 md:space-y-16">
+      <div className="max-w-6xl mx-auto space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          className="space-y-8"
         >
-          <div className="flex">
+          <div className="flex items-center gap-4">
+            <span className="font-headline text-accent font-black tracking-widest text-sm">04</span>
             <Badge className="font-headline glass text-accent border-white/10 px-4 py-1 uppercase tracking-widest text-[9px] md:text-[10px] font-bold">
-              Our Values
+              The Foundation
             </Badge>
           </div>
-          <h2 className="text-3xl md:text-5xl font-headline font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-7xl font-headline font-bold text-white tracking-tight leading-tight">
             Our Charter for <br /><span className="text-gradient">Human-Centric Tech</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {charterItems.map((item, i) => (
             <motion.div
               key={i}
@@ -72,33 +72,28 @@ export function CharterSection() {
               className="relative group h-full"
             >
               <div className={cn(
-                "relative h-full bg-gradient-to-br from-[#1e294b] to-[#0f172a] border rounded-[24px] md:rounded-[32px] overflow-hidden transition-all duration-500 group-hover:border-white/30 shadow-2xl",
+                "relative h-full bg-gradient-to-br from-[#1e294b] to-[#0f172a] border rounded-[40px] overflow-hidden transition-all duration-500 group-hover:border-white/30 shadow-2xl flex flex-col",
                 item.color,
                 item.glow
               )}>
                 {/* Number Header */}
                 <div className={cn(
-                  "py-3 md:py-4 border-b border-white/10 flex items-center justify-center font-headline text-lg md:text-2xl font-bold text-white/80 transition-colors group-hover:text-white",
+                  "py-6 border-b border-white/10 flex items-center justify-center font-headline text-3xl font-black text-white/80 transition-colors group-hover:text-white",
                   item.headerBg
                 )}>
                   {item.number}
                 </div>
 
                 {/* Content Area */}
-                <div className="p-6 md:p-10 space-y-4">
-                  <h3 className="text-xl md:text-3xl font-headline font-bold text-white transition-colors">
+                <div className="p-10 md:p-14 space-y-6 flex-1">
+                  <h3 className="text-2xl md:text-4xl font-headline font-bold text-white tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-sm md:text-xl text-gray-400 leading-relaxed font-medium font-body">
+                  <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-medium font-body">
                     {item.description.split('"').map((part, index) => 
                       index === 1 ? <span key={index} className="text-white font-bold">"{part}"</span> : part
                     )}
                   </p>
-                </div>
-
-                {/* Subtle Decorative Icon */}
-                <div className="absolute -bottom-6 -right-6 text-white/5 pointer-events-none group-hover:text-white/10 transition-colors">
-                  <div className="text-6xl md:text-8xl font-headline font-bold">{item.number}</div>
                 </div>
 
                 {/* Internal Gloss */}
