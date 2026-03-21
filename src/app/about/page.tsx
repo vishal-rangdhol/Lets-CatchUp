@@ -10,6 +10,7 @@ import { CollaborationSuiteSection } from "@/components/sections/CollaborationSu
 import { NetworkedStudentSection } from "@/components/sections/NetworkedStudentSection";
 import { BreakingAlgorithmSection } from "@/components/sections/BreakingAlgorithmSection";
 import { CharterSection } from "@/components/sections/CharterSection";
+import { WhyItWinsSection } from "@/components/sections/WhyItWinsSection";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -28,6 +29,7 @@ export default function AboutPage() {
         <NetworkedStudentSection />
         <BreakingAlgorithmSection />
         <CharterSection />
+        <WhyItWinsSection />
       </motion.div>
     </div>
   );
