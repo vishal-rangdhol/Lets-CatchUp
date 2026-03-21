@@ -4,6 +4,8 @@
 import React from "react";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
+import { SolutionSection } from "@/components/sections/SolutionSection";
+import { InstitutionalExcellenceSection } from "@/components/sections/InstitutionalExcellenceSection";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -16,6 +18,8 @@ export default function AboutPage() {
       >
         <AboutSection />
         <ProblemSection />
+        <SolutionSection />
+        <InstitutionalExcellenceSection />
       </motion.div>
     </div>
   );
