@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const FOOTER_LINKS = {
   navigation: [
@@ -43,22 +44,19 @@ const SOCIAL_LINKS = [
     Icon: Facebook,
     href: "https://www.facebook.com/people/Kandhugule-Consultancy-Services/61563863545091/#",
     label: "Facebook",
-    hoverClass:
-      "hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]",
+    hoverClass: "hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]",
   },
   {
     Icon: Instagram,
     href: "https://www.instagram.com/kandhuguleconsultancyservices/",
     label: "Instagram",
-    hoverClass:
-      "hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F]",
+    hoverClass: "hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F]",
   },
   {
     Icon: Linkedin,
     href: "https://www.linkedin.com/company/kandhuguleconsultancyservicespvtltd/posts/?feedView=all",
     label: "LinkedIn",
-    hoverClass:
-      "hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2]",
+    hoverClass: "hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2]",
   },
   {
     Icon: (props: any) => (
@@ -68,16 +66,15 @@ const SOCIAL_LINKS = [
     ),
     href: "https://x.com/Kandhugule_KCS",
     label: "X",
-    hoverClass:
-      "hover:bg-white hover:text-black hover:border-white",
+    hoverClass: "hover:bg-white hover:text-black hover:border-white",
   },
 ];
 
 export function Footer() {
-  const [currentYear, setCurrentYear] = useState<number | string>(2025);
+  const [currentYear, setCurrentYear] = useState<string>("");
 
   useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
+    setCurrentYear(new Date().getFullYear().toString());
   }, []);
 
   return (
@@ -134,7 +131,10 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 text-gray-400 ${hoverClass}`}
+                    className={cn(
+                      "w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 text-gray-400",
+                      hoverClass
+                    )}
                   >
                     <Icon className="w-4 h-4 md:w-5 md:h-5" />
                   </motion.a>
@@ -252,7 +252,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-gray-500 text-[9px] uppercase tracking-widest font-medium leading-relaxed font-body">
-              @COPYRIGHT {currentYear} | ALL RIGHTS RESERVED BY{" "}
+              @COPYRIGHT {currentYear || "2025"} | ALL RIGHTS RESERVED BY{" "}
               <br className="md:hidden" />{" "}
               <span className="font-bold text-white">
                 KANDHUGULE CONSULTANCY SERVICES PRIVATE LIMITED
