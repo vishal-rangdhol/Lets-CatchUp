@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
@@ -10,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
-import { HelpCircle, Sparkles } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 
 export default function FAQPage() {
   const faqs = [
@@ -89,22 +88,6 @@ export default function FAQPage() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="flex flex-col items-center gap-6 pt-12"
-        >
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
-            <Sparkles className="text-accent w-5 h-5" />
-            <span className="text-sm font-bold text-gray-300">Still have questions?</span>
-            <Link href="/contact-us">
-              <button className="text-accent hover:text-white transition-colors text-sm font-black uppercase tracking-widest ml-2 border-b-2 border-accent/30">
-                Contact Support
-              </button>
-            </Link>
           </div>
         </motion.div>
       </div>
