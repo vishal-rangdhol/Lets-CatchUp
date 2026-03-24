@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -14,20 +13,13 @@ import { WhyItWinsSection } from "@/components/sections/WhyItWinsSection";
 import { CoreValuesSection } from "@/components/sections/CoreValuesSection";
 import { Invitation } from "@/components/home/Invitation";
 import { Testimonials } from "@/components/home/Testimonials";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function AboutPage() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.y });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   // Progress Bar for the Journey
@@ -40,22 +32,6 @@ export default function AboutPage() {
 
   return (
     <div className="relative min-h-screen bg-[#0b0f2f] snap-y snap-proximity overflow-x-hidden">
-      {/* Custom Cursor */}
-      <AnimatePresence>
-        {mounted && (
-          <motion.div
-            className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-accent pointer-events-none z-[9999] hidden lg:block"
-            animate={{
-              x: mousePos.x - 16,
-              y: mousePos.y - 16,
-              scale: isHovering ? 2.5 : 1,
-              backgroundColor: isHovering ? "rgba(45, 212, 191, 0.1)" : "rgba(45, 212, 191, 0)",
-            }}
-            transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
-          />
-        )}
-      </AnimatePresence>
-
       {/* Progress Line */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-accent-gradient origin-left z-[60]"
@@ -64,20 +40,8 @@ export default function AboutPage() {
 
       {/* Background Soft Blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <motion.div 
-          animate={{
-            x: mousePos.x / 20,
-            y: mousePos.y / 20,
-          }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[140px]" 
-        />
-        <motion.div 
-          animate={{
-            x: -mousePos.x / 30,
-            y: -mousePos.y / 30,
-          }}
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" 
-        />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" />
       </div>
 
       <motion.div
@@ -85,7 +49,6 @@ export default function AboutPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="relative z-10"
-        onMouseEnter={() => setIsHovering(false)}
       >
         {/* Phase 01: The Origin */}
         <div id="origin" className="snap-start min-h-screen flex items-center">
@@ -138,9 +101,7 @@ export default function AboutPage() {
 
         {/* Phase 05: The Call */}
         <div id="call" className="snap-start relative pb-20">
-          <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-            <Invitation />
-          </div>
+          <Invitation />
         </div>
       </motion.div>
     </div>
