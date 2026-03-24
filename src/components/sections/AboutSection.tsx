@@ -1,10 +1,17 @@
 
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+type Particle = {
+  x: string;
+  y: string;
+  duration: number;
+  delay: number;
+};
 
 export function AboutSection() {
   const { scrollYProgress } = useScroll();
@@ -12,27 +19,40 @@ export function AboutSection() {
   const y2 = useTransform(scrollYProgress, [0, 0.2], [0, 100]);
   const rotate = useTransform(scrollYProgress, [0, 0.2], [0, 5]);
 
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    // Generate random positions only on the client to avoid hydration mismatch
+    const generatedParticles = [...Array(20)].map(() => ({
+      x: Math.random() * 100 + "%",
+      y: Math.random() * 100 + "%",
+      duration: Math.random() * 5 + 5,
+      delay: Math.random() * 5,
+    }));
+    setParticles(generatedParticles);
+  }, []);
+
   return (
     <section id="about" className="py-24 px-6 relative overflow-hidden w-full">
       {/* Interactive Particles Layer */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-accent rounded-full"
             initial={{ 
-              x: Math.random() * 100 + "%", 
-              y: Math.random() * 100 + "%" 
+              x: p.x, 
+              y: p.y 
             }}
             animate={{
               y: [null, "-20%"],
               opacity: [0, 1, 0]
             }}
             transition={{
-              duration: Math.random() * 5 + 5,
+              duration: p.duration,
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 5
+              delay: p.delay
             }}
           />
         ))}
