@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -102,13 +101,13 @@ export function AboutSection() {
             
             <div className="relative bg-gradient-to-br from-[#1e294b] via-[#141d3d] to-[#0f172a] border border-white/10 rounded-[40px] p-3 shadow-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
               <div className="relative rounded-[32px] overflow-hidden w-full h-auto">
-                <Image
-                  src="/about-us.jpeg"
-                  alt="Collaborative team at Let's Catch Up"
-                  width={1200}
-                  height={800}
+                <video
+                  src="/promotion.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
-                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
               </div>
