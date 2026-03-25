@@ -12,7 +12,6 @@ import { CharterSection } from "@/components/sections/CharterSection";
 import { WhyItWinsSection } from "@/components/sections/WhyItWinsSection";
 import { CoreValuesSection } from "@/components/sections/CoreValuesSection";
 import { Invitation } from "@/components/home/Invitation";
-import { Testimonials } from "@/components/home/Testimonials";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function AboutPage() {
@@ -67,11 +66,6 @@ export default function AboutPage() {
             <SolutionSection />
           </div>
           
-          {/* Strategic Social Proof */}
-          <div className="py-20 bg-white/[0.02]">
-            <Testimonials />
-          </div>
-
           <div className="snap-start">
             <InstitutionalExcellenceSection />
           </div>

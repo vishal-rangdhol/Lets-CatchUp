@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -30,37 +29,37 @@ export function BreakingAlgorithmSection() {
         </motion.div>
 
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-start">
-          {/* Terracotta Zone Card */}
+          {/* Enhanced Architectural Card (formerly terracotta) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
-            className="bg-[#a67c6d] rounded-[32px] p-8 md:p-14 space-y-8 shadow-2xl relative overflow-hidden transition-all duration-500"
+            className="bg-gradient-to-br from-[#1e294b] to-[#0f172a] border border-white/10 rounded-[32px] p-8 md:p-14 space-y-8 shadow-2xl relative overflow-hidden transition-all duration-500 group"
           >
             <div className="space-y-6 relative z-10">
-              <h3 className="text-2xl md:text-4xl font-headline font-bold text-white">
+              <h3 className="text-2xl md:text-4xl font-headline font-bold text-white group-hover:text-accent transition-colors">
                 The &quot;Anti-Scroll&quot; Zone
               </h3>
-              <p className="text-base md:text-xl text-white/90 font-body font-medium leading-relaxed">
+              <p className="text-base md:text-xl text-gray-300 font-body font-medium leading-relaxed">
                 A public space for everyone (18+) to connect without the psychological toll of dopamine loops.
               </p>
             </div>
 
-            <div className="h-[1px] w-full bg-white/20 relative z-10" />
+            <div className="h-[1px] w-full bg-white/10 relative z-10" />
 
             <div className="space-y-4 relative z-10">
               <h3 className="text-xl md:text-2xl font-headline font-bold text-white">
                 Bridging Generations
               </h3>
-              <p className="text-sm md:text-lg text-white/90 font-body font-medium leading-relaxed">
+              <p className="text-sm md:text-lg text-gray-400 font-body font-medium leading-relaxed">
                 A place where Gen Z, Gen Alpha, and older generations can interact in a shared, non-toxic environment.
               </p>
             </div>
             
-            {/* Subtle Texture Overlay */}
-            <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
+            {/* Ambient Accent Glow */}
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-accent/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-accent/20 transition-all duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/5 pointer-events-none" />
           </motion.div>
 
           {/* Human-First Architecture Grid */}
