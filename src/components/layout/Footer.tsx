@@ -32,6 +32,7 @@ const FOOTER_LINKS = {
   legal: [
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Account Deletion", href: "/account-deletion-request" },
     { name: "Community Guidelines", href: "/community-guidelines" },
     { name: "Grievance Policy", href: "#" },
     { name: "Refund Policy", href: "#" },
