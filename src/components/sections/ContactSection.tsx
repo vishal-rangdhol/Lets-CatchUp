@@ -11,6 +11,7 @@ import {
   getContactSubmissionConfig,
   getContactSubmissionUrl,
   sanitizeContactPayload,
+  validateContactPayload,
 } from "@/lib/contact-api";
 import { motion } from "framer-motion";
 import { AlertTriangle, ExternalLink, Mail, MapPin } from "lucide-react";
@@ -35,54 +36,79 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.subject ||
-      !formData.message
-    ) {
+    const sanitized = sanitizeContactPayload({
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      source: "website",
+    });
+
+    const validation = validateContactPayload(sanitized);
+    if (!validation.isValid) {
       toast({
-        title: "Missing Fields",
-        description: "Please fill all required fields.",
+        title: "Validation Error",
+        description: validation.error || "Please check your inputs.",
         variant: "destructive",
       });
       return;
     }
+
     try {
       setLoading(true);
-      const response = await fetch(getContactSubmissionUrl(), {
+      const submissionUrl = getContactSubmissionUrl();
+      const response = await fetch(submissionUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(
-          sanitizeContactPayload({
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-            source: "website",
-          }),
-        ),
+        body: JSON.stringify(sanitized),
       });
 
       const contentType = response.headers.get("content-type") || "";
       const result = contentType.includes("application/json")
-        ? ((await response.json()) as {
-            ok?: boolean;
-            message?: string;
-            detail?: string;
-            error?: string;
-          })
+        ? await response.json()
         : null;
 
-      if (!response.ok) {
-        throw new Error(
+      const isSuccess =
+        response.ok &&
+        (result ? result.success !== false && result.ok !== false : true);
+
+      if (!isSuccess) {
+        let errorMessage =
           result?.message ||
-            result?.detail ||
-            result?.error ||
-            "Unable to submit the form.",
-        );
+          result?.detail ||
+          result?.error?.message ||
+          result?.error;
+
+        if (Array.isArray(result?.issues) && result.issues.length > 0) {
+          errorMessage = result.issues.map((i: any) => i.message).join(", ");
+        } else if (
+          Array.isArray(result?.error?.issues) &&
+          result.error.issues.length > 0
+        ) {
+          errorMessage = result.error.issues
+            .map((i: any) => i.message)
+            .join(", ");
+        }
+
+        if (!errorMessage) {
+          if (response.status === 404) {
+            errorMessage =
+              "Inquiries service is currently unreachable (404). Please try again shortly.";
+          } else if (response.status === 429) {
+            errorMessage =
+              "Too many requests. Please wait a minute before sending another inquiry.";
+          } else if (response.status >= 500) {
+            errorMessage =
+              "Server error processing your inquiry. Please try again shortly.";
+          } else {
+            errorMessage = "Unable to submit your inquiry. Please try again.";
+          }
+        }
+
+        throw new Error(errorMessage);
       }
 
       toast({
@@ -205,6 +231,8 @@ export function ContactSection() {
                       placeholder="John Doe"
                       value={formData.name}
                       onChange={handleChange}
+                      minLength={2}
+                      maxLength={100}
                       className="font-body bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base"
                       required
                     />
@@ -239,9 +267,11 @@ export function ContactSection() {
                     placeholder="How can we help you?"
                     value={formData.subject}
                     onChange={handleChange}
+                    minLength={5}
+                    maxLength={200}
                     className="font-body bg-white/5 border-white/10 h-10 md:h-12 rounded-xl md:rounded-2xl px-4 md:px-6 focus-visible:ring-accent text-sm md:text-base"
                     required
-                    />
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label
@@ -255,6 +285,8 @@ export function ContactSection() {
                     placeholder="Type your message here..."
                     value={formData.message}
                     onChange={handleChange}
+                    minLength={10}
+                    maxLength={5000}
                     className="font-body bg-white/5 border-white/10 min-h-[80px] md:min-h-[180px] rounded-xl md:rounded-2xl p-4 md:p-6 focus-visible:ring-accent text-sm md:text-base"
                     required
                   />

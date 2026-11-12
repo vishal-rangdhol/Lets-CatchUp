@@ -11,6 +11,7 @@ import {
   getContactSubmissionConfig,
   getContactSubmissionUrl,
   sanitizeContactPayload,
+  validateContactPayload,
 } from "@/lib/contact-api";
 import {
   AlertTriangle,
@@ -52,10 +53,22 @@ export default function ContactUsPage() {
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!form.fullName || !form.email || !form.subject || !form.message) {
+    const sanitized = sanitizeContactPayload({
+      name: form.fullName,
+      email: form.email,
+      phone: form.phone,
+      company_name: form.organization,
+      designation: "",
+      subject: form.subject,
+      message: form.message,
+      source: "website",
+    });
+
+    const validation = validateContactPayload(sanitized);
+    if (!validation.isValid) {
       toast({
-        title: "Missing information",
-        description: "Please complete all required fields before submitting.",
+        title: "Validation Error",
+        description: validation.error || "Please check your inputs.",
         variant: "destructive",
       });
       return;
@@ -63,55 +76,72 @@ export default function ContactUsPage() {
 
     try {
       setIsSubmitting(true);
+      const submissionUrl = getContactSubmissionUrl();
 
-      const response = await fetch(getContactSubmissionUrl(), {
+      const response = await fetch(submissionUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(
-          sanitizeContactPayload({
-            name: form.fullName,
-            email: form.email,
-            phone: form.phone,
-            company_name: form.organization,
-            designation: "",
-            subject: form.subject,
-            message: form.message,
-            source: "website",
-          }),
-        ),
+        body: JSON.stringify(sanitized),
       });
 
       const contentType = response.headers.get("content-type") || "";
       const result = contentType.includes("application/json")
-        ? ((await response.json()) as {
-            ok?: boolean;
-            message?: string;
-            detail?: string;
-            error?: string;
-          })
+        ? await response.json()
         : null;
 
-      if (!response.ok) {
-        throw new Error(
+      const isSuccess =
+        response.ok &&
+        (result ? result.success !== false && result.ok !== false : true);
+
+      if (!isSuccess) {
+        let errorMessage =
           result?.message ||
-            result?.detail ||
-            result?.error ||
-            "Unable to submit the form.",
-        );
+          result?.detail ||
+          result?.error?.message ||
+          result?.error;
+
+        if (Array.isArray(result?.issues) && result.issues.length > 0) {
+          errorMessage = result.issues.map((i: any) => i.message).join(", ");
+        } else if (
+          Array.isArray(result?.error?.issues) &&
+          result.error.issues.length > 0
+        ) {
+          errorMessage = result.error.issues
+            .map((i: any) => i.message)
+            .join(", ");
+        }
+
+        if (!errorMessage) {
+          if (response.status === 404) {
+            errorMessage =
+              "Inquiries service is currently unreachable (404). Please try again shortly.";
+          } else if (response.status === 429) {
+            errorMessage =
+              "Too many requests. Please wait a minute before sending another inquiry.";
+          } else if (response.status >= 500) {
+            errorMessage =
+              "Server error processing your inquiry. Please try again shortly.";
+          } else {
+            errorMessage = "Unable to submit your inquiry. Please try again.";
+          }
+        }
+
+        throw new Error(errorMessage);
       }
 
       setForm(INITIAL_FORM);
       toast({
-        title: "Message sent",
+        title: "Message Sent!",
         description:
           result?.message ||
           "Thanks for reaching out. Our team will get back to you shortly via email.",
       });
     } catch (error) {
       toast({
-        title: "Submission failed",
+        title: "Submission Failed",
         description:
           error instanceof Error
             ? error.message
@@ -177,7 +207,9 @@ export default function ContactUsPage() {
                     onChange={(event) =>
                       setForm({ ...form, fullName: event.target.value })
                     }
-                    placeholder="Jane Williams"
+                    minLength={2}
+                    maxLength={100}
+                    placeholder="your name"
                     className="h-12 rounded-2xl border-white/10 bg-white/5"
                     required
                   />
@@ -214,6 +246,7 @@ export default function ContactUsPage() {
                     onChange={(event) =>
                       setForm({ ...form, phone: event.target.value })
                     }
+                    maxLength={20}
                     placeholder="+91 98765 43210"
                     className="h-12 rounded-2xl border-white/10 bg-white/5"
                   />
@@ -231,7 +264,8 @@ export default function ContactUsPage() {
                     onChange={(event) =>
                       setForm({ ...form, organization: event.target.value })
                     }
-                    placeholder="KCS Private Ltd"
+                    maxLength={200}
+                    placeholder="your company or institution"
                     className="h-12 rounded-2xl border-white/10 bg-white/5"
                   />
                 </div>
@@ -250,7 +284,9 @@ export default function ContactUsPage() {
                   onChange={(event) =>
                     setForm({ ...form, subject: event.target.value })
                   }
-                  placeholder="Partnership inquiry"
+                  minLength={4}
+                  maxLength={200}
+                  placeholder="Inquiry"
                   className="h-12 rounded-2xl border-white/10 bg-white/5"
                   required
                 />
@@ -269,6 +305,8 @@ export default function ContactUsPage() {
                   onChange={(event) =>
                     setForm({ ...form, message: event.target.value })
                   }
+                  minLength={10}
+                  maxLength={5000}
                   placeholder="Share your goals, challenges, and expected timeline."
                   className="min-h-44 rounded-2xl border-white/10 bg-white/5"
                   required
